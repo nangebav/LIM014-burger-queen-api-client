@@ -1,5 +1,5 @@
 import logoBurgerQueen from '../images/burger-combo.png';
-import comboBQ from '../src/images/burger-combo.png';
+import comboBQ from '../images/burger-combo.png';
 
 function LogIn() {
     return (
