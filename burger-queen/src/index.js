@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import LogIn from './components/LogIn';
+// import LogIn from './components/LogIn';
+import Home from './components/Home';
+//import ErrorLogIn from './components/ErrorLogIn';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LogIn />
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );
