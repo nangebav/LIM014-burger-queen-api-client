@@ -2,23 +2,33 @@ import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LogIn from '../pages/LogIn.js';
 import Home from '../pages/Home.js';
-// import ErrorLogIn from './components/ErrorLogIn';
+import Error from '../components/Error.js';
 
-const AppRouter = () => {
+function AppRouter() {
 
-    const toHome = Home;
-    const toLogIn = LogIn;
-    return (  
+    return (
       <Router>
         <Switch>
-          <Route path="/">
-           {toLogIn}
+          <Route path="/home">
+            <Home />
           </Route>
-          <Route path="/Home">
-            {toHome}
-          </Route>
-          <Route path="/TableOrder">
+          <Route path="/tableOrder">
             <h1>TableOrder</h1>
+          </Route>
+          <Route path="/tableSummary">
+            <h1>TableSummary</h1>
+          </Route>
+          <Route path="/Orders">
+            <h1>Orders</h1>
+          </Route>
+          <Route path="/kitchen">
+            <h1>Kitchen</h1>
+          </Route>
+          <Route path="/">
+            <LogIn/>
+          </Route>
+          <Route path="*">
+            <Error/>
           </Route>
         </Switch>
       </Router>

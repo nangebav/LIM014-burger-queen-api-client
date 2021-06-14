@@ -3,7 +3,7 @@ import bigHamburger from '../images/bigHamburger.png';
 import burgerQueenLogo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
 
-function Home (){
+function Home(){
       return(
       <section className="home">
         <main className="main-home">

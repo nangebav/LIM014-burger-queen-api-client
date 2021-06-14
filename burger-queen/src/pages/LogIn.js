@@ -40,7 +40,6 @@ function LogIn (){
               <input 
               type="password"
               name="password"
-              placeholder
               leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
               /*onChange={handleChange}*/
               className="inputLogIn"/>
