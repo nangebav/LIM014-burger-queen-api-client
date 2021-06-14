@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+$colorPink: rgba(233, 47, 72, 1);
+*{
+    font-family: 'ABeeZee', sans-serif;
+    font-style: italic;
+}
+
+.table{
+   color: $colorPink;
+   display: flex;
+   flex-direction: row;
+}
