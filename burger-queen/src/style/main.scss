@@ -1,5 +1,7 @@
 @import "components/home";
 @import "components/errorLog";
+@import "components/logIn";
+@import "components/orden";
 
 @mixin basicConfig {
     margin: 0;
@@ -20,4 +22,10 @@
 }
 #buttonKitchenHome{
     background-image: url('../images/kitchenButtonHome.png');
+}
+
+.logIn{
+    background-image: url('../images/fontLogIn.svg');
+    background-size: cover;
+    height: 100vh;
 }
