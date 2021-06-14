@@ -1,0 +1,23 @@
+@import "components/home";
+@import "components/errorLog";
+
+@mixin basicConfig {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+*   {
+    @include basicConfig()
+}
+.home{
+    background-image: url('../images/homeBG.png');
+}
+#buttonOrdersHome{
+    background-image: url('../images/ordersButtonHome.png');
+}
+#buttonKitchenHome{
+    background-image: url('../images/kitchenButtonHome.png');
+}
