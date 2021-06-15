@@ -15,10 +15,10 @@ import '../style/main.scss'
     // const nombre = e.target.name
   // }
 
-    const expresiones = {
+   /* const expresiones = {
 	  password: /^.{6,12}$/, // 4 a 12 digitos.
 	 	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	 };
+	 }; */
 
    function LogIn (){
   
@@ -33,7 +33,6 @@ import '../style/main.scss'
       });
     }
 
-
       return (
       <div className="logIn">
         <header className="logIn-header">
@@ -44,23 +43,16 @@ import '../style/main.scss'
               <input 
               type="email" 
               name="email"
-              leyendaError="El correo solo puede contener letras, numeros, puntos, guiones y guion bajo."
               onChange={handleEmailChange}
-              className="inputLogIn"
-              expresionRegular= {expresiones.password}
-              />
+              className="inputLogIn"/>
             </label>
             <label>
               Contraseña:
               <input 
               type="password"
               name="password"
-              placeholder
-              leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
               onChange={handlePasswordChange}
-              className="inputLogIn"
-              expresionRegular= { expresiones.email}
-              />
+              className="inputLogIn"/>
             </label>
             <button className="logIn-button"> INGRESAR </button>
           </form>

@@ -1,9 +1,9 @@
-import React from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import LogIn from '../pages/LogIn.js';
-import Home from '../pages/Home.js';
-import Error from '../components/Error.js';
-import TableOrder from '../pages/TableOrder.js';
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import LogIn from '../pages/LogIn';
+import Home from '../pages/Home';
+import Error from '../components/Error';
+import TableOrder from '../pages/TableOrder';
 
 function AppRouter() {
     return (
