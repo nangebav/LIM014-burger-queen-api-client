@@ -22,8 +22,8 @@ function TableOrder() {
         </header>
         <MenuOrderProducts/>
         <h2>Elige el tipo de producto</h2>
-        <ProductItem productItemImg={simpleHamburger}/>
-        <ProductItem productItemImg={doubleHamburger}/>
+        <ProductItem productItemImg={simpleHamburger} inputID={simpleHamburger}/>
+        <ProductItem productItemImg={doubleHamburger} inputID={doubleHamburger}/>
         <section className="bottomOrderWrap">
           <textarea rows="5"> Notas</textarea>
           <button className="next">Siguiente</button>

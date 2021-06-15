@@ -6,8 +6,8 @@ function ProductItem(props) {
     return (
         <main className="productItem">
         <div>
-          <input type="checkbox" id="simpleHamburger" className="checkbox-round"></input>
-          <label for="simpleHamburger"> Hamburguesa Simple</label>
+          <input type="checkbox" id={props.inputID} className="checkbox-round"></input>
+          <label htmlFor={props.inputID}> Hamburguesa Simple</label>
         </div>
         <article className="counterWrap">
           <img alt="imgPhoto" src= {props.productItemImg}></img>

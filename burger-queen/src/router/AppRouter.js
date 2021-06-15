@@ -4,6 +4,7 @@ import LogIn from '../pages/LogIn.js';
 import Home from '../pages/Home.js';
 import Error from '../components/Error.js';
 import TableOrder from '../pages/TableOrder.js';
+import Kitchen from '../pages/Kitchen.js';
 
 function AppRouter() {
     return (
@@ -22,7 +23,7 @@ function AppRouter() {
             <h1>Orders</h1>
           </Route>
           <Route path="/kitchen">
-            <h1>Kitchen</h1>
+            <Kitchen/>
           </Route>
           <Route exact path="/">
             <LogIn/>

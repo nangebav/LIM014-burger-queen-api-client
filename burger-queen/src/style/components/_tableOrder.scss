@@ -76,14 +76,14 @@ $colorGreen: rgb(94,201,110);
         background-color: white;
         border-radius: 50%;
         vertical-align: middle;
-        border: 1px solid #ddd;
+        border: 2px solid rgb(77, 77, 77);
         -webkit-appearance: none;
         outline: none;
         cursor: pointer;
     }
     
     .checkbox-round:checked {
-        background-color: gray;
+        background-color: $colorYellow;
     }
     .counterWrap{
         text-align: center;
