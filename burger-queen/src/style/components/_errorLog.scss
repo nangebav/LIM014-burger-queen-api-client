@@ -7,14 +7,17 @@ $colorGreen: rgb(94,201,110);
 $colorCream: rgb(245,235,220);
 $colorOrange: rgb(238,119,0);
 
-#Error{
+.Error{
     width: 100vw;
     height: 100vh;
-    background-color:rgba(245, 235, 220, 0.425);
+    background-color:rgba(255, 255, 255, 0.493);
+    margin:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     .errorLogIn{
-        margin:auto;
         background-color: $colorCream;
-        margin-top:45%;
         width: 60%;
         height: 25%;
     }
@@ -28,6 +31,11 @@ $colorOrange: rgb(238,119,0);
 }
 #errorBody{
     padding-top: 4%;
+    font-family: 'Changa', sans-serif;
+    font-size: 150%;
+    text-align: center;
+    margin-bottom: 3%;
+
     button{
         background-color: $colorRed;
         border:transparent;
@@ -35,15 +43,10 @@ $colorOrange: rgb(238,119,0);
         height: 05vh;
         border-radius: 20px;
         font-family: 'Baloo Bhai 2', cursive;
-        font-size:180%;
+        font-size:150%;
         color:white;
         margin:auto;
-        margin-left: 25%;
-    }
-    p{
-        font-family: 'Changa', sans-serif;
-        font-size: 150%;
-        text-align: center;
-        margin-bottom: 3%;
+        padding: auto;
+        margin-top: 2%;
     }
 }

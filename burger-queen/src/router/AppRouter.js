@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LogIn from '../pages/LogIn.js';
 import Home from '../pages/Home.js';
 import Error from '../components/Error.js';
+import TableOrder from '../pages/TableOrder.js';
 
 function AppRouter() {
     return (
@@ -12,7 +13,7 @@ function AppRouter() {
             <Home />
           </Route>
           <Route path="/tableOrder">
-            <h1>TableOrder</h1>
+            <TableOrder/>
           </Route>
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
@@ -27,7 +28,7 @@ function AppRouter() {
             <LogIn/>
           </Route>
           <Route path="*">
-            <Error/>
+            <Error messageTitle="MENSAJE" message1 ="Cuenta de usuario no es válida." message2 = "Inténtelo otra vez." button="ACEPTAR"/>
           </Route>
         </Switch>
       </Router>
