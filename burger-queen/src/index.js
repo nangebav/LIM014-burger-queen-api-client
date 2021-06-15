@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LogIn from './pages/LogIn';
-// import Orden from './components/Orden'
-//import Home from './components/Home';
-// import Menu from './components/Orden';
-//import ErrorLogIn from './components/ErrorLogIn';
+import App from './App.js';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LogIn />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
