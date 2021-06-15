@@ -5,7 +5,6 @@ import Home from '../pages/Home.js';
 import Error from '../components/Error.js';
 
 function AppRouter() {
-
     return (
       <Router>
         <Switch>
@@ -18,13 +17,13 @@ function AppRouter() {
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
           </Route>
-          <Route path="/Orders">
+          <Route path="/orders">
             <h1>Orders</h1>
           </Route>
           <Route path="/kitchen">
             <h1>Kitchen</h1>
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <LogIn/>
           </Route>
           <Route path="*">

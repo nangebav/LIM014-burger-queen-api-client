@@ -1,6 +1,6 @@
 import '../style/main.scss'
 
-function Error() {
+function Error(props) {
     return (
         <section id="Error">
             <section className="errorLogIn">
@@ -11,9 +11,7 @@ function Error() {
                 </section>
             </section>
         </section>
-
     );
 }
   
 export default Error;
-  

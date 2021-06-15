@@ -2,6 +2,7 @@ import React from 'react';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss'
+// import Error from '../components/Error.js'
 // import { useState } from 'react';
 
 function LogIn (){
@@ -21,7 +22,11 @@ function LogIn (){
 	// 	password: /^.{6,12}$/, // 4 a 12 digitos.
 	// 	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	// };
-      return (
+
+    
+    return (
+
+
       <div className="logIn">
         <header className="logIn-header">
         <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
@@ -31,7 +36,7 @@ function LogIn (){
               <input 
               type="email" 
               name="email"
-              leyendaError="El correo solo puede contener letras, numeros, puntos, guiones y guion bajo."
+              // leyendaError="El correo solo puede contener letras, numeros, puntos, guiones y guion bajo."
               /*onChange={handleChange}*/
               className="inputLogIn"/>
             </label>
@@ -40,7 +45,7 @@ function LogIn (){
               <input 
               type="password"
               name="password"
-              leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
+              // leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
               /*onChange={handleChange}*/
               className="inputLogIn"/>
             </label>
@@ -50,7 +55,7 @@ function LogIn (){
         <img src={comboBQ} className="bQ-combo" alt="logo" />
       </div>
     );
-  }
+}
   
 export default LogIn;
   
