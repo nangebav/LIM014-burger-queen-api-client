@@ -4,6 +4,7 @@ import LogIn from '../pages/LogIn';
 import Home from '../pages/Home';
 import Error from '../components/Error';
 import TableOrder from '../pages/TableOrder';
+import Orders from '../pages/Orders';
 
 function AppRouter() {
     return (
@@ -19,7 +20,7 @@ function AppRouter() {
             <h1>TableSummary</h1>
           </Route>
           <Route path="/orders">
-            <h1>Orders</h1>
+            <Orders/>
           </Route>
           <Route path="/kitchen">
             <h1>Kitchen</h1>
