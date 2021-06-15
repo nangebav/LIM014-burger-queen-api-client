@@ -2,12 +2,12 @@ import '../style/main.scss'
 
 function Error(props) {
     return (
-        <section id="Error">
+        <section className="Error">
             <section className="errorLogIn">
-                <section id="errorMessage"> MENSAJE </section>
+                <section id="errorMessage"> {props.messageTitle} </section>
                 <section id="errorBody"> 
-                    <p>Cuenta de usuario no es válida. <br></br> Inténtelo otra vez.</p>
-                    <button>Aceptar</button>
+                    {props.message1} <br></br>{props.message2} <br></br>
+                    <button>{props.button}</button>
                 </section>
             </section>
         </section>
