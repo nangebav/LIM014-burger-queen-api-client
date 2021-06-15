@@ -1,6 +1,6 @@
 import '../style/main.scss'
 
-function Orden() {
+function Order() {
     return (
     <section className="Orden">
         <h2> Carta </h2>
@@ -24,4 +24,4 @@ function Orden() {
     </section>
     )}
 
-export default Orden;
+export default Order;
