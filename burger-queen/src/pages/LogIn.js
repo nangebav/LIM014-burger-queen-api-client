@@ -2,6 +2,7 @@ import React from 'react';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss'
+// import Error from '../components/Error.js'
 // import { useState } from 'react';
 // const handleChange = e => {
     // const [email, cambiarEmail] = useState({campo:'', valido:null});
@@ -67,7 +68,7 @@ import '../style/main.scss'
         <img src={comboBQ} className="bQ-combo" alt="logo" />
       </div>
     );
-  }
+}
   
 export default LogIn;
   

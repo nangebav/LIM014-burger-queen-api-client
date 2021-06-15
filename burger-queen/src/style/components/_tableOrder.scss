@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+$colorYellow: rgb(255,200,57);
+$colorRed: rgb(233,47,72);
+$colorGreen: rgb(94,201,110);
+
+.tableOrder{
+    h2{
+        font-family: 'ABeeZee', sans-serif;
+        font-size: 1em;
+        margin: 3% 0% 3% 7%;
+        padding-bottom:3%;
+        text-decoration: underline;
+        text-decoration-color: $colorRed;
+        text-decoration-thickness: 07px;
+    }
+   
+}
+.tableOrderHeader{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:3% 3% 0% 5%;
+    align-items: center;
+
+    img{
+        width: 10%;
+        height: 10%;
+    }
+    select{
+        height:2em;
+        overflow: scroll;
+        background-color: $colorRed ;
+        border:transparent;
+        width: 150%;
+        font-size: x-large;
+        color:white;
+        font-family: 'Alata', sans-serif;
+    }
+    option{
+        font-size: medium;
+    }
+}
+.menu{
+    text-align: center;
+    margin-top:3%;
+
+    button{
+        border:transparent;
+        border-radius: 45%;
+        margin:1%;
+    }
+}
+.menuImg{
+    height:120px;
+    width:110px;
+    justify-content: center;
+    text-align: center;
+}
+.productItem{
+    display: flex;
+    flex-direction: row;
+    font-family: 'ABeeZee', sans-serif;
+    margin: 0% 5% 3% 5%;
+    justify-content: space-around;
+    align-items: center;
+
+    img{
+        height:6em;
+        width: 6em;
+    }
+    .checkbox-round {
+        width: 1em;
+        height: 1em;
+        background-color: white;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+    }
+    
+    .checkbox-round:checked {
+        background-color: gray;
+    }
+    .counterWrap{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        button{
+            border-color: black;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            padding-top:none;
+            font-size: medium;
+            border-radius: 5px;
+            
+        }
+    }
+}
+.next{
+    height:3em;
+    overflow: scroll;
+    background-color: $colorRed ;
+    border:transparent;
+    width: 20%;
+    font-size: large;
+    color:white;
+    font-family: 'Alata', sans-serif;
+}
+.bottomOrderWrap{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 8%;
+    align-items: center;
+
+    textarea{
+        resize: none;
+        width:50%;
+        font-family: 'ABeeZee', sans-serif;
+        font-size: medium;
+        border: grey solid;
+        border-width: 1px;
+    }
+}
