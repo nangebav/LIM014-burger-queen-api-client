@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss';
@@ -26,43 +26,52 @@ const axios = require('axios');
 
     const postRequest = async () => {
 
-      const newTodo = { 
-        email:'nancy@burger-queen.com',
-        password:'123456',
+        const newTodo = { 
+          email:'nancy@burger-queen.com',
+          password:'123456',
+        }
+    
+        try {  
+            const resp = await axios.post('http://localhost:3001/auth', newTodo);  
+            console.log(resp.data);
+    
+        } catch (err) {  
+            console.error(err);  
+        }  
       }
-  
-      try {  
-          const resp = await axios.post('http://localhost:3001/auth', newTodo);  
-          console.log(resp.data);
-  
-      } catch (err) {  
-          console.error(err);  
-      }  
+
+
+  const [datos, setDatos] = useState({
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = (event) => {
+  //  console.log(event.target.name)
+  //  console.log(event.target.value)
+    setDatos({
+        ...datos,
+        [event.target.name] : event.target.value
+    })
+    console.log(datos);
   }
 
-  
-    const handleEmailChange = e => {
-      console.log({
-        email: e.target.value,
-      });
-    }
-    const handlePasswordChange = e => {
-      console.log({
-        password: e.target.value
-      });
-    }
+  const traerDatos = (event) => {
+    event.preventDefault()
+    console.log('Los datos son:' + datos.email + ' y ' + datos.password)
+}
 
       return (
       <div className="logIn">
         <header className="logIn-header">
         <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
-          <form className="logIn-form">
+          <form className="logIn-form" onSubmit={traerDatos}>
             <label>
               Correo electrónico:
               <input 
               type="email" 
               name="email"
-              onChange={handleEmailChange}
+              onChange={handleInputChange }
               className="inputLogIn"/>
             </label>
             <label>
@@ -70,10 +79,10 @@ const axios = require('axios');
               <input 
               type="password"
               name="password"
-              onChange={handlePasswordChange}
+              onChange={handleInputChange }
               className="inputLogIn"/>
             </label>
-            <button className="logIn-button" onClick={ postRequest() }> INGRESAR </button>
+            <button className="logIn-button" onClick={console.log(postRequest())} > INGRESAR </button>
           </form>
         </header>
         <img src={comboBQ} className="bQ-combo" alt="logo" />
