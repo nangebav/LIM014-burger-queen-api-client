@@ -1,4 +1,3 @@
-
 import OrderToKitchen from '../components/OrderToKitchen';
 import logo from '../images/burger-queen-logo.png';
 
@@ -17,3 +16,4 @@ function Kitchen() {
   }
   
 export default Kitchen;
+

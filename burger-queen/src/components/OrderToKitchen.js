@@ -24,7 +24,7 @@ function OrderToKitchen(props) {
                 2 Bebida/gaseosa 500ml <br></br>
             </div>
             <div className="bottomOrderSection">
-                <textarea rows="4">Notas:</textarea>
+                <textarea rows="3">Notas:</textarea>
                 <button className="deliver">ENTREGAR</button>
             </div>
         </section>
