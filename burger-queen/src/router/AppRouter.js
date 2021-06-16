@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Error from '../components/Error';
 import TableOrder from '../pages/TableOrder';
 import Orders from '../pages/Orders';
+import OrderStatus from '../pages/OrderStatus';
 
 function AppRouter() {
     return (
@@ -21,6 +22,9 @@ function AppRouter() {
           </Route>
           <Route path="/orders">
             <Orders/>
+          </Route>
+          <Route path="/OrdersStatus">
+            <OrderStatus/>
           </Route>
           <Route path="/kitchen">
             <h1>Kitchen</h1>
