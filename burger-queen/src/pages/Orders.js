@@ -1,27 +1,34 @@
+import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
 
-function Orden() {
+import OrderList from '../components/OrderList'
+function Order() {
     return (
     <section className="Orden">
-        <h2> Carta </h2>
-        <section>
-            <h3> La Orden </h3>
-            <button> Agregar +</button>
-        </section>
-        <section>
-            <section className="table">
-                <h1>Mesa</h1>
-                <h1>Cantidad</h1>
-                <h1>Total del producto</h1>
+        <header className="ordersHeader">
+            <section className="orderFlex">
+                <h2> Carta </h2>
+                <img src={logo} alt="logo"></img>
             </section>
-            <h1>Total</h1>
-        </section>
-        <section>
-            <h2>
-            Notas del Cliente
-            </h2>
-        </section>
+            <section className="orderFlex">
+                <h2>La Orden</h2>
+                <button> Agregar + </button>
+            </section>
+            <section className="orderFlex" >
+                    <OrderList/>
+            </section>
+            <section className="orderFlex" >
+                <h3> 
+                Notas del Cliente
+                </h3>
+                <p></p>
+            </section>
+            <section className="orderFlex" >
+            <button className="buttonOrder"> Enviar Pedido  </button>
+            <button className="buttonOrder"> Anular pedido </button>
+            </section>
+        </header>
     </section>
     )}
 
-export default Orden;
+export default Order;

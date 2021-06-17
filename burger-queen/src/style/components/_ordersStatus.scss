@@ -1,0 +1,25 @@
+
+*{
+    font-family: 'ABeeZee', sans-serif;
+    font-style: italic;
+}
+
+.orderStatusHeader > img{
+    margin:3% 3% 0% 5%;
+    padding: 2%;
+    width: 15%;
+    height: 15%;
+}
+
+.tableStatus {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:5% 5% 5% 5%;
+    align-items: center;
+}
+.tableStatus > h2 {
+    margin-right: 0px;
+    color: $colorPink;
+    font-size: 25px;
+}
