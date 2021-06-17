@@ -6,6 +6,7 @@ import Error from '../components/Error';
 import TableOrder from '../pages/TableOrder';
 import Orders from '../pages/Orders';
 import OrderStatus from '../pages/OrderStatus';
+import Kitchen from '../pages/Kitchen'
 
 function AppRouter() {
     return (
