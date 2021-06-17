@@ -2,7 +2,8 @@
 @import "components/errorLog";
 @import "components/logIn";
 @import "components/tableOrder";
-@import "components/kitchen";
+@import "components/order";
+@import "components/ordersStatus";
 
 @mixin basicConfig {
     margin: 0;
@@ -12,7 +13,7 @@
     list-style: none;
 }
 
-*   {
+*{
     @include basicConfig()
 }
 .home{

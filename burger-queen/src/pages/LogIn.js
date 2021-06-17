@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
-import '../style/main.scss'
+import '../style/main.scss';
+const axios = require('axios');
+// import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
 // import Error from '../components/Error.js'
 // import { useState } from 'react';
 import express from 'express';
@@ -38,14 +40,13 @@ function LogIn (){
       <div className="logIn">
         <header className="logIn-header">
         <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
-          <form className="logIn-form">
+          <form className="logIn-form" onSubmit={traerDatos}>
             <label>
               Correo electrónico:
               <input 
               type="email" 
               name="email"
-              // leyendaError="El correo solo puede contener letras, numeros, puntos, guiones y guion bajo."
-              /*onChange={handleChange}*/
+              onChange={handleInputChange }
               className="inputLogIn"/>
             </label>
             <label>
@@ -53,8 +54,7 @@ function LogIn (){
               <input 
               type="password"
               name="password"
-              // leyendaError="La contraseña tiene que ser de 4 a 12 dígitos."
-              /*onChange={handleChange}*/
+              onChange={handleInputChange }
               className="inputLogIn"/>
             </label>
             <button className="logIn-button" onClick= {console.log(postRequest())}> INGRESAR </button>
