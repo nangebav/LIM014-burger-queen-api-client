@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss';
+import {useHistory} from 'react-router-dom';
 // import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
 // import Error from '../components/Error.js'
 // import { useState } from 'react';
 const axios = require('axios');
 //const cors = require('cors');
 
-
 function LogIn (){
+
+  const history = useHistory();
 
   const [datos, setDatos] = useState({
     email: '',
@@ -28,21 +30,23 @@ function LogIn (){
   const traerDatos = (event) => {
     event.preventDefault()
     const postRequest = async () => {
-
-      const newTodo = { 
+      const formData = { 
         email:datos.email,
         password:datos.password,
       }
       try {  
-          const resp = await axios.post('http://localhost:3001/auth', newTodo);  
+          const resp = await axios.post('http://localhost:3001/auth', formData);  
           console.log(resp.data);
-  
-      } catch (err) {  
+          
+          history.push('/home')
+          
+      } catch (err) {
           console.error(err);  
-      }  
+          history.push('/error')
+      }
     }
     postRequest()
-}
+  }
 
       return (
         <div className="logIn">
