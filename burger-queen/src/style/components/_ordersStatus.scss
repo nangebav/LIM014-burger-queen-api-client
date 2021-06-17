@@ -1,25 +1,49 @@
 
+$colorGreen: rgba(0, 231, 92, 1);
+$colorBlack: rgba(66, 66, 66, 1);
+$colorRedPink: rgba(233, 47, 72, 1);
+
 *{
     font-family: 'ABeeZee', sans-serif;
     font-style: italic;
 }
 
+.orderStatusHeader{
+    margin:5% 5% 5% 5%;
+}
+
 .orderStatusHeader > img{
-    margin:3% 3% 0% 5%;
     padding: 2%;
     width: 15%;
     height: 15%;
 }
 
 .tableStatus {
+    margin:5% 5% 5% 5%;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    margin:5% 5% 5% 5%;
     align-items: center;
+    border-top:rgba(66, 66, 66, 1) solid 4px;
 }
+
 .tableStatus > h2 {
     margin-right: 0px;
     color: $colorPink;
     font-size: 25px;
+}
+
+.number{
+    background-color: $colorRedPink;
+    color: white;
+    padding: 10px;
+}
+
+.status{
+    width: 100px;
+    padding: 10px;
+    background-color: $colorGreen;
+    border: none;
+    color: $colorBlack;
+    font-family: "Alata", sans-serif;
 }
