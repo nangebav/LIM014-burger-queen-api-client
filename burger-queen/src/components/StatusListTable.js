@@ -1,13 +1,11 @@
 function StatusListTable() {
     return (
         <section className="tableStatus">
-            <p> Mesa </p>
-            <nav> 
-                <select className="selectTable">
-                <option>  Pendiente </option>
-                <option> Entregado </option>
-                </select>
-            </nav>
+            <section className="tableStatus">
+                <label className="number"> 1 </label>
+                <p> Mesa </p>
+            </section>
+            <h1 className="status" > Pendiente </h1>
         </section>
     );
 }

@@ -24,21 +24,6 @@ const axios = require('axios');
 
    function LogIn (){
 
-    const postRequest = async () => {
-
-        const newTodo = { 
-          email:'nancy@burger-queen.com',
-          password:'123456',
-        }
-    
-        try {  
-            const resp = await axios.post('http://localhost:3001/auth', newTodo);  
-            console.log(resp.data);
-    
-        } catch (err) {  
-            console.error(err);  
-        }  
-      }
 
 
   const [datos, setDatos] = useState({
@@ -53,12 +38,27 @@ const axios = require('axios');
         ...datos,
         [event.target.name] : event.target.value
     })
-    console.log(datos);
   }
 
   const traerDatos = (event) => {
     event.preventDefault()
-    console.log('Los datos son:' + datos.email + ' y ' + datos.password)
+    const postRequest = async () => {
+
+      const newTodo = { 
+        email:datos.email,
+        password:datos.password,
+      }
+  
+      try {  
+          const resp = await axios.post('http://localhost:3001/auth', newTodo);  
+          console.log(resp.data);
+  
+      } catch (err) {  
+          console.error(err);  
+      }  
+    }
+
+    postRequest()
 }
 
       return (
@@ -82,7 +82,7 @@ const axios = require('axios');
               onChange={handleInputChange }
               className="inputLogIn"/>
             </label>
-            <button className="logIn-button" onClick={console.log(postRequest())} > INGRESAR </button>
+            <button className="logIn-button" > INGRESAR </button>
           </form>
         </header>
         <img src={comboBQ} className="bQ-combo" alt="logo" />
