@@ -8,11 +8,14 @@ function OrderStatus() {
     <section className="OrderStatus">
         <header className="orderStatusHeader">
             <img src={logo} alt="logo"></img>
+            <h1>PEDIDOS</h1>
             <section className="tableStatus">
-                <h2>Mesas</h2>
-                <h2>Estado del pedido</h2>
+            <h2>Mesas</h2>
+            <h2>Estado del pedido</h2>
             </section>
-            <StatusListTable/>
+            <section>
+                <StatusListTable/>
+            </section>
         </header>
     </section>
     )}

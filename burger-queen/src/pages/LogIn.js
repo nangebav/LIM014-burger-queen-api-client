@@ -11,31 +11,50 @@ const axios = require('axios');
 
 function LogIn (){
 
-      const postRequest = async ()=> {
-        const newTodo = {
-          'email':'nancy@burger-queen.com',
-          'password':'abcedf'
-      }
-        try {
-            const resp = await axios.post('http://localhost:3001/auth', newTodo);
-            console.log(resp.data);
-        } catch (err) {
-            console.error(err);
-        }
-    }
+  const [datos, setDatos] = useState({
+    email: '',
+    password: ''
+  })
 
+  const handleInputChange = (event) => {
+  //  console.log(event.target.name)
+  //  console.log(event.target.value)
+    setDatos({
+        ...datos,
+        [event.target.name] : event.target.value
+    })
+  }
+
+  const traerDatos = (event) => {
+    event.preventDefault()
+    const postRequest = async () => {
+
+      const newTodo = { 
+        email:datos.email,
+        password:datos.password,
+      }
+      try {  
+          const resp = await axios.post('http://localhost:3001/auth', newTodo);  
+          console.log(resp.data);
   
-    return (
-      <div className="logIn">
+      } catch (err) {  
+          console.error(err);  
+      }  
+    }
+    postRequest()
+}
+
+      return (
+        <div className="logIn">
         <header className="logIn-header">
         <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
-          <form className="logIn-form" >
+          <form className="logIn-form" onSubmit={traerDatos}>
             <label>
               Correo electrónico:
               <input 
               type="email" 
               name="email"
-              // onChange={handleInputChange }
+              onChange={handleInputChange }
               className="inputLogIn"/>
             </label>
             <label>
@@ -43,14 +62,15 @@ function LogIn (){
               <input 
               type="password"
               name="password"
-              // onChange={handleInputChange }
+              onChange={handleInputChange }
               className="inputLogIn"/>
             </label>
-            <button className="logIn-button" onClick= {postRequest()}> INGRESAR </button>
+            <button className="logIn-button" > INGRESAR </button>
           </form>
         </header>
         <img src={comboBQ} className="bQ-combo" alt="logo" />
       </div>
+
     );
 }
   
