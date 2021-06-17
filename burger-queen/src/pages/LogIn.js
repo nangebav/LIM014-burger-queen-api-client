@@ -4,29 +4,37 @@ import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss'
 // import Error from '../components/Error.js'
 // import { useState } from 'react';
+import express from 'express';
+import axios from 'axios';
+//const cors = require('cors');
+
 
 function LogIn (){
+  const app = express();
+  app.all('*', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, PATCH, OPTIONS HEAD");
+    res.header("Access-Control-Allow-Headers", "*");
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+  });
+      const postRequest = async () => {
 
-  // const handleChange = e => {
-    // const [email, cambiarEmail] = useState({campo:'', valido:null});
-    // const [password, cambiarPassword] = useState({campo:'', valido:null});
-    // const objeto = {
-    //   email:'',
-    //   password:'',
-    // };
-    // const valor = e.target.value;
-    // const nombre = e.target.name
-  // }
-
-  // const expresiones = {
-	// 	password: /^.{6,12}$/, // 4 a 12 digitos.
-	// 	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	// };
-
+        const newTodo = { 
+          email:'nancy@burger-queen.com',
+          password:'123456',
+        }
     
+        try {  
+            const resp = await axios.post('http://localhost:3001/auth', newTodo);  
+            console.log(resp.data);
+    
+        } catch (err) {  
+            console.error(err);  
+        }  
+    }
+  
     return (
-
-
       <div className="logIn">
         <header className="logIn-header">
         <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
@@ -49,7 +57,7 @@ function LogIn (){
               /*onChange={handleChange}*/
               className="inputLogIn"/>
             </label>
-            <button className="logIn-button"> INGRESAR </button>
+            <button className="logIn-button" onClick= {console.log(postRequest())}> INGRESAR </button>
           </form>
         </header>
         <img src={comboBQ} className="bQ-combo" alt="logo" />
@@ -58,4 +66,3 @@ function LogIn (){
 }
   
 export default LogIn;
-  

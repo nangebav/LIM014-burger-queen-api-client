@@ -25,7 +25,7 @@ function TableOrder() {
         <ProductItem productItemImg={simpleHamburger} inputID={simpleHamburger}/>
         <ProductItem productItemImg={doubleHamburger} inputID={doubleHamburger}/>
         <section className="bottomOrderWrap">
-          <textarea rows="5"> Notas</textarea>
+          <textarea rows="5" placeholder=" Notas"></textarea>
           <button className="next">Siguiente</button>
         </section>
 
