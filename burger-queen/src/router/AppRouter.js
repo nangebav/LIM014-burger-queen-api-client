@@ -6,6 +6,7 @@ import Error from '../components/Error';
 import TableOrder from '../pages/TableOrder';
 import Orders from '../pages/Orders';
 import OrderStatus from '../pages/OrderStatus';
+import AdminEmployees from '../pages/AdminEmployees'
 
 function AppRouter() {
     return (
@@ -28,6 +29,9 @@ function AppRouter() {
           </Route>
           <Route path="/kitchen">
             <h1>Kitchen</h1>
+          </Route>
+          <Route path="/AdminEmployes">
+            <AdminEmployees/>
           </Route>
           <Route exact path="/">
             <LogIn/>

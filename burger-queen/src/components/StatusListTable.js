@@ -1,11 +1,15 @@
-function StatusListTable() {
+function StatusListTable(props) {
     return (
-        <section className="tableStatus">
+        <section className="tableCard">
             <section className="tableStatus">
-                <label className="number"> 1 </label>
-                <p> Mesa </p>
+                <section className="number">
+                    <label > {props.numberTable} </label>
+                </section>
+                <p> Mesa {props.numberTable} </p>
             </section>
-            <h1 className="status" > Pendiente </h1>
+            <section className={props.status === 'ENTREGADO' ? 'statusOk' :'statusAlert'}>
+                <h1> {props.status} </h1>
+            </section>
         </section>
     );
 }

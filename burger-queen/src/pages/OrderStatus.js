@@ -9,12 +9,14 @@ function OrderStatus() {
         <header className="orderStatusHeader">
             <img src={logo} alt="logo"></img>
             <h1>PEDIDOS</h1>
-            <section className="tableStatus">
+            <section className="table">
             <h2>Mesas</h2>
             <h2>Estado del pedido</h2>
             </section>
             <section>
-                <StatusListTable/>
+                <StatusListTable status="ENTREGADO" numberTable="1" />
+                <StatusListTable status="ENTREGADO" numberTable="2" />
+                <StatusListTable status="EN COCINA" numberTable="3" />
             </section>
         </header>
     </section>
