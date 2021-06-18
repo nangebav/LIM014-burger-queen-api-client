@@ -7,15 +7,37 @@ function Order() {
     <section className="Orden">
         <header className="ordersHeader">
             <section className="orderFlex">
+                <section>
                 <h2> Carta </h2>
+                </section>
                 <img src={logo} alt="logo"></img>
             </section>
             <section className="orderFlex">
                 <h2>La Orden</h2>
                 <button> Agregar + </button>
             </section>
-            <section className="orderFlex" >
-                    <OrderList/>
+            <section className="orderList">
+                <table class="default" cellpadding="0" cellspacing="0" >
+                    <tr>
+                        <th align="left" >Mesa</th>
+                        <th align="left" >Cantidad</th>
+                        <th align="left" >Total del producto</th>
+                    </tr>
+                    <OrderList 
+                    food="Hamburguesa Doble"
+                    typeFoods="Pollo"
+                    quantity="1"
+                    price="10.0"/>
+                    <OrderList 
+                    food="Papas fritas"
+                    typeFoods=""
+                    quantity="2"
+                    price="15.0"/>
+                </table>
+            </section>
+            <section className="orderFlex">
+                <h1> Total </h1>
+                <p> 4</p>
             </section>
             <section className="orderFlex" >
                 <h3> 

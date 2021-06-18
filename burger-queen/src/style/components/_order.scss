@@ -8,6 +8,14 @@ $colorYellow:rgba(255, 200, 57, 1);
     font-style: italic;
 }
 
+.orderList{
+    margin:3% 3% 0% 5%;
+    padding: 2%;
+}
+.orderComponent{
+    margin: 20px;
+}
+
 .orderFlex{
     display:flex;
     flex-direction: row;
