@@ -17,12 +17,14 @@ function Order() {
                 <button> Agregar + </button>
             </section>
             <section className="orderList">
-                <table class="default" cellpadding="0" cellspacing="0" >
-                    <tr>
-                        <th align="left" >Mesa</th>
-                        <th align="left" >Cantidad</th>
-                        <th align="left" >Total del producto</th>
-                    </tr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th align="left" >Mesa</th>
+                            <th align="left" >Cantidad</th>
+                            <th align="left" >Total del producto</th>
+                        </tr>
+                    </thead>
                     <OrderList 
                     food="Hamburguesa Doble"
                     typeFoods="Pollo"
@@ -32,12 +34,15 @@ function Order() {
                     food="Papas fritas"
                     typeFoods=""
                     quantity="2"
-                    price="15.0"/>
+                    price="15.0"
+                    />
+                    <tbody>
+                        <tr>
+                            <td>Total</td>
+                            <td>$4</td>
+                        </tr>
+                    </tbody>
                 </table>
-            </section>
-            <section className="orderFlex">
-                <h1> Total </h1>
-                <p> 4</p>
             </section>
             <section className="orderFlex" >
                 <h3> 
