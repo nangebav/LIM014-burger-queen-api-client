@@ -7,6 +7,7 @@ import TableOrder from '../pages/TableOrder';
 import Orders from '../pages/Orders';
 import OrderStatus from '../pages/OrderStatus';
 import Kitchen from '../pages/Kitchen'
+import ProductsListSupply from '../pages/ProductsListSupply'
 
 function AppRouter() {
     return (
@@ -30,6 +31,10 @@ function AppRouter() {
           <Route path="/kitchen">
             <Kitchen/>
           </Route>
+          <Route  path="/supply">
+            <ProductsListSupply/>
+          </Route>
+          
           <Route exact path="/">
             <LogIn/>
           </Route>

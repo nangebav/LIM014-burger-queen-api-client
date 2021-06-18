@@ -4,6 +4,7 @@
 @import "components/tableOrder";
 @import "components/order";
 @import "components/ordersStatus";
+@import "components/productsListSupply";
 
 @mixin basicConfig {
     margin: 0;
@@ -19,12 +20,7 @@
 .home{
     background-image: url('../images/homeBG.png');
 }
-#buttonOrdersHome{
-    background-image: url('../images/ordersButtonHome.png');
-}
-#buttonKitchenHome{
-    background-image: url('../images/kitchenButtonHome.png');
-}
+
 
 .logIn{
     background-image: url('../images/fontLogIn.svg');
