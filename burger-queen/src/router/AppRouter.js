@@ -8,33 +8,22 @@ import Orders from '../pages/Orders';
 import OrderStatus from '../pages/OrderStatus';
 import Kitchen from '../pages/Kitchen'
 import ProductsListSupply from '../pages/ProductsListSupply'
+import Navbar from '../components/Navbar';
 
 function AppRouter() {
     return (
       <Router>
+        <Navbar />
         <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/tableOrder">
-            <TableOrder/>
-          </Route>
+          <Route  path='/home' component={Home} />
+          <Route path="/tableOrder" component={TableOrder} />
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
           </Route>
-          <Route path="/orders">
-            <Orders/>
-          </Route>
-          <Route path="/OrdersStatus">
-            <OrderStatus/>
-          </Route>
-          <Route path="/kitchen">
-            <Kitchen/>
-          </Route>
-          <Route  path="/supply">
-            <ProductsListSupply/>
-          </Route>
-          
+          <Route path="/orders" component={Orders} />
+          <Route path="/OrdersStatus" component={OrderStatus} />
+          <Route path="/kitchen" component={Kitchen} />
+          <Route  path="/supply" component={ProductsListSupply} />
           <Route exact path="/">
             <LogIn/>
           </Route>

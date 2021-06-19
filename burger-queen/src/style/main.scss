@@ -5,6 +5,9 @@
 @import "components/order";
 @import "components/ordersStatus";
 @import "components/productsListSupply";
+@import "components/navbar";
+@import "components/dropdown";
+@import "components/kitchen";
 
 @mixin basicConfig {
     margin: 0;
