@@ -2,7 +2,10 @@ function OrderList(props) {
     return (
         <tbody>
             <tr>
-                <td>
+                <td  className="row">
+                    <section className="orderNumber">
+                        <p>{props.order}</p>
+                    </section>
                     <section>
                         <p>{props.food}</p>
                         <span>{props.typeFoods}</span>

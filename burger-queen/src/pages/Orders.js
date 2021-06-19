@@ -25,12 +25,14 @@ function Order() {
                             <th align="left" >Total del producto</th>
                         </tr>
                     </thead>
-                    <OrderList 
+                    <OrderList
+                    order="1"
                     food="Hamburguesa Doble"
                     typeFoods="Pollo"
                     quantity="1"
                     price="10.0"/>
                     <OrderList 
+                    order="2"
                     food="Papas fritas"
                     typeFoods=""
                     quantity="2"
@@ -39,7 +41,7 @@ function Order() {
                     <tbody>
                         <tr>
                             <td>Total</td>
-                            <td>$4</td>
+                            <td>{}</td>
                         </tr>
                     </tbody>
                 </table>
