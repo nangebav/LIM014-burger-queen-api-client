@@ -22,7 +22,7 @@ $colorGreen: rgb(94,201,110);
     }
 }
 .orderToKitchen{
-    background-color: $colorYellow;
+    background-color:  rgba(255, 199, 57, 0.541);
     width: 80%;
     height: 27%;
     margin: 2% auto;
@@ -39,7 +39,7 @@ $colorGreen: rgb(94,201,110);
     .tableNumber{
         font-family: 'ABeeZee', sans-serif;
         font-style: italic;
-        color:white;
+        color:black;
         font-size: 1.5em;
         align-self: center;
     }
@@ -76,7 +76,7 @@ $colorGreen: rgb(94,201,110);
         align-content: center;
         align-items: center;
         textarea{
-            background-color: $colorYellow;
+            background-color: rgba(255, 199, 57, 0.541);
             border:white solid;
             resize:none;
             width:60%;
