@@ -3,6 +3,8 @@ import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss';
 import {useHistory} from 'react-router-dom';
+import userIcon from '../images/userIcon.png'
+import passwordIcon from '../images/passwordIcon.png'
 // import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
 // import Error from '../components/Error.js'
 // import { useState } from 'react';
@@ -55,19 +57,24 @@ function LogIn (){
           <form className="logIn-form" onSubmit={traerDatos}>
             <label>
               Correo electrónico:
+              <div className="inputLogIn">
+              <img src={userIcon} alt="passwordPic"/>
               <input 
               type="email" 
               name="email"
               onChange={handleInputChange }
-              className="inputLogIn"/>
+              />
+              </div>
             </label>
             <label>
               Contraseña:
+              <div className="inputLogIn">
+              <img src={passwordIcon} alt="userPic"/>
               <input 
               type="password"
               name="password"
-              onChange={handleInputChange }
-              className="inputLogIn"/>
+              onChange={handleInputChange }/>
+              </div>
             </label>
             <button className="logIn-button" > INGRESAR </button>
           </form>
