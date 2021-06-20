@@ -11,8 +11,9 @@ $colorGray: rgba(240, 240, 240, 1);
     .logIn-header {
       position: absolute;
       left: 100px;
-      top: 309px;
       display: flex;
+      flex-direction: column;
+      align-self: flex-start;
       font-family: 'ABeeZee', sans-serif;
     }
     
@@ -64,17 +65,15 @@ $colorGray: rgba(240, 240, 240, 1);
     }
 
     .bQ-logIn{
-      position:fixed;
-      top: 0px;
-      right: 0px;
-      margin: 15px;
-      width: 20em;
+      margin: 1px;
+      width: 18em;
+      align-self: flex-end;
     }
 
     .bQ-combo{
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
+      order: 0;
+      flex: 0 1 auto;
+      align-self: flex-end;
       width: 30em;
     }
 
