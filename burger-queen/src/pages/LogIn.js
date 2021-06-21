@@ -30,28 +30,33 @@ function LogIn (){
     })
   }
 
-  const traerDatos = async (event) => {
-    event.preventDefault()
-
-      try {  
-          const resp = await  postRequest(
+  const traerDatos =(event) => {
+    event.preventDefault() 
+          postRequest(
             { 
               email:datos.email,
               password:datos.password,
             }
           ) 
-          console.log(resp.data);
-          history.push('/home')
-        
-      } catch (err) {
-          console.error(err);  
-          history.push('/error')
-      }
-  
+          .then((resp)=>{
+            console.log(resp.data);
+            console.log(resp.status);
+            console.log(resp.statusText);
+            // console.log(resp.headers);
+            // console.log(resp.config);
+            // history.push('/home')
+          })
+          .catch((err)=>{
+            console.error(err);  
+            history.push('/error')
+          });
   }
 
       return (
-        <div className="logIn">
+        <div className="logIn"  
+        
+        >
+          
         <header className="logIn-header">
         <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
           <form className="logIn-form" onSubmit={traerDatos}>
