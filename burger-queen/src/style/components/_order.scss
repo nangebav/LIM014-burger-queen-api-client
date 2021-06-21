@@ -5,7 +5,6 @@ $colorYellow:rgba(255, 200, 57, 1);
 
 *{
     font-family: 'ABeeZee', sans-serif;
-    font-style: italic;
 }
 
 .orderFlex{
@@ -15,7 +14,8 @@ $colorYellow:rgba(255, 200, 57, 1);
     margin:3% 3% 0% 5%;
     padding: 2%;
     align-items: center;
-
+    font-style: italic;
+    
     img{
         width: 15%;
         height: 15%;

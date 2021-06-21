@@ -81,7 +81,9 @@ $colorGreen: rgb(94,201,110);
         outline: none;
         cursor: pointer;
     }
-    
+    .counter{
+        font-style: normal;
+    }
     .checkbox-round:checked {
         background-color: $colorYellow;
     }

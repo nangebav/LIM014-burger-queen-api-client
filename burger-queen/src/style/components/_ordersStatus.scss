@@ -5,17 +5,18 @@ $colorRedPink: rgba(233, 47, 72, 1);
 
 *{
     font-family: 'ABeeZee', sans-serif;
-    font-style: italic;
 }
 
 .orderStatusHeader{
     margin:5% 5% 5% 5%;
+    font-style: italic;
 }
 
 .orderStatusHeader > img{
     padding: 2%;
     width: 15%;
     height: 15%;
+    font-style: italic;
 }
 
 .tableStatus {
@@ -25,6 +26,7 @@ $colorRedPink: rgba(233, 47, 72, 1);
     justify-content: space-between;
     align-items: center;
     border-top:rgba(66, 66, 66, 1) solid 4px;
+    font-style: italic;
 }
 
 .tableStatus > h2 {

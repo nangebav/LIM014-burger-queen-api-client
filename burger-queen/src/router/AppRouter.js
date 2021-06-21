@@ -16,7 +16,7 @@ function AppRouter() {
         <Navbar />
         <Switch>
           <Route  path='/home' component={Home} />
-          <Route path="/tableOrder" component={TableOrder} />
+          <Route path="/tableOrder" component={TableOrder}></Route>
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
           </Route>

@@ -1,7 +1,7 @@
 function OrderList() {
     return (
         <section className="orderList">
-        <table class="default" cellpadding="0" cellspacing="0" >
+        <table className="default" cellpadding="0" cellspacing="0" >
         <tr>
             <th align="left" >Mesa</th>
             <th align="left" >Cantidad</th>
