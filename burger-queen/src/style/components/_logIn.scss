@@ -30,13 +30,25 @@ $colorGray: rgba(240, 240, 240, 1);
       }
 
       .inputLogIn{
+        display: flex;
+        flex-direction: row;
         padding: 45px;
-        font-size: 27px;
         width: 600px;
+        height: 90px;
         padding: 27px;
         border-radius: 30px;
         background: $colorGray;
         margin: 15px;
+
+        input {
+         height: 100%;
+         width: 100%;
+         margin-left: 10px;
+         font-size: 27px;
+         outline: none;
+         background-color: transparent;
+         border: 0;
+        }
       }
 
       .logIn-button{

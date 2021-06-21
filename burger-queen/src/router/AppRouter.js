@@ -6,6 +6,7 @@ import Error from '../components/Error';
 import TableOrder from '../pages/TableOrder';
 import Orders from '../pages/Orders';
 import OrderStatus from '../pages/OrderStatus';
+import AdminEmployees from '../pages/AdminEmployees'
 import Kitchen from '../pages/Kitchen'
 import ProductsListSupply from '../pages/ProductsListSupply'
 import Navbar from '../components/Navbar';
@@ -20,6 +21,7 @@ function AppRouter() {
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
           </Route>
+          <Route path="/AdminEmployes" component={AdminEmployees}/>   
           <Route path="/orders" component={Orders} />
           <Route path="/OrdersStatus" component={OrderStatus} />
           <Route path="/kitchen" component={Kitchen} />

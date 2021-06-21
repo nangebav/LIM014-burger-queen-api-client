@@ -7,6 +7,14 @@ $colorYellow:rgba(255, 200, 57, 1);
     font-family: 'ABeeZee', sans-serif;
 }
 
+.orderList{
+    margin:3% 3% 0% 5%;
+    padding: 2%;
+}
+.orderComponent{
+    margin: 20px;
+}
+
 .orderFlex{
     display:flex;
     flex-direction: row;
@@ -26,6 +34,7 @@ $colorYellow:rgba(255, 200, 57, 1);
         background-color: $colorYellow;
         width: 172px;
         height: 42px;
+        border: none;
     }
     h3{
         font-style: normal;
@@ -50,6 +59,7 @@ $colorYellow:rgba(255, 200, 57, 1);
 table {
     table-layout: fixed;
     width: 100%;
+    border-collapse: collapse;
 
     th{
         padding-left: 0px;
@@ -66,8 +76,28 @@ table {
 
   }
 
+
+ td, table{
+    border-bottom: 3px solid  rgb(241, 241, 241);
+    margin: -2px;
+    padding: 18px  0px 18px 0px;
+  } 
+
 .table{
    color: $colorPink;
    display: flex;
    flex-direction: row;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    .orderNumber{
+        background-color: #e92f48;
+        padding: 3px;
+        margin-right: 8px;
+        width: 30px;
+        height: 30px;
+        color: white;
+    }
 }
