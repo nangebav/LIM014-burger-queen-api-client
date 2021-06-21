@@ -1,16 +1,24 @@
+import { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch, Link, useRouteMatch} from 'react-router-dom';
 import '../style/main.scss'
 import sandwich from '../images/sandwichMenu.svg';
 import hamburger from '../images/ordersButtonHome.svg';
 import aside from '../images/AcompañantesMenu.svg';
 import drinks from '../images/bebidas.svg';
-import ProductItem from '../components/productItem';
-import simpleHamburger from '../images/simpleBurger.svg'
-import doubleHamburger from '../images/doubleBurger.svg'
+import {getProducts} from '../Services/products'
 
 function MenuOrderProducts() {
 
   let { path, url } = useRouteMatch();
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=> {
+    const getData = async() =>{
+      
+    }
+  },[])
+
 
     return (
       <>

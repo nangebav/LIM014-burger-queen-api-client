@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import MenuOrderProducts from '../components/MenuOrderProducts';
 import ProductItem from '../components/productItem';
 import logo from '../images/burger-queen-logo.png';
@@ -45,7 +46,7 @@ function TableOrder() {
           <ProductItem productName="Agua de 500ml" productItemImg={water} inputID={water} price="10"/>
         <section className="bottomOrderWrap">
           <textarea rows="5" placeholder=" Notas"></textarea>
-          <button className="next">Siguiente</button>
+          <Link to="/orders"><button className="next">Siguiente</button></Link>
         </section>
 
       </div>

@@ -6,6 +6,8 @@ import logo from "../images/burger-queen-logo.png";
 
 function Navbar() {
 
+    const [ show, setShow ] = useState(false);
+
     const [dropdown, setDropdown] = useState(false);  
 
     const onMouseEnter = () => {
@@ -16,10 +18,11 @@ function Navbar() {
         setDropdown(false);
 
     };
-  
+
+    // guardar el tipo de usuario en localStorage y luego usar useEffect
     return (
       <>
-        <nav className="navbar">
+        <nav className={`navbar ${ show===false ? "hide" : "show"}`}>
           <Link to="/" className="navbar-logo">
             <img alt="BQ" src={logo}></img>
           </Link>
