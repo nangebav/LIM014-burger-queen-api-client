@@ -7,7 +7,7 @@ function ProductItem(props) {
         <main className="productItem">
         <div>
           <input type="checkbox" id={props.inputID} className="checkbox-round"></input>
-          <label htmlFor={props.inputID}> Hamburguesa Simple</label>
+          <label htmlFor={props.inputID}>{props.productName}</label>
         </div>
         <article className="counterWrap">
           <img alt="imgPhoto" src= {props.productItemImg}></img>
