@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import logo from "../images/burger-queen-logo.png";
-
+// import { parseJwt } from "../Services/auth";
 function Navbar() {
 
-    const [dropdown, setDropdown] = useState(false);  
+    // const admin =  parseJwt(localStorage.Token).roles.admin;
 
+    const [ show, setShow ] = useState(true);
+
+    const [dropdown, setDropdown] = useState(false);  
     const onMouseEnter = () => {
         setDropdown(true);
     };
@@ -16,10 +19,12 @@ function Navbar() {
         setDropdown(false);
 
     };
-  
+
+
+    // guardar el tipo de usuario en localStorage y luego usar useEffect
     return (
       <>
-        <nav className="navbar">
+        <nav className={`navbar ${ show === false ? "hide" : ""}`}>
           <Link to="/" className="navbar-logo">
             <img alt="BQ" src={logo}></img>
           </Link>

@@ -12,12 +12,13 @@ import ProductsListSupply from '../pages/ProductsListSupply'
 import Navbar from '../components/Navbar';
 
 function AppRouter() {
+  
     return (
       <Router>
-        <Navbar />
+        < Navbar/>
         <Switch>
           <Route  path='/home' component={Home} />
-          <Route path="/tableOrder" component={TableOrder} />
+          <Route path="/tableOrder" component={TableOrder}></Route>
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
           </Route>
@@ -33,6 +34,9 @@ function AppRouter() {
             <Error messageTitle="MENSAJE" message1 ="Cuenta de usuario no es válida." message2 = "Inténtelo otra vez." button="ACEPTAR"/>
           </Route>
         </Switch>
+        <footer>
+          <button> Salir </button>
+        </footer>
       </Router>
     );
 }

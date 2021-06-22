@@ -10,7 +10,7 @@ import juice from '../images/products/juice.png'
 import fries from '../images/products/fries.png'
 import water from '../images/products/water.png'
 import soda from '../images/products/soda.png'
-
+import onionRings from '../images/products/onionRings.png'
 
 function ProductsListSupply() {
 
@@ -23,10 +23,11 @@ function ProductsListSupply() {
             </header>
             
             <section className="productsListSupply">
-                <ProductSupply productName="Hamburguesa Simple" productItemImg={simpleHamburger}/>
+                <ProductSupply productName="Hamburguesa Simple" productItemImg={simpleHamburger} />
                 <ProductSupply productName="Hamburguesa Doble" productItemImg={doubleHamburger}/>
                 <ProductSupply productName="Sandwich de jamón y queso" productItemImg={sandwich}/>
                 <ProductSupply productName="Papas fritas" productItemImg={fries}/>
+                <ProductSupply productName="Aros de cebolla" productItemImg={onionRings}/>
                 <ProductSupply productName="Café americano" productItemImg={coffee}/>
                 <ProductSupply productName="Café con leche" productItemImg={latte}/>
                 <ProductSupply productName="Jugo de frutas" productItemImg={juice}/>

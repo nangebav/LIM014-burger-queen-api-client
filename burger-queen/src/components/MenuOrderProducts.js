@@ -1,9 +1,12 @@
+import { useState, useEffect } from 'react';
+import {BrowserRouter as Router, Route, Switch, Link, useRouteMatch} from 'react-router-dom';
 import '../style/main.scss'
 // import React, { useState } from "react";
 import sandwich from '../images/sandwichMenu.svg';
 import hamburger from '../images/ordersButtonHome.svg';
 import aside from '../images/AcompañantesMenu.svg';
-import drinks from '../images/bebidas.svg';
+import drinks from '../images/bebidas.svg'
+import { getProducts } from '../Services/products'
 
 // Imagenes a Color
 import sandwichColor from '../images/sandwichMenuColor.svg';
@@ -13,25 +16,46 @@ import drinksColor from '../images/bebidasColor.svg';
 
 function MenuOrderProducts() {
 
+  let { path, url } = useRouteMatch();
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=> {
+    const getData = async() =>{
+      
+    }
+  },[])
+
+
     return (
-        <section className="menu">
-          <button><img className="menuImg" alt="sandwich" src={sandwich} 
+        <nav className="menu">
+          <Link to={`${url}/sandwich`}>
+          <button><img className="menuImg" alt="sandwich" src={sandwich}
           onMouseEnter={(e) => {e.target.setAttribute( 'src', sandwichColor)}}
           onMouseLeave={(e) => {e.target.setAttribute( 'src', sandwich)}}
           /></button>
+          </Link>
+          <Link to={`${url}/hamburger`}>
           <button><img className="menuImg" alt="hbmn" src={hamburger}
           onMouseEnter={(e) => {e.target.setAttribute( 'src',hamburgerColor)}}
           onMouseLeave={(e) => {e.target.setAttribute( 'src', hamburger)}}
           /></button>
+          </Link>
+          <Link to={`${url}/asides`}>
           <button><img className="menuImg" alt="aside" src={aside}
           onMouseEnter={(e) => {e.target.setAttribute( 'src', asideColor)}}
-          onMouseLeave={(e) => {e.target.setAttribute( 'src', aside)}}          
+          onMouseLeave={(e) => {e.target.setAttribute( 'src', aside)}}  
           /></button>
-          <button><img className="menuImg" alt="drinks" src={drinks}
+          </Link>
+          <Link to={`${url}/drinks`}>
+          <button>
+          <img className="menuImg" alt="drinks"  src={drinks}
           onMouseEnter={(e) => {e.target.setAttribute( 'src', drinksColor)}}
-          onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}          
+          onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}
+          onClick={console.log('hl')} 
           /></button>
-        </section>
+          </Link>
+        </nav>
     );
 }
   

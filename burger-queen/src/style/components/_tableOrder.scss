@@ -81,7 +81,9 @@ $colorGreen: rgb(94,201,110);
         outline: none;
         cursor: pointer;
     }
-    
+    .counter{
+        font-style: normal;
+    }
     .checkbox-round:checked {
         background-color: $colorYellow;
     }
@@ -106,8 +108,8 @@ $colorGreen: rgb(94,201,110);
     overflow: scroll;
     background-color: $colorRed ;
     border:transparent;
-    width: 20%;
-    font-size: large;
+    width: 6em;
+    font-size: x-large;
     color:white;
     font-family: 'Alata', sans-serif;
 }

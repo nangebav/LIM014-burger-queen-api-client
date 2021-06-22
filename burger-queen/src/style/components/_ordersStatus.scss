@@ -8,17 +8,18 @@ $colorYellow: rgb(255,200,57);
 
 *{
     font-family: 'ABeeZee', sans-serif;
-    font-style: italic;
 }
 
 .orderStatusHeader{
     margin:5% 5% 5% 5%;
+    font-style: italic;
 }
 
 .orderStatusHeader > img{
     padding: 2%;
     width: 15%;
     height: 15%;
+    font-style: italic;
 }
 
 .tableStatus, .table, .tableCard{
