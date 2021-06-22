@@ -2,6 +2,7 @@ import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
 
 import OrderList from '../components/OrderList'
+import {Link} from 'react-router-dom';
 
 
 function Order() {
@@ -10,7 +11,9 @@ function Order() {
         <header className="ordersHeader">
             <section className="orderFlex">
                 <section>
-                <h2> Carta </h2>
+                <Link to="/tableOrder">
+                    <button className="goToCard"> ← Carta </button>
+                </Link>
                 </section>
                 <img src={logo} alt="logo"></img>
             </section>

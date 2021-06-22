@@ -36,6 +36,12 @@ $colorYellow:rgba(255, 200, 57, 1);
         height: 42px;
         border: none;
     }
+    
+    .goToCard{
+        background-color: $colorRed;
+        color:rgb(255, 255, 255);
+    }
+
     h3{
         font-style: normal;
         font-size: 28px;
