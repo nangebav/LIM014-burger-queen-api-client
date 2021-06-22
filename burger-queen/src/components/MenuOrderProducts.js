@@ -6,6 +6,8 @@ import hamburger from '../images/ordersButtonHome.svg';
 import aside from '../images/AcompañantesMenu.svg';
 import drinks from '../images/bebidas.svg';
 import {getProducts} from '../Services/products'
+import ProductItem from '../components/productItem';
+import simpleHamburger from '../images/simpleBurger.svg'
 
 function MenuOrderProducts() {
 
@@ -20,21 +22,24 @@ function MenuOrderProducts() {
       .catch((err)=>{console.log(err)})
     }
     getData()
-    // const arr = getData();
-    // arr.map((item) => 
-    //   console.log(item)
-    // )
+    
   },[])
   
-  // console.log(useEffect())
-
+  const render = (items, filter) =>{
+    const newitems = items.filter(productType => productType.type === filter )
+    return newitems.map((prueba) => 
+      console.log(prueba)
+    )
+  }
+  //render(products, "burger")
+  
     return (
       <>
         <nav className="menu">
-          <Link to={`${url}/sandwich`}><button onClick={console.log(products)}><img className="menuImg" alt="sandwich" src={sandwich}></img></button></Link>
-          <Link to={`${url}/hamburger`}><button><img className="menuImg" alt="hbmn" src={hamburger}></img></button></Link>
-          <Link to={`${url}/asides`}><button><img className="menuImg" alt="aside" src={aside}></img></button></Link>
-          <Link to={`${url}/drinks`}><button><img className="menuImg" alt="drinks" src={drinks}></img></button></Link>
+          <button><img className="menuImg" alt="sandwich" src={sandwich}></img></button>
+          <button><img className="menuImg" alt="hbmn" src={hamburger}></img></button>
+          <button><img className="menuImg" alt="aside" src={aside}></img></button>
+          <button><img className="menuImg" alt="drinks" src={drinks}></img></button>
         </nav>
       </>
     );
