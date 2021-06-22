@@ -36,9 +36,6 @@ function AppRouter() {
             <Error messageTitle="MENSAJE" message1 ="Cuenta de usuario no es válida." message2 = "Inténtelo otra vez." button="ACEPTAR"/>
           </Route>
         </Switch>
-        <footer>
-          <button /* onClick={localStorage.clear()} */> Salir </button>
-        </footer>
       </Router>
     );
 }

@@ -61,12 +61,12 @@ function Navbar() {
               onMouseLeave={onMouseLeave}
             >
               <Link
-                to="/supply"
+                /* to="/supply" */
                 className="nav-links"
               >
                 Admin <i className="fas fa-caret-down" />
               </Link>
-              {dropdown && <Dropdown title1="Almacén" to1="/supply" title2="Personal" to2="/Personal"/>}
+              {dropdown && <Dropdown title1="Almacén" to1="/supply" title2="Personal" to2="/AdminEmployes"/>}
             </li>
 
           </ul>
