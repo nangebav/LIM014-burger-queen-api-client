@@ -13,6 +13,7 @@ function Navbar() {
     const [dropdown, setDropdown] = useState(false);  
 
     useEffect(() => {
+      // localStorage.token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGMzNGEzMWI2NjZlZTE3OThkMzFlOGQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjIzNTU0NzU4LCJleHAiOjk5OTk5OTk5OTk5fQ.zGMhPbJxmlZUvznOr76NqBnI2DKx0l4612qdET0-66w'
       setShow(parseJwt(localStorage.token).roles.admin)
     }, [])
 
@@ -69,6 +70,9 @@ function Navbar() {
             </li>
 
           </ul>
+          <button onClick={()=> setShow(false)}>
+          SALIR
+        </button>
         </nav>
       </>
     );

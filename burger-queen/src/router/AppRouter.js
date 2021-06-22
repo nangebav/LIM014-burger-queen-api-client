@@ -13,7 +13,7 @@ import Navbar from '../components/Navbar';
 
 function AppRouter() {
 
-  
+
 
     return (
       <Router>
