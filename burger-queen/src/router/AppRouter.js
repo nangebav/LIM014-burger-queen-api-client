@@ -37,7 +37,7 @@ function AppRouter() {
           </Route>
         </Switch>
         <footer>
-          <button> Salir </button>
+          <button /* onClick={localStorage.clear()} */> Salir </button>
         </footer>
       </Router>
     );

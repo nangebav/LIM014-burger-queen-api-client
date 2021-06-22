@@ -47,7 +47,7 @@ function LogIn (){
             // console.log(resp.headers);
             // console.log(resp.config);
 
-            // localStorage.token = resp.data
+            localStorage.token = resp.data
             // console.log(parseJwt(localStorage.token).roles.admin)
             history.push('/home')
           })
