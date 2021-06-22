@@ -1,0 +1,52 @@
+
+.productSupplyHeader{
+    display:grid;
+    grid-template-columns: 7fr 3fr 3fr;
+    margin: 3% 5% 5% 3%;
+    text-align: center;
+    align-items: center;
+    border-bottom: rgba(233, 47, 72, 1) solid;
+    p{
+        font-size:1.2em;
+        padding: 5%;
+    }
+}
+.productSupply{
+    display:grid;
+    grid-template-columns: 5fr 6fr;
+    margin: 2% 5% 2% 1%;
+    text-align: center;
+    align-items: center;
+    font-size:1em;
+    .supplyWrap{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .counterSupply{
+        display: grid;
+        grid-template-columns: 3fr 1fr 2fr;
+        width: 40vw;
+        justify-items: center;
+        align-items: center;
+        button{
+            width: 4em;
+            font-style: normal;
+            font-weight: bold;
+            font-size:0.9em;
+            background-color: rgb(212, 207, 193);
+            margin-bottom:4%;
+            border: rgb(160, 158, 153) solid ;
+        }
+        .buttonWrap{
+        display:flex;
+        flex-direction: column;
+        }
+        // .actualSupply{
+        //     justify-self: center;
+        //     align-self: center;
+        // }
+    }
+    img{
+        width: 3em;
+    }
+}

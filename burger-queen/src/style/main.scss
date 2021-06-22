@@ -1,0 +1,39 @@
+@import "components/home";
+@import "components/errorLog";
+@import "components/logIn";
+@import "components/tableOrder";
+@import "components/order";
+@import "components/ordersStatus";
+@import "components/AdminEmployees";
+@import "components/productsListSupply";
+@import "components/navBar";
+@import "components/dropdown";
+@import "components/kitchen";
+
+@mixin basicConfig {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+*{
+    @include basicConfig()
+}
+.home{
+    background-image: url('../images/homeBG.png');
+}
+
+
+.logIn{
+    background-image: url('../images/fontLogIn.svg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+}
