@@ -9,7 +9,9 @@ import passwordIcon from '../images/passwordIcon.png'
 // import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
 // import Error from '../components/Error.js'
 // import { useState } from 'react';
-import { parseJwt } from "../Services/auth";
+// import { parseJwt } from "../Services/auth";
+
+
 
 
 function LogIn (){
@@ -46,7 +48,7 @@ function LogIn (){
             // console.log(resp.config);
 
             localStorage.token = resp.data
-            console.log(parseJwt(localStorage.token).roles.admin)
+            // console.log(parseJwt(localStorage.token).roles.admin)
             history.push('/home')
           })
           .catch((err)=>{

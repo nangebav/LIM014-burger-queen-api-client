@@ -12,21 +12,25 @@ function ProductItem(props) {
     // Actualiza el título del documento usando la API del navegador
     document.textContent = `${quantity}`;
   });
-
-    return (
-        <main className="productItem">
+  const products = props.products;
+  const listProduct = products.map((product) => 
+    <article className="productItem">
+     
         <div>
-          <input type="checkbox" id={props.inputID} className="checkbox-round"></input>
-          <label htmlFor={props.inputID}> {props.productName}</label>
+          <input type="checkbox" id={product.id} className="checkbox-round"></input>
+          <label htmlFor={product.id}> {product.name}</label>
         </div>
         <article className="counterWrap">
-          <img alt="imgPhoto" src= {props.productItemImg}></img>
+          <img alt="imgPhoto" src= {product.image}></img>
           <div className="counter">
             <button onClick={()=>setNumber(quantity - 1 )}> - </button> {quantity} <button onClick={()=>setNumber(quantity + 1 )}> + </button> 
           </div>
         </article>
-        <p> $ {price} </p>
-      </main>
+        <p> $ {product.price} </p>
+      </article>
+      );
+    return (
+      <>{listProduct}</>
     );
 }
   

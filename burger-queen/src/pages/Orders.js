@@ -2,6 +2,8 @@ import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
 
 import OrderList from '../components/OrderList'
+
+
 function Order() {
     return (
     <section className="Orden">
