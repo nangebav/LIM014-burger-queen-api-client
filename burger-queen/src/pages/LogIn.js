@@ -9,7 +9,7 @@ import passwordIcon from '../images/passwordIcon.png'
 // import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
 // import Error from '../components/Error.js'
 // import { useState } from 'react';
-
+// import { parseJwt } from "../Services/auth";
 
 
 
@@ -41,13 +41,14 @@ function LogIn (){
             }
           ) 
           .then((resp)=>{
-            console.log(resp.data);
-            localStorage.Token = resp.data;
-
-            console.log(resp.status);
-            console.log(resp.statusText);
+            // console.log(resp.data);
+            // console.log(resp.status);
+            // console.log(resp.statusText);
             // console.log(resp.headers);
             // console.log(resp.config);
+
+            // localStorage.token = resp.data
+            // console.log(parseJwt(localStorage.token).roles.admin)
             history.push('/home')
           })
           .catch((err)=>{
@@ -57,10 +58,7 @@ function LogIn (){
   }
 
       return (
-        <div className="logIn"  
-        
-        >
-     
+        <div className="logIn" >
         <header className="logIn-header">
         <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
           <form className="logIn-form" onSubmit={traerDatos}>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {BrowserRouter as Router, Route, Switch, Link, useRouteMatch} from 'react-router-dom';
+import {BrowserRouter as Link, useRouteMatch} from 'react-router-dom';
 import '../style/main.scss'
 // import React, { useState } from "react";
 import sandwich from '../images/sandwichMenu.svg';
@@ -14,6 +14,9 @@ import hamburgerColor from '../images/hamburguesaColor.svg';
 import asideColor from '../images/AcompañantesMenuColor.svg';
 import drinksColor from '../images/bebidasColor.svg';
 
+import ProductItem from '../components/productItem';
+import simpleHamburger from '../images/simpleBurger.svg'
+
 function MenuOrderProducts() {
 
   let { path, url } = useRouteMatch();
@@ -21,12 +24,23 @@ function MenuOrderProducts() {
   const [products, setProducts] = useState([]);
 
   useEffect(()=> {
-    const getData = async() =>{
-      
+    const getData = () =>{
+      getProducts()
+      .then((res)=>setProducts(products => products.concat(res.data)))
+      .catch((err)=>{console.log(err)})
     }
+    getData()
+    
   },[])
-
-
+  
+  const render = (items, filter) =>{
+    const newitems = items.filter(productType => productType.type === filter )
+    return newitems.map((prueba) => 
+      console.log(prueba)
+    )
+  }
+  render(products, "burger")
+  
     return (
         <nav className="menu">
           <Link to={`${url}/sandwich`}>
@@ -52,7 +66,6 @@ function MenuOrderProducts() {
           <img className="menuImg" alt="drinks"  src={drinks}
           onMouseEnter={(e) => {e.target.setAttribute( 'src', drinksColor)}}
           onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}
-          onClick={console.log('hl')} 
           /></button>
           </Link>
         </nav>

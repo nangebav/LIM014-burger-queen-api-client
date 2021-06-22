@@ -12,7 +12,9 @@ import ProductsListSupply from '../pages/ProductsListSupply'
 import Navbar from '../components/Navbar';
 
 function AppRouter() {
+
   
+
     return (
       <Router>
         < Navbar/>
