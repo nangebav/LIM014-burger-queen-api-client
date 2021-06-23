@@ -67,3 +67,19 @@
   .hide{
     display:none;
   }
+
+  .fa-sign-out-alt{
+    padding: 5px;
+    border-radius: 10px;
+}
+
+  .fa-sign-out-alt:before {
+    color: rgb(255, 255, 255);
+}
+
+.fa-sign-out-alt:hover {
+  background-color: rgb(255, 153, 0);
+  transition: all 0.2s ease-out;
+  padding: 5px;
+  border-radius: 10px;
+}

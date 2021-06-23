@@ -6,7 +6,7 @@ import '../style/main.scss'
 function ProductItem(props) {
 
   const [quantity, setNumber] = useState(1);
-  const price = quantity*parseInt(props.price);
+  // const price = quantity*parseInt(props.price);
 
   useEffect(() => {
     // Actualiza el título del documento usando la API del navegador
