@@ -5,18 +5,6 @@ import { getProducts } from '../Services/products.js'
 import MenuOrderProducts from '../components/MenuOrderProducts';
 import ProductItem from '../components/productItem';
 import logo from '../images/burger-queen-logo.png';
-// import simpleHamburger from '../images/simpleBurger.svg'
-// import doubleHamburger from '../images/doubleBurger.svg'
-// import coffee from '../images/products/coffee.png'
-// import latte from '../images/products/latte.png'
-// import sandwich from '../images/products/sandwich.png'
-// import juice from '../images/products/juice.png'
-// import fries from '../images/products/fries.png'
-// import water from '../images/products/water.png'
-// import water2 from '../images/products/water.png'
-// import soda from '../images/products/soda.png'
-// import soda2 from '../images/products/soda.png'
-// import onionRings from '../images/products/onionRings.png'
 
 function TableOrder() {
 

@@ -38,16 +38,18 @@ function Navbar() {
 
     };
 
+    
+
 // console.log(history.location);
-console.log(history.location.pathname);
+ console.log(history.location.pathname);
 // console.log(history.location.search);
 // console.log(history.location.hash);
 // console.log(history.location.state);
-    
+// history.location.hash === '/home' ? null :
     // guardar el tipo de usuario en localStorage y luego usar useEffect
     return (
       <>
-        <nav className={`navbar ${ admin ===false || history.location.pathname === '/home' ? "hide" : "show"}`}>
+        <nav className={`navbar`}>
           <Link to="/home" className="navbar-logo">
             <img alt="BQ" src={logo}></img>
           </Link>
@@ -56,8 +58,10 @@ console.log(history.location.pathname);
               className="nav-item"
               onMouseEnter={() => setDropdownTwo(true)}
               onMouseLeave={() => setDropdownTwo(false)}
+            >
+              <Link
+                className="nav-links"
               >
-              <Link className="nav-links">
                 Servicio <i className="fas fa-caret-down" />
               </Link>
               {dropdownTwo && <Dropdown title1="Carta" to1="/tableOrder" title2="Ordenes" to2="/OrdersStatus"/>}
@@ -73,7 +77,7 @@ console.log(history.location.pathname);
               </Link>
             </li>
             <li
-              className="nav-item"
+              className={`nav-item ${admin ===false ? "hide" : "show"}`}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
@@ -86,7 +90,7 @@ console.log(history.location.pathname);
               {dropdown && <Dropdown title1="Almacén" to1="/supply" title2="Personal" to2="/AdminEmployes"/>}
             </li>
             <li className="nav-item" >
-                <i className="fas fa-sign-out-alt fa-2x" onClick={()=> {
+                <i className={"fas fa-sign-out-alt fa-2x"} onClick={()=> {
                 logOut();
                 history.push('/')}}></i>
             </li>

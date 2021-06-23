@@ -41,11 +41,6 @@ function LogIn (){
             }
           ) 
           .then((resp)=>{
-            // console.log(resp.data);
-            // console.log(resp.status);
-            // console.log(resp.statusText);
-            // console.log(resp.headers);
-            // console.log(resp.config);
 
             localStorage.token = resp.data
             // console.log(parseJwt(localStorage.token).roles.admin)

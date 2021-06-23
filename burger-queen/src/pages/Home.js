@@ -15,7 +15,7 @@ function Home(){
           <img src={bigHamburger} id="hamburguer-home" alt="hamburger" />
           <article className="buttons">
             <Link to="/orders">
-						  <button href="/orders"><img alt="orders" src={orders}></img>PEDIDOS</button>
+						  <button><img alt="orders" src={orders}></img>PEDIDOS</button>
 					  </Link>
             <Link to="/kitchen">
               <button><img alt="kitchen" src={kitchen}></img>COCINA</button>
