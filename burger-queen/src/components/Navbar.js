@@ -43,12 +43,6 @@ function Navbar() {
       setIsHome( location.pathname === '/home')
     }, [location]);
     
-
-// console.log(history.location);
-// console.log(history.location.search);
-// console.log(history.location.hash);
-// console.log(history.location.state);
-// history.location.hash === '/home' ? null :
     // guardar el tipo de usuario en localStorage y luego usar useEffect
     return (
       <>
@@ -85,7 +79,7 @@ function Navbar() {
               onMouseLeave={onMouseLeave}
             >
               <Link
-                /* to="/supply" */
+                to="/supply" 
                 className="nav-links"
               >
                 Admin <i className="fas fa-caret-down" />

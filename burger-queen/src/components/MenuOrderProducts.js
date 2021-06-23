@@ -23,17 +23,6 @@ import drinksColor from '../images/bebidasColor.svg';
 function MenuOrderProducts(props) {
 
   let { path, url } = useRouteMatch();
-
-
-  
-  // const render = (items, filter) =>{
-  //   const newitems = items.filter(productType => productType.type === filter )
-  //   return newitems.map((prueba) => console.log(prueba)
-  //   )
-  // }
-// render(products,"burger");
-
-console.log(path)
   
   return (
     <nav className="menu">
