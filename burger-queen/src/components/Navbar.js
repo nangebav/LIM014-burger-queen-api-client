@@ -1,14 +1,16 @@
 import "../style/main.scss"
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link , useHistory, useLocation} from "react-router-dom";
 import Dropdown from "./Dropdown";
 import logo from "../images/burger-queen-logo.png";
 import { parseJwt } from "../Services/auth";
 
 function Navbar() {
 
+  const location = useLocation();
+  // console.log(history);
 
-    // const [ admin, setShow ] = useState(parseJwt(localStorage.token).roles.admin);
+  // const [ admin, setShow ] = useState(parseJwt(localStorage.token).roles.admin);
     const [ admin, setShow ] = useState(false)
     const [dropdown, setDropdown] = useState(false);  
 
@@ -26,12 +28,17 @@ function Navbar() {
 
     };
 
+    const [isHome, setIsHome] = useState(false);
+
+    useEffect(() => {
+      setIsHome( location.pathname === '/home')
+    }, [location]);
     
     // guardar el tipo de usuario en localStorage y luego usar useEffect
     return (
       <>
-        <nav className={`navbar ${ admin ===false ? "hide" : ""}`}>
-          <Link to="/" className="navbar-logo">
+        <nav className={`navbar ${ isHome ? "hide" : ""}`}>
+          <Link to="/home" className="navbar-logo">
             <img alt="BQ" src={logo}></img>
           </Link>
           <ul className= "nav-menu">

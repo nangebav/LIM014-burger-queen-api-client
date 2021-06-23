@@ -11,9 +11,10 @@ import Kitchen from '../pages/Kitchen'
 import ProductsListSupply from '../pages/ProductsListSupply'
 import Navbar from '../components/Navbar';
 
+
+
 function AppRouter() {
-
-
+  
 
     return (
       <Router>

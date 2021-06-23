@@ -16,7 +16,7 @@ function ProductItem(props) {
 
   const listProduct = products.map((product) => 
   
-    <article className="productItem" key={product.id}>
+    <article className="productItem" key={product._id}>
         <div>
           <input type="checkbox" id={product.id} className="checkbox-round"></input>
           <label htmlFor={product.id}> {product.name}</label>
@@ -28,7 +28,6 @@ function ProductItem(props) {
           </div>
         </article>
         <p> $ {product.price} </p>
-        
     </article>
   );
     return (
