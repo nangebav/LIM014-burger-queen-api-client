@@ -58,6 +58,7 @@ function Navbar() {
             >
               <Link
                 className="nav-links"
+                to="/tableOrder" 
               >
                 Servicio <i className="fas fa-caret-down" />
               </Link>
