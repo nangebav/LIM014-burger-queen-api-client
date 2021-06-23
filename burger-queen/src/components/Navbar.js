@@ -6,7 +6,7 @@ import logo from "../images/burger-queen-logo.png";
 import { parseJwt } from "../Services/auth";
 
 function Navbar() {
-
+  const history = useHistory();
   const location = useLocation();
   // console.log(history);
 
@@ -26,7 +26,7 @@ function Navbar() {
     const logOut = () => {
       setShow(false);
       localStorage.token = '';
-      location.pathname = '/home';
+      history.push('/')
     };
 
     const onMouseEnter = () => {
@@ -52,7 +52,7 @@ function Navbar() {
     // guardar el tipo de usuario en localStorage y luego usar useEffect
     return (
       <>
-        <nav className={`navbar ${ isHome ? "hide" : ""}`}>
+        <nav className={`navbar ${ isHome || !admin ? "hide" : ""}`}>
           <Link to="/home" className="navbar-logo">
             <img alt="BQ" src={logo}></img>
           </Link>
