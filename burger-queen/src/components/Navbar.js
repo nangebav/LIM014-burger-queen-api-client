@@ -9,7 +9,7 @@ function Navbar() {
 
 
     // const [ admin, setShow ] = useState(parseJwt(localStorage.token).roles.admin);
-    const [ admin, setShow ] = useState(true)
+    const [ admin, setShow ] = useState(false)
     const [dropdown, setDropdown] = useState(false);  
 
     useEffect(() => {
@@ -35,7 +35,7 @@ function Navbar() {
             <img alt="BQ" src={logo}></img>
           </Link>
           <ul className= "nav-menu">
-            <li
+            <li key="tableOrder"
               className="nav-item"
             >
               <Link
@@ -45,7 +45,7 @@ function Navbar() {
                 Servicio 
               </Link>
             </li>
-            <li
+            <li key="kitchen"
               className="nav-item"
             >
               <Link
@@ -55,13 +55,13 @@ function Navbar() {
                 Cocina 
               </Link>
             </li>
-            <li
+            <li key="admin"
               className="nav-item"
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
               <Link
-                /* to="/supply" */
+                to="/supply"
                 className="nav-links"
               >
                 Admin <i className="fas fa-caret-down" />
@@ -72,7 +72,7 @@ function Navbar() {
           </ul>
           <button onClick={()=> setShow(false)}>
           SALIR
-        </button>
+          </button>
         </nav>
       </>
     );

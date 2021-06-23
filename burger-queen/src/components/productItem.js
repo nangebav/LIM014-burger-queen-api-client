@@ -13,9 +13,10 @@ function ProductItem(props) {
     document.textContent = `${quantity}`;
   });
   const products = props.products;
+
   const listProduct = products.map((product) => 
-    <article className="productItem">
-     
+  
+    <article className="productItem" key={product.id}>
         <div>
           <input type="checkbox" id={product.id} className="checkbox-round"></input>
           <label htmlFor={product.id}> {product.name}</label>
@@ -27,8 +28,9 @@ function ProductItem(props) {
           </div>
         </article>
         <p> $ {product.price} </p>
-      </article>
-      );
+        
+    </article>
+  );
     return (
       <>{listProduct}</>
     );
