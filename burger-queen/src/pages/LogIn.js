@@ -44,7 +44,9 @@ function LogIn (){
 
             localStorage.token = resp.data
             // console.log(parseJwt(localStorage.token).roles.admin)
-            history.push('/home')
+            // history.location.reload('/home')
+            // location.reload();
+            window.location = '/home';
           })
           .catch((err)=>{
             console.error(err);  

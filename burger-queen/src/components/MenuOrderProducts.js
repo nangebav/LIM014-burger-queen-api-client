@@ -15,7 +15,7 @@ import hamburgerColor from '../images/hamburguesaColor.svg';
 import asideColor from '../images/AcompañantesMenuColor.svg';
 import drinksColor from '../images/bebidasColor.svg';
 
-import ProductItem from '../components/productItem';
+// import ProductItem from '../components/productItem';
 
 // import ProductItem from '../components/productItem';
 // import simpleHamburger from '../images/simpleBurger.svg'
@@ -33,7 +33,7 @@ function MenuOrderProducts(props) {
   // }
 // render(products,"burger");
 
-
+console.log(path)
   
   return (
     <nav className="menu">
