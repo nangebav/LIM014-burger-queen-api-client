@@ -1,32 +1,25 @@
 
 import React, { useState, useEffect } from 'react';
 import '../style/main.scss'
-import { useLocalStorage } from '../Services/localFx';
 
 function UnitaryProduct(props){
 
-    const [checkedItems, setCheckedItems] = useLocalStorage('checkedItems', [])
     const [isChecked, setIsChecked] = useState(false);
     const [quantity, setNumber] = useState(1);
 
+    const [datos, setDatos] = useState({ })
 
-    const [datos, setDatos] = useState({
-        productName: props.name,
-        productTotalPrice: props.price*quantity,
-        productQuantity:quantity
-    })
 
-    const traerDatos = (event)=>{
-        event.preventDefault()
-        if(isChecked){
-           setCheckedItems(()=> console.log(datos))
-        }
-    }
-     useEffect(() => {
-    // Actualiza el título del documento usando la API del navegador
-    document.textContent = `${quantity}`;
-    });
-
+    useEffect(()=>{
+        document.textContent = `${quantity}`;
+        setDatos({
+            productName: props.name,
+            productTotalPrice: props.price*quantity,
+            productQuantity:quantity
+        })
+    }, [props, quantity])
+    
+    
     const handleOnChange = () => {
       setIsChecked(!isChecked);
     };
@@ -40,8 +33,7 @@ function UnitaryProduct(props){
                 id={props._id} 
                 className="checkbox-round"  
                 checked={isChecked}
-                onChange={handleOnChange}
-                onClick={traerDatos}>
+                onChange={handleOnChange}>
             </input>
             <span className="prueba"> </span>
             <label htmlFor={props._id}> {props.name}</label>
