@@ -18,7 +18,7 @@ function Order() {
                 <img src={logo} alt="logo"></img>
             </section>
             <section className="orderFlex">
-                <h2>La Orden</h2>
+                <h2>La Orden : {localStorage.nameClient}</h2>
                 <button> Agregar + </button>
             </section>
             <section className="orderList">
@@ -55,7 +55,7 @@ function Order() {
                 <h3> 
                 Notas del Cliente
                 </h3>
-                <p></p>
+                <p> {localStorage.notesClient}</p>
             </section>
             <section className="orderFlex" >
             <button className="buttonOrder"> Enviar Pedido  </button>
