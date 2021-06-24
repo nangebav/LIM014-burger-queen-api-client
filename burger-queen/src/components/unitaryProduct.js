@@ -5,31 +5,31 @@ import { useLocalStorage } from '../Services/localFx';
 
 function UnitaryProduct(props){
 
-    const [checkedItems, setCheckedItems] = useLocalStorage('checkedItems', [])
-    const [isChecked, setIsChecked] = useState(false);
+    // const [checkedItems, setCheckedItems] = useLocalStorage('checkedItems', [])
+    // const [isChecked, setIsChecked] = useState(false);
     const [quantity, setNumber] = useState(1);
 
 
-    const [datos, setDatos] = useState({
-        productName: props.name,
-        productTotalPrice: props.price*quantity,
-        productQuantity:quantity
-    })
+    // const [datos, setDatos] = useState({
+    //     productName: props.name,
+    //     productTotalPrice: props.price*quantity,
+    //     productQuantity:quantity
+    // })
 
-    const traerDatos = (event)=>{
-        event.preventDefault()
-        if(isChecked){
-           setCheckedItems(()=> console.log(datos))
-        }
-    }
+    // const traerDatos = (event)=>{
+    //     event.preventDefault()
+    //     if(isChecked){
+    //        setCheckedItems(()=> console.log(datos))
+    //     }
+    // }
      useEffect(() => {
     // Actualiza el título del documento usando la API del navegador
     document.textContent = `${quantity}`;
     });
 
-    const handleOnChange = () => {
-      setIsChecked(!isChecked);
-    };
+    // const handleOnChange = () => {
+    //   setIsChecked(!isChecked);
+    // };
   
     // console.log(isChecked)
     return (
@@ -39,9 +39,9 @@ function UnitaryProduct(props){
                 type="checkbox" 
                 id={props._id} 
                 className="checkbox-round"  
-                checked={isChecked}
+               /* checked={isChecked}
                 onChange={handleOnChange}
-                onClick={traerDatos}>
+                onClick={traerDatos} */>
             </input>
             <span className="prueba"> </span>
             <label htmlFor={props._id}> {props.name}</label>

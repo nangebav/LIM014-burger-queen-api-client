@@ -8,24 +8,28 @@ import Employees from '../components/EmployesCard'
 function AdminEmployees(){
     return(
     <section className="CardEmployees">
-    <img src={ logoBurgerQueen } className="logoBQ" alt="logo"></img>
-    <h1 className="name"> Administración </h1>
-    <p className="addCard"> + Agregar Empleado</p>
-    <Employees
-    photoEmploy={employA}
-    nameEmploy="Mariana Álvarez"
-    job="meser@"
-    idEmploy="728596785"/>
-    <Employees
-    photoEmploy={employB}
-    nameEmploy="Lara Flores"
-    job="cociner@"
-    idEmploy="728596785"/>
-    <Employees
-    photoEmploy={employC}
-    nameEmploy="Daniel Mora"
-    job="meser@"
-    idEmploy="728596785"/>
+        <img src={ logoBurgerQueen } className="logoBQ" alt="logo"></img>
+        <section>
+            <h1 className="name"> Administración </h1>
+            <p className="addCard"> + Agregar Empleado</p>
+        </section>
+        <section>
+            <Employees
+            photoEmploy={employA}
+            nameEmploy="Mariana Álvarez"
+            job="meser@"
+            idEmploy="728596785"/>
+            <Employees
+            photoEmploy={employB}
+            nameEmploy="Lara Flores"
+            job="cociner@"
+            idEmploy="728596785"/>
+            <Employees
+            photoEmploy={employC}
+            nameEmploy="Daniel Mora"
+            job="meser@"
+            idEmploy="728596785"/>
+        </section>
     </section>
 )
 };
