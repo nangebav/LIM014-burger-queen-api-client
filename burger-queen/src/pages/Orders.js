@@ -55,7 +55,7 @@ function Order() {
                 <h3> 
                 Notas del Cliente
                 </h3>
-                <p></p>
+                <p> {localStorage.notesClient}</p>
             </section>
             <section className="orderFlex" >
             <button className="buttonOrder"> Enviar Pedido  </button>

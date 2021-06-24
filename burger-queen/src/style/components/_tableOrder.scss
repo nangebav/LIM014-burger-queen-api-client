@@ -28,15 +28,19 @@ $colorGreen: rgb(94,201,110);
         width: 10%;
         height: 10%;
     }
-    select{
+    input{
         height:2em;
         overflow: scroll;
         background-color: $colorRed ;
         border:transparent;
-        width: 150%;
+        width: 100%;
         font-size: x-large;
         color:white;
         font-family: 'Alata', sans-serif;
+        padding-left:3%;
+    }
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.795);
     }
     option{
         font-size: medium;
@@ -71,8 +75,8 @@ $colorGreen: rgb(94,201,110);
         width: 6em;
     }
     .checkbox-round {
-        width: 1em;
-        height: 1em;
+        width: 1.3em;
+        height: 1.3em;
         background-color: white;
         border-radius: 50%;
         vertical-align: middle;
@@ -85,7 +89,7 @@ $colorGreen: rgb(94,201,110);
         font-style: normal;
     }
     .checkbox-round:checked {
-        background-color: $colorYellow;
+        background-color: $colorGreen;
     }
     .counterWrap{
         text-align: center;
