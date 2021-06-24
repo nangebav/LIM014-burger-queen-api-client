@@ -5,10 +5,9 @@ import { useLocalStorage } from '../Services/localFx';
 
 function UnitaryProduct(props){
 
-    const [checkedItems, setCheckedItems] = useLocalStorage('checkedItems', [])
-    const [isChecked, setIsChecked] = useState(false);
+    // const [checkedItems, setCheckedItems] = useLocalStorage('checkedItems', [])
+    // const [isChecked, setIsChecked] = useState(false);
     const [quantity, setNumber] = useState(1);
-
 
     const [datos, setDatos] = useState({ })
 
@@ -43,9 +42,9 @@ function UnitaryProduct(props){
                 type="checkbox" 
                 id={props._id} 
                 className="checkbox-round"  
-                checked={isChecked}
+               /* checked={isChecked}
                 onChange={handleOnChange}
-                onClick={traerDatos}>
+                onClick={traerDatos} */>
             </input>
             <span className="prueba"> </span>
             <label htmlFor={props._id}> {props.name}</label>
