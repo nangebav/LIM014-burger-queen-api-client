@@ -1,16 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
 import '../style/main.scss'
-import { useLocalStorage } from '../Services/localFx';
 
 function UnitaryProduct(props){
 
+<<<<<<< HEAD
     // const [checkedItems, setCheckedItems] = useLocalStorage('checkedItems', [])
+=======
+>>>>>>> 582eeadfaa861e9bdb5ee377a7420a509ad8e8f8
     const [isChecked, setIsChecked] = useState(false);
     const [quantity, setNumber] = useState(1);
 
     // const [datos, setDatos] = useState({ })
 
+<<<<<<< HEAD
     // const traerDatos = (event)=>{
     //     event.preventDefault()
     //     if(isChecked){
@@ -19,6 +22,8 @@ function UnitaryProduct(props){
     //         console.log(checkedItems)
     //     }
     // }
+=======
+>>>>>>> 582eeadfaa861e9bdb5ee377a7420a509ad8e8f8
 
     // useEffect(()=>{
     //     document.textContent = `${quantity}`;
@@ -43,8 +48,7 @@ function UnitaryProduct(props){
                 id={props._id} 
                 className="checkbox-round"  
                 checked={isChecked}
-                onChange={handleOnChange}
-                /*onClick={traerDatos}*/>
+                onChange={handleOnChange}>
             </input>
             <span className="prueba"> </span>
             <label htmlFor={props._id}> {props.name}</label>
