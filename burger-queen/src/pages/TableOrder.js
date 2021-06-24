@@ -11,16 +11,14 @@ import CartContext from '../hooks/CartContext.js';
 
 function TableOrder() {
 
-  const {client} = useCart();
-
   console.log(useCart());
 
- const [orderClient, setOrderClient] = useState({
-  client: '',
-  order: 2,
-  noteClient: '',
-  time: ''
- })
+  const [orderClient, setOrderClient] = useState({
+    client: '',
+    order: '',
+    noteClient: '',
+    time: ''
+  })
 
  const handleClientChange = (e) => {
   //  console.log(event.target.name)
@@ -69,7 +67,7 @@ function TableOrder() {
         <div className="tableOrder">
           <header className="tableOrderHeader">
             <nav> 
-              <input className="selectTable" value={client}  placeholder=" Nombre del cliente ✍" name='client' onChange= {handleClientChange}>
+              <input className="selectTable"  placeholder=" Nombre del cliente ✍" name='client' onChange= {handleClientChange}>
               </input>
             </nav>
             <img src={logo} alt="logo"></img>

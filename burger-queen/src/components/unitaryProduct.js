@@ -4,26 +4,11 @@ import '../style/main.scss'
 
 function UnitaryProduct(props){
 
-<<<<<<< HEAD
-    // const [checkedItems, setCheckedItems] = useLocalStorage('checkedItems', [])
-=======
->>>>>>> 582eeadfaa861e9bdb5ee377a7420a509ad8e8f8
     const [isChecked, setIsChecked] = useState(false);
     const [quantity, setNumber] = useState(1);
 
     // const [datos, setDatos] = useState({ })
 
-<<<<<<< HEAD
-    // const traerDatos = (event)=>{
-    //     event.preventDefault()
-    //     if(isChecked){
-
-    //        setCheckedItems(datos)
-    //         console.log(checkedItems)
-    //     }
-    // }
-=======
->>>>>>> 582eeadfaa861e9bdb5ee377a7420a509ad8e8f8
 
     // useEffect(()=>{
     //     document.textContent = `${quantity}`;
