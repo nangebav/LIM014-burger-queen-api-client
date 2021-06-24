@@ -88,7 +88,7 @@ function Navbar() {
               {dropdown && <Dropdown title1="Almacén" to1="/supply" title2="Personal" to2="/AdminEmployes"/>}
             </li>
             <li className="nav-item" >
-                <i className={"fas fa-sign-out-alt fa-2x"} onClick={()=> logOut()}></i>
+                <i className="fas fa-sign-out-alt fa-2x" onClick={()=> logOut()}></i>
             </li>
           </ul>
         </nav>

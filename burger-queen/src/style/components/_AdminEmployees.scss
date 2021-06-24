@@ -6,11 +6,16 @@
 .CardEmployees{
     margin:3% 3% 0% 5%;
     padding: 2%;
-    flex-wrap: wrap;
+
+    .logoBQ{
+        width: 100px;
+        margin-left: 80%;
+        margin-bottom: 0px;
+    }
 
     img{
-        width: 15%;
-        height: 15%;
+        width: 20%;
+        height: 50%;
     }
 
     .name{
