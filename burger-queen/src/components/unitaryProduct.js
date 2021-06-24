@@ -10,23 +10,27 @@ function UnitaryProduct(props){
     const [quantity, setNumber] = useState(1);
 
 
-    const [datos, setDatos] = useState({
-        productName: props.name,
-        productTotalPrice: props.price*quantity,
-        productQuantity:quantity
-    })
+    const [datos, setDatos] = useState({ })
 
     const traerDatos = (event)=>{
         event.preventDefault()
         if(isChecked){
-           setCheckedItems(()=> console.log(datos))
+
+           setCheckedItems(datos)
+            console.log(checkedItems)
         }
     }
-     useEffect(() => {
-    // Actualiza el título del documento usando la API del navegador
-    document.textContent = `${quantity}`;
-    });
 
+    useEffect(()=>{
+        document.textContent = `${quantity}`;
+        setDatos({
+            productName: props.name,
+            productTotalPrice: props.price*quantity,
+            productQuantity:quantity
+        })
+    }, [props, quantity])
+    
+    
     const handleOnChange = () => {
       setIsChecked(!isChecked);
     };
