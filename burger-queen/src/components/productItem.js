@@ -8,6 +8,7 @@ function ProductItem(props) {
   
   const products = props.products;
 
+  // map de los unitaryprodutc - renderizado
   const listProduct = products.map((product) => 
   
     <UnitaryProduct name={product.name} price={product.price} _id={product._id} image={product.image} key={product._id}/>

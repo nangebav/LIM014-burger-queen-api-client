@@ -1,16 +1,29 @@
-import OrderToKitchen from '../components/OrderToKitchen';
+import { useEffect, useState } from 'react';
+import OrderToKitchenUnitary from '../components/OrderToKitchenUnitary';
+import { getOrders } from '../Services/orders';
 // import logo from '../images/burger-queen-logo.png';
 
 function Kitchen() {
+
+  const [orders, setOrders] = useState([]);
+
+
+    useEffect(()=> {
+      
+      const getData = () =>{
+        getOrders()
+        .then((res)=> {
+          setOrders(res.data);
+        })
+        .catch((err)=>{console.log(err)})
+      }
+      getData()
+      
+    },)
+  
     return (
       <div className="tableOrder">
-        {/* <header className="orderToKitchenHeader">
-          <img src={logo} alt="logo"></img>
-        </header> */}
-        <OrderToKitchen table="MESA 1"/>
-        <OrderToKitchen table="MESA 2"/>
-        <OrderToKitchen table="MESA 3"/>
-        <OrderToKitchen table="MESA 4"/>
+        <OrderToKitchenUnitary orders={orders}/>
       </div>
     );
   }

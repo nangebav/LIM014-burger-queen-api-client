@@ -1,6 +1,6 @@
 
 import {Link} from 'react-router-dom';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
 
 import MenuOrderProducts from '../components/MenuOrderProducts';
@@ -9,8 +9,10 @@ import logo from '../images/burger-queen-logo.png';
 // import { useLocalStorage } from '../hooks/useLocalStorage';
 // import UseCart from '../hooks/useCart.js';
 // import CartContext from '../hooks/CartContext.js';
+// import useCart from '../hooks/useCart.js';
+// import CartContext from '../hooks/CartContext.js';
 
-function TableOrder() {
+function TableOrder(props) {
 
 // const  { client, handleClientChange }= useContext(CartContext)
 // console.log(client);
@@ -47,6 +49,7 @@ function TableOrder() {
 //  }
 
   // console.log(dataCart);
+  // const providerValue = useMemo(()=> dataCart, [dataCart])
 
   const [products, setProducts] = useState([]);
   const [typeProduct, setTypeProduct] = useState('burger');
@@ -58,7 +61,6 @@ function TableOrder() {
       .then((res)=> {
         const newItems = res.data.filter(productType => productType.type === typeProduct)
         setProducts(newItems);
-
       })
       .catch((err)=>{console.log(err)})
     }

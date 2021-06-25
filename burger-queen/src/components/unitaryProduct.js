@@ -12,16 +12,17 @@ function UnitaryProduct(props){
 
 
     const [datos, setDatos] = useState({})
+    // const [arr, setArr] = useState([])
 
 
-    useEffect(()=>{
-        document.textContent = `${quantity}`;
-        setDatos({
-            productName: props.name,
-            productTotalPrice: props.price*quantity,
-            productQuantity:quantity
-        })
-    }, [props, quantity])
+    // useEffect(()=>{
+    //     document.textContent = `${quantity}`;
+    //     setDatos({
+    //         productName: props.name,
+    //         productTotalPrice: props.price*quantity,
+    //         productQuantity:quantity
+    //     })
+    // }, [props, quantity])
     
     
     const handleOnChange = () => {
@@ -45,7 +46,7 @@ function UnitaryProduct(props){
             <article className="counterWrap">
             <img alt="imgPhoto" src= {props.image}></img>
             <div className="counter">
-                <button onClick={()=>setNumber(quantity - 1 )}> - </button> {quantity} <button onClick={()=>setNumber(quantity + 1 )}> + </button> 
+                <button onClick={()=>setNumber(quantity - 1 >= 0 ? quantity - 1 : 0  )}> - </button> {quantity} <button onClick={()=>setNumber(quantity + 1 )}> + </button> 
             </div>
             </article>
             <p> $ {props.price*quantity} </p>

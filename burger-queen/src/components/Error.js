@@ -3,6 +3,7 @@ import '../style/main.scss'
 
 function Error(props) {
 
+    // History para enviar del menu al login
     const history = useHistory();
 
     return (
