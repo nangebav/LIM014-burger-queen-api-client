@@ -7,7 +7,7 @@ function UnitaryProduct(props){
     const [isChecked, setIsChecked] = useState(false);
     const [quantity, setNumber] = useState(1);
 
-    // const [datos, setDatos] = useState({ })
+    // const [arr, setArr] = useState([])
 
 
     // useEffect(()=>{
@@ -41,7 +41,7 @@ function UnitaryProduct(props){
             <article className="counterWrap">
             <img alt="imgPhoto" src= {props.image}></img>
             <div className="counter">
-                <button onClick={()=>setNumber(quantity - 1 )}> - </button> {quantity} <button onClick={()=>setNumber(quantity + 1 )}> + </button> 
+                <button onClick={()=>setNumber(quantity - 1 >= 0 ? quantity - 1 : 0  )}> - </button> {quantity} <button onClick={()=>setNumber(quantity + 1 )}> + </button> 
             </div>
             </article>
             <p> $ {props.price*quantity} </p>

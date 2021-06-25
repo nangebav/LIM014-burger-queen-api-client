@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
 
 import MenuOrderProducts from '../components/MenuOrderProducts';
@@ -13,6 +13,8 @@ function TableOrder(props) {
 
   // const {client} = useCart();
   // console.log(useCart());
+
+  
 
   const [orderClient, setOrderClient] = useState({
     client: '',
@@ -50,7 +52,6 @@ function TableOrder(props) {
       .then((res)=> {
         const newItems = res.data.filter(productType => productType.type === typeProduct)
         setProducts(newItems);
-
       })
       .catch((err)=>{console.log(err)})
     }
