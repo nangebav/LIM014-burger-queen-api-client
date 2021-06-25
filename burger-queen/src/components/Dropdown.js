@@ -4,6 +4,9 @@ import '../style/main.scss'
 import { Link } from 'react-router-dom';
 
 function Dropdown(props) {
+
+  // useState para desplegar el menú dropdown con hover
+
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);

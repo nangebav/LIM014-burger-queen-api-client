@@ -1,6 +1,8 @@
 import pen from '../images/pen.svg';
 import deleteUser from '../images/X.svg';
 
+// PENDIENTE FUNCIONALIDAD
+
 function Employees (props) {
     return (
         <main>

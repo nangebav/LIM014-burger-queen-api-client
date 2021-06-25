@@ -4,12 +4,15 @@ import '../style/main.scss'
 import OrderList from '../components/OrderList'
 import {Link} from 'react-router-dom';
 import useCart from '../hooks/useCart.js';
+import { useContext } from 'react';
+import CartContext from '../hooks/CartContext';
 
 
 function Order() {
 
-    const {client, notesClient} = useCart();
-
+    const data = useCart();
+    console.log(data)
+    
     return (
     <section className="Orden">
         <header className="ordersHeader">
@@ -22,7 +25,7 @@ function Order() {
                 <img src={logo} alt="logo"></img>
             </section>
             <section className="orderFlex">
-                <h2>La Orden : {client} </h2>
+                <h2>La Orden : {data.client}</h2>
                 <button> Agregar + </button>
             </section>
             <section className="orderList">
@@ -57,7 +60,7 @@ function Order() {
             </section>
             <section className="orderFlex" >
                 <h3> 
-                {notesClient}
+                
                 </h3>
                 <p></p>
             </section>

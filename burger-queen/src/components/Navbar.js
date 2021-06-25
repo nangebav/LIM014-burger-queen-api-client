@@ -6,44 +6,44 @@ import logo from "../images/burger-queen-logo.png";
 import { parseJwt } from "../Services/localFx";
 
 function Navbar() {
-  const history = useHistory();
-  const location = useLocation();
-  // console.log(history);
+    const history = useHistory();
+    const location = useLocation();
 
-  // const [ admin, setShow ] = useState(parseJwt(localStorage.token).roles.admin);
+
     const [ admin, setShow ] = useState(false)
-    
     const [dropdown, setDropdown] = useState(false);
     const [dropdownTwo, setDropdownTwo] = useState(false);  
 
     useEffect(() => {
-      // localStorage.token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGMzNGEzMWI2NjZlZTE3OThkMzFlOGQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjIzNTU0NzU4LCJleHAiOjk5OTk5OTk5OTk5fQ.zGMhPbJxmlZUvznOr76NqBnI2DKx0l4612qdET0-66w'
+      // fx para reconocer si el token tiene admin true o false y reconozca el cambio
       if (localStorage.token !== '') {
         setShow(parseJwt(localStorage.token).roles.admin)
       }
     }, [admin])
 
+    // fx para salir al login y "cerrar sesión"
     const logOut = () => {
       setShow(false);
-      localStorage.token = '';
+      localStorage.token = ''; // cambiando valor de token a vacío
       history.push('/')
     };
 
+    // funciones para activar o desactivar dropdown con hover
     const onMouseEnter = () => {
         setDropdown(true);
     };
-  
     const onMouseLeave = () => {
         setDropdown(false);
     };
 
     const [isHome, setIsHome] = useState(false);
 
+    //
     useEffect(() => {
-      setIsHome( location.pathname === '/home')
+      setIsHome( location.pathname === '/home') // llevar a home al loguearse
     }, [location]);
-    
-    // guardar el tipo de usuario en localStorage y luego usar useEffect
+
+
     return (
       <>
         <nav className={`navbar ${ isHome || !admin ? "hide" : ""}`}>
@@ -59,7 +59,6 @@ function Navbar() {
               <Link
                 to="/tableOrder"
                 className="nav-links"
-                to="/tableOrder" 
               >
                 Servicio <i className="fas fa-caret-down" />
               </Link>

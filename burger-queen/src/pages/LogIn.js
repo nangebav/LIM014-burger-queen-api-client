@@ -6,11 +6,6 @@ import '../style/main.scss';
 import {useHistory} from 'react-router-dom';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
-// import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
-// import Error from '../components/Error.js'
-// import { useState } from 'react';
-
-
 
 
 
