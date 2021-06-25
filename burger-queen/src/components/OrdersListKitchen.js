@@ -2,13 +2,13 @@
 import '../style/main.scss'
 import OrderToKitchenUnitary from './OrderToKitchenUnitary';
 
-function OrdersList(props) {
+function OrdersListKitchen(props) {
 
   const orders = props.orders;
 
   const orderList = orders.map((order) => 
   
-    <OrderToKitchenUnitary client={order.client} dateEntry={order.dateEntry} products={order.products} status={order.status}/>
+    <OrderToKitchenUnitary client={order.client} dateEntry={order.dateEntry} status={order.status} key={order._id}/>
 
   );
     return (
@@ -16,4 +16,4 @@ function OrdersList(props) {
     );
 }
   
-export default OrdersList;
+export default OrdersListKitchen;

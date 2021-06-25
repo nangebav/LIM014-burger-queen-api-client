@@ -10,6 +10,7 @@ function SupplyUnitaryItem(props){
     // Actualiza el título del documento usando la API del navegador
     document.textContent = `${initialSupply}`;
   });
+
     // console.log(isChecked)
     return (
         <article className="productSupply">

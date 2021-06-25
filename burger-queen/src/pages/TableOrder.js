@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
 
 import MenuOrderProducts from '../components/MenuOrderProducts';
-import ProductItem from '../components/productItem';
+import ProductItem from '../components/ProductItem';
 import logo from '../images/burger-queen-logo.png';
 // import { useLocalStorage } from '../hooks/useLocalStorage';
 // import useCart from '../hooks/useCart.js';
@@ -38,7 +38,7 @@ function TableOrder(props) {
     time: new Date()
   }
 
-  console.log(dataCart);
+  //console.log(dataCart);
 
   // const providerValue = useMemo(()=> dataCart, [dataCart])
 
@@ -80,6 +80,6 @@ function TableOrder(props) {
           </section>
         </div>
     );
-  }
+}
   
 export default TableOrder;

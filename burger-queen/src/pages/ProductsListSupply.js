@@ -20,7 +20,7 @@ function ProductsListSupply() {
       }
       getData()
       
-    },)
+    },[])
   
     
     return (
