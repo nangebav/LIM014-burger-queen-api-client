@@ -1,15 +1,11 @@
 import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
-
-import OrderList from '../components/OrderList'
 import {Link} from 'react-router-dom';
-import useCart from '../hooks/useCart.js';
+ import OrderList from '../components/OrderList'
+// import useCart from '../hooks/useCart.js';
 
 
-function Order() {
-
-    const {client, notesClient} = useCart();
-
+function Order(props) {
     return (
     <section className="Orden">
         <header className="ordersHeader">
@@ -22,7 +18,7 @@ function Order() {
                 <img src={logo} alt="logo"></img>
             </section>
             <section className="orderFlex">
-                <h2>La Orden : {client} </h2>
+                <h2>La Orden : {props.client}</h2>
                 <button> Agregar + </button>
             </section>
             <section className="orderList">
@@ -57,9 +53,9 @@ function Order() {
             </section>
             <section className="orderFlex" >
                 <h3> 
-                {notesClient}
+                Notas del Cliente
                 </h3>
-                <p></p>
+                <p>{props.noteClient}</p>
             </section>
             <section className="orderFlex" >
             <button className="buttonOrder"> Enviar Pedido  </button>

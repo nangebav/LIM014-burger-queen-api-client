@@ -1,15 +1,17 @@
 import pen from '../images/pen.svg';
 import deleteUser from '../images/X.svg';
-
+  
 function Employees (props) {
-    return (
+    const employees = props.employees;
+    const employCard = employees.map((employees) => 
         <main>
         <section className="CardEmploy">
-            <img src={props.photoEmploy} className="img" alt="persona random" />
+            <img src={employees.photoEmploy} className="img" alt="persona random" />
             <section >
-                <h2>{props.nameEmploy}</h2>
-                <p>Cargo: {props.job}</p>
-                <p>Id: {props.idEmploy}</p>
+                <h2>{employees.name}</h2>
+                <p>Email: {employees.email}</p>
+                <p>Cargo: Servicio</p>
+                <p>Id: {employees._id}</p>
             </section>
             <section className="editAndDelete">
                 <img src={pen} alt="Editar" ></img>
@@ -17,6 +19,9 @@ function Employees (props) {
             </section>
         </section>
         </main>
+    )
+    return (
+        <>{employCard}</>
     );
 }
   
