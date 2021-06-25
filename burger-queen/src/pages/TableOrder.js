@@ -1,3 +1,4 @@
+
 import {Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
@@ -6,40 +7,48 @@ import MenuOrderProducts from '../components/MenuOrderProducts';
 import ProductItem from '../components/productItem';
 import logo from '../images/burger-queen-logo.png';
 // import { useLocalStorage } from '../hooks/useLocalStorage';
+// import UseCart from '../hooks/useCart.js';
+// import CartContext from '../hooks/CartContext.js';
 // import useCart from '../hooks/useCart.js';
-import CartContext from '../hooks/CartContext.js';
+// import CartContext from '../hooks/CartContext.js';
 
 function TableOrder(props) {
 
-  // const {client} = useCart();
-  // console.log(useCart());
+// const  { client, handleClientChange }= useContext(CartContext)
+// console.log(client);
+//  const noteClient = UseCart();
+//  console.log(noteClient);
 
-  
+// const [orderClient, setOrderClient] = useState({
+  /* Order*/
+// client: '',
+//  noteClient: '',
+// })
 
-  const [orderClient, setOrderClient] = useState({
-    client: '',
-    order: '',
-    notesClient: '',
-    time: ''
-  })
+//  const handleClientChange = (e) => {
+//   //  console.log(event.target.name)
+//   //  console.log(event.target.value
+//   setOrderClient({
+//         ...orderClient,
+//         [e.target.name] : e.target.value
+//     })
+    
+//   }
 
- const handleClientChange = (e) => {
-  setOrderClient({
-        ...orderClient,
-        [e.target.name] : e.target.value
-    })
-  }
-  //console.log(orderClient);
+//   console.log(orderClient);
 
-  const dataCart = {
-    client: orderClient.client,
-    order: orderClient.order,
-    notesClient: orderClient.notesClient,
-    time: new Date()
-  }
+//    const dataCart = {
+//      client: orderClient.client,
+//      noteClient: orderClient.noteClient,
+//      products: [{
+//      product: '',
+//      quanty:'',
+//      price:'',
+//      }
+//    ]
+//  }
 
-  console.log(dataCart);
-
+  // console.log(dataCart);
   // const providerValue = useMemo(()=> dataCart, [dataCart])
 
   const [products, setProducts] = useState([]);
@@ -61,21 +70,19 @@ function TableOrder(props) {
 
  // console.log(dataCart);
     return (
-  
-        <div className="tableOrder">
+       <div className="tableOrder">
           <header className="tableOrderHeader">
             <nav> 
-              <input className="selectTable"  placeholder=" Nombre del cliente ✍" name='client' onChange= {handleClientChange}>
-                {}
+              <input className="selectTable" placeholder="Nombre del cliente ✍" name='client' >
               </input>
             </nav>
             <img src={logo} alt="logo"></img>
           </header>
-          <MenuOrderProducts setTypeProduct= {setTypeProduct}/>
+          <MenuOrderProducts setTypeProduct={setTypeProduct}/>
           <h2>Elige el tipo de producto</h2>
           <ProductItem products={products}/>
           <section className="bottomOrderWrap">
-            <textarea rows="5" name='notesClient' placeholder=" Notas" onChange= {handleClientChange} ></textarea>
+            <textarea rows="5" name='noteClient' placeholder=" Notas"></textarea>
             <Link to="/orders"><button className="next">Siguiente</button></Link>
           </section>
         </div>

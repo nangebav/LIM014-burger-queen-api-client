@@ -1,8 +1,9 @@
 import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
-
-import OrderList from '../components/OrderList'
 import {Link} from 'react-router-dom';
+ import OrderList from '../components/OrderList'
+// import useCart from '../hooks/useCart.js';
+
 import useCart from '../hooks/useCart.js';
 import { useContext } from 'react';
 import CartContext from '../hooks/CartContext';
@@ -60,7 +61,7 @@ function Order() {
             </section>
             <section className="orderFlex" >
                 <h3> 
-                
+                Notas del Cliente
                 </h3>
                 <p></p>
             </section>

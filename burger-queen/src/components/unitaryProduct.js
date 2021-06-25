@@ -6,7 +6,12 @@ function UnitaryProduct(props){
 
     const [isChecked, setIsChecked] = useState(false);
     const [quantity, setNumber] = useState(1);
+    
+    const [order, setOrderClient] =useState ({});
 
+
+
+    const [datos, setDatos] = useState({})
     // const [arr, setArr] = useState([])
 
 
