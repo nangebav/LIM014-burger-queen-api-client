@@ -15,10 +15,9 @@ function AdminEmployees(){
     useEffect(()=> {
     getUsers()
         .then((res)=> {
-            const user = res.data
-            setEmployees(user);
-            const admin =  res.data
-            admin.map((arr) => console.log(arr.roles))
+            const data = res.data.filter(userType => !userType.roles.admin )
+            console.log(data);
+           setEmployees(data);
         })
         .catch((err)=>{console.log(err)});
 

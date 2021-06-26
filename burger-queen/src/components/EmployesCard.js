@@ -10,8 +10,7 @@ function Employees (props) {
         <section className="CardEmploy">
             <img src={employees.photoEmploy} className="img" alt="persona random" />
             <section >
-                <h2>{employees.name}</h2>
-                <p>Email: {employees.email}</p>
+                <h3>{employees.email}</h3>
                 <p>Cargo: Servicio</p>
                 <p>Id: {employees._id}</p>
             </section>
