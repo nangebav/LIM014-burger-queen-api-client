@@ -1,6 +1,6 @@
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import '../style/main.scss'
-import employA from '../images/prueba/employA.png'
+// import employA from '../images/prueba/employA.png'
 import Employees from '../components/EmployesCard'
 import { getUsers} from '../Services/users';
 import { useState, useEffect } from 'react';
@@ -13,14 +13,14 @@ function AdminEmployees(){
     // const [admin, setAdmin] = useState(true);
 
     useEffect(()=> {
-    getUsers()
+        getUsers()
         .then((res)=> {
-            const user = res.data
-            setEmployees(user);
-            const admin =  res.data
-            admin.map((arr) => console.log(arr.roles))
+            const data = res.data.filter(userType => !userType.roles.admin )
+            console.log(data);
+        setEmployees(data);
         })
         .catch((err)=>{console.log(err)});
+
 
     getUsers()
     },[]);
