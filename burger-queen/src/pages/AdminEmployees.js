@@ -1,11 +1,31 @@
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import '../style/main.scss'
 import employA from '../images/prueba/employA.png'
-import employB from '../images/prueba/employB.png'
-import employC from '../images/prueba/employC.png'
-
 import Employees from '../components/EmployesCard'
+import { getUsers} from '../Services/users';
+import { useState, useEffect } from 'react';
+
+
+
 function AdminEmployees(){
+
+    const [employees, setEmployees] = useState([]);
+    // const [admin, setAdmin] = useState(true);
+
+    useEffect(()=> {
+    getUsers()
+        .then((res)=> {
+            const user = res.data
+            setEmployees(user);
+            const admin =  res.data
+            admin.map((arr) => console.log(arr.roles))
+        })
+        .catch((err)=>{console.log(err)});
+
+    getUsers()
+    },[]);
+
+
     return(
     <section className="CardEmployees">
         <img src={ logoBurgerQueen } className="logoBQ" alt="logo"></img>
@@ -14,21 +34,7 @@ function AdminEmployees(){
             <p className="addCard"> + Agregar Empleado</p>
         </section>
         <section>
-            <Employees
-            photoEmploy={employA}
-            nameEmploy="Mariana Álvarez"
-            job="meser@"
-            idEmploy="728596785"/>
-            <Employees
-            photoEmploy={employB}
-            nameEmploy="Lara Flores"
-            job="cociner@"
-            idEmploy="728596785"/>
-            <Employees
-            photoEmploy={employC}
-            nameEmploy="Daniel Mora"
-            job="meser@"
-            idEmploy="728596785"/>
+            <Employees employees={employees}/>
         </section>
     </section>
 )
