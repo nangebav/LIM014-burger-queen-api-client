@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import OrderToKitchenUnitary from '../components/OrderToKitchenUnitary';
+import OrdersListKitchen from '../components/OrdersListKitchen';
 import { getOrders } from '../Services/orders';
 // import logo from '../images/burger-queen-logo.png';
 
@@ -19,11 +19,11 @@ function Kitchen() {
       }
       getData()
       
-    },)
+    },[])
   
     return (
       <div className="tableOrder">
-        <OrderToKitchenUnitary orders={orders}/>
+        <OrdersListKitchen orders={orders}/>
       </div>
     );
   }

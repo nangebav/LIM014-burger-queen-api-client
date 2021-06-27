@@ -3,7 +3,7 @@ import '../style/main.scss'
 import clock from '../images/clock.svg'
 import alertIcon from '../images/alertIcon.svg'
 
-function OrderToKitchen(props) {
+function OrderToKitchenUnitary(props) {
     return (
         <section className="orderToKitchen">
             <header>
@@ -22,12 +22,12 @@ function OrderToKitchen(props) {
                 {props.products}
             </div>
             <div className="bottomOrderSection">
-                <textarea rows="4">Notas:</textarea>
+                <textarea rows="4" defaultValue="Notas:"></textarea>
                 <button className="deliver">{props.status}</button>
             </div>
         </section>
     );
 }
   
-export default OrderToKitchen;
+export default OrderToKitchenUnitary;
 
