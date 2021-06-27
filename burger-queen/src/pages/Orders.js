@@ -3,7 +3,7 @@ import '../style/main.scss'
 import {Link} from 'react-router-dom';
  import OrderList from '../components/OrderList'
 // import useCart from '../hooks/useCart.js';
-
+import {useLocation} from 'react-router-dom';
 import useCart from '../hooks/useCart.js';
 import { useContext } from 'react';
 import CartContext from '../hooks/CartContext';
@@ -11,9 +11,38 @@ import CartContext from '../hooks/CartContext';
 
 function Order() {
 
-    const data = useCart();
-    console.log(data)
+    const location = useLocation(); 
+    const order = location.state // traemos la orden con useState desde Table Order
     
+    console.log(location)
+
+      // objeto para post cuando tengamos el API
+        // const test = {
+        //   "userId": "M11",
+        //   "client": "andrea",
+        //   "products": [
+        //     {
+        //       "qty": 1,
+        //       "product": {
+        //         "name": "hamburguesa",
+        //         "id": "123"
+        //       }
+        //     },
+        //     {
+        //       "qty": 1,
+        //       "product": {
+        //         "name": "sprite",
+        //         "id": "111"
+        //       }
+        //     }
+        //   ],
+        // }
+    // función para ingresar data a API
+        // const sendOrder = (test) =>{
+        //   addOrders(test)
+        //   .then((res)=> console.log(res.data))
+        // }
+
     return (
     <section className="Orden">
         <header className="ordersHeader">
@@ -26,7 +55,7 @@ function Order() {
                 <img src={logo} alt="logo"></img>
             </section>
             <section className="orderFlex">
-                <h2>La Orden : {data.client}</h2>
+                <h2>La Orden : {order.client} </h2>
                 <button> Agregar + </button>
             </section>
             <section className="orderList">
@@ -54,7 +83,7 @@ function Order() {
                     <tbody>
                         <tr>
                             <td>Total</td>
-                            <td>{}</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
@@ -63,7 +92,7 @@ function Order() {
                 <h3> 
                 Notas del Cliente
                 </h3>
-                <p></p>
+                <p> {order.note}</p>
             </section>
             <section className="orderFlex" >
             <button className="buttonOrder"> Enviar Pedido  </button>

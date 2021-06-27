@@ -5,18 +5,16 @@ import UnitaryProduct from './unitaryProduct';
 
 function ProductItem(props) {
 
-  
   const products = props.products;
 
-  // map de los unitaryprodutc - renderizado
-  const listProduct = products.map((product) => 
-  
-    <UnitaryProduct name={product.name} price={product.price} _id={product._id} image={product.image} key={product._id}/>
+  // map de los unitaryproduct
+  return (
+    <>{products.map((product) => 
 
+      <UnitaryProduct selectedProduct={props.selectedProduct} name={product.name} price={product.price} _id={product._id} image={product.image} key={product._id}/>
+
+    )}</>
   );
-    return (
-      <>{listProduct}</>
-    );
 }
   
 export default ProductItem;

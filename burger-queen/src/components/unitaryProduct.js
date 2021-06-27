@@ -8,34 +8,29 @@ function UnitaryProduct(props){
     const [quantity, setNumber] = useState(1);
     
     const [order, setOrderClient] =useState ({});
-
-
-
     const [datos, setDatos] = useState({})
-    // const [arr, setArr] = useState([])
 
+    const { name , price, selectedProduct } = props;
 
-    // useEffect(()=>{
-    //     document.textContent = `${quantity}`;
-    //     setDatos({
-    //         productName: props.name,
-    //         productTotalPrice: props.price*quantity,
-    //         productQuantity:quantity
-    //     })
-    // }, [props, quantity])
-    
-    
+    const obj = {
+       name : name,
+       totalPrice: price*quantity,
+       quantity: quantity
+    }
+
     const handleOnChange = () => {
       setIsChecked(!isChecked);
+      if(!isChecked){
+        selectedProduct(obj)
+      }
     };
-  
-    // console.log(isChecked)
+
     return (
         <article className="productItem">
             <div>
             <input 
                 type="checkbox" 
-                id={props._id} 
+                id={props._id}
                 className="checkbox-round"  
                 checked={isChecked}
                 onChange={handleOnChange}>
@@ -46,7 +41,7 @@ function UnitaryProduct(props){
             <article className="counterWrap">
             <img alt="imgPhoto" src= {props.image}></img>
             <div className="counter">
-                <button onClick={()=>setNumber(quantity - 1 >= 0 ? quantity - 1 : 0  )}> - </button> {quantity} <button onClick={()=>setNumber(quantity + 1 )}> + </button> 
+                <button onClick={()=>setNumber(quantity - 1 >= 0 ? quantity - 1 : 0 )}> - </button> {quantity} <button onClick={()=>setNumber(quantity + 1 )}> + </button> 
             </div>
             </article>
             <p> $ {props.price*quantity} </p>

@@ -2,58 +2,38 @@
 import {Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
-
+import {useHistory} from 'react-router-dom';
 import MenuOrderProducts from '../components/MenuOrderProducts';
 import ProductItem from '../components/ProductItem';
 import logo from '../images/burger-queen-logo.png';
-// import { useLocalStorage } from '../hooks/useLocalStorage';
-// import UseCart from '../hooks/useCart.js';
-// import CartContext from '../hooks/CartContext.js';
-// import useCart from '../hooks/useCart.js';
-// import CartContext from '../hooks/CartContext.js';
+import { addOrders } from '../Services/orders.js';
+
 
 function TableOrder(props) {
 
-// const  { client, handleClientChange }= useContext(CartContext)
-// console.log(client);
-//  const noteClient = UseCart();
-//  console.log(noteClient);
-
-// const [orderClient, setOrderClient] = useState({
-  /* Order*/
-// client: '',
-//  noteClient: '',
-// })
-
-//  const handleClientChange = (e) => {
-//   //  console.log(event.target.name)
-//   //  console.log(event.target.value
-//   setOrderClient({
-//         ...orderClient,
-//         [e.target.name] : e.target.value
-//     })
-    
-//   }
-
-//   console.log(orderClient);
-
-  //console.log(dataCart);
-//    const dataCart = {
-//      client: orderClient.client,
-//      noteClient: orderClient.noteClient,
-//      products: [{
-//      product: '',
-//      quanty:'',
-//      price:'',
-//      }
-//    ]
-//  }
-
-  // console.log(dataCart);
-  // const providerValue = useMemo(()=> dataCart, [dataCart])
-
+  const history = useHistory(); 
+  const [name , setName] = useState('') //
+  const [note , setNote] = useState('')
   const [products, setProducts] = useState([]);
   const [typeProduct, setTypeProduct] = useState('burger');
+  const [cart , setCart] = useState([])
+  const [orderClient, setOrderClient] = useState({
+      /* Order*/
+    client: '',
+    noteClient: '',
+  })
+
+  const clientName = (event) => {
+    setName(event.target.value)
+  }
+  const clientNote = (event) => {
+    setNote(event.target.value)
+  }
+
+  const selectedProduct = (product) => {
+    setCart([...cart, product])
+  }
+  //console.log(cart)
 
   useEffect(()=> {
     
@@ -69,22 +49,30 @@ function TableOrder(props) {
     
   },[typeProduct])
 
- // console.log(dataCart);
-    return (
+
+    const totalOrder = {
+      "client": name ,
+      "note": note,
+      "products": cart,
+    }
+
+
+
+  return (
        <div className="tableOrder">
           <header className="tableOrderHeader">
             <nav> 
-              <input className="selectTable" placeholder="Nombre del cliente ✍" name='client' >
+              <input className="selectTable" placeholder="Nombre del cliente ✍" name='client' onChange={clientName} >
               </input>
             </nav>
             <img src={logo} alt="logo"></img>
           </header>
           <MenuOrderProducts setTypeProduct={setTypeProduct}/>
           <h2>Elige el tipo de producto</h2>
-          <ProductItem products={products}/>
+          <ProductItem products={products} selectedProduct={selectedProduct}/>
           <section className="bottomOrderWrap">
-            <textarea rows="5" name='noteClient' placeholder=" Notas"></textarea>
-            <Link to="/orders"><button className="next">Siguiente</button></Link>
+            <textarea rows="5" name='noteClient' placeholder=" Notas" onChange={clientNote}></textarea>
+            <button className="next" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
           </section>
         </div>
     );

@@ -7,3 +7,9 @@ export const getOrders = async () => {
     
     return resp;
 }
+
+export const addOrders = async (newOrder) => {
+    const resp = await axios.post(baseUrl, newOrder ); 
+    
+    return resp;
+}
