@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch ,useHistory} from 'react-router-dom';
 import LogIn from '../pages/LogIn';
 import Home from '../pages/Home';
 import Error from '../components/Error';
@@ -14,7 +14,8 @@ import Navbar from '../components/Navbar';
 
 
 function AppRouter() {
-  
+  const history = useHistory();
+
     return (
       <Router>
        < Navbar />
