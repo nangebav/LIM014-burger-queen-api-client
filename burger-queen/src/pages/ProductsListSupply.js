@@ -4,6 +4,7 @@ import ProductSupply from '../components/ProductSupply'
 import { useEffect, useState } from 'react'
 import { getProducts } from '../Services/products';
 
+
 function ProductsListSupply() {
 
     const [products, setProducts] = useState([]);
@@ -27,8 +28,8 @@ function ProductsListSupply() {
         <>
             <header className="productSupplyHeader"> 
                 <p>Lista de Productos</p>
-                <p>Inventario Inicial</p>
-                <p>Inventario Actual</p>
+                <p>Inventario </p>
+  
             </header>
             
             <section className="productsListSupply">

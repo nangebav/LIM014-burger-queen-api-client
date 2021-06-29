@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../style/main.scss'
+import pen from '../images/pen.svg';
+import deleteUser from '../images/X.svg';
 
 function SupplyUnitaryItem(props){
-
-  const supply =12;
-  const [initialSupply, setCount] = useState(supply);
-
-  useEffect(() => {
-    // Actualiza el título del documento usando la API del navegador
-    document.textContent = `${initialSupply}`;
-  });
 
     // console.log(isChecked)
     return (
@@ -20,11 +14,11 @@ function SupplyUnitaryItem(props){
         <article className="supplyWrap">
           <img alt="imgPhoto" src= {props.productItemImg}></img>
           <div className="counterSupply">
-            <div>{supply}</div>
-            <div className="initialSupply"> {initialSupply} </div>
+            <div>15</div>
+            <div className="initialSupply">  </div>
             <div className="buttonWrap">
-              <button onClick={()=>setCount(initialSupply + 1 )}> + </button> 
-              <button onClick={()=>setCount(initialSupply - 1 >= 0 ? initialSupply - 1 : 0 )}> - </button> 
+                <img src={pen} alt="Editar" ></img>
+                <img src={deleteUser} alt="Eliminar"></img>
             </div>
           </div>
         </article>

@@ -16,7 +16,7 @@ function AdminEmployees(){
         getUsers()
         .then((res)=> {
             const data = res.data.filter(userType => !userType.roles.admin )
-            //console.log(data);
+            console.log(data);
             setEmployees(data);
         })
         .catch((err)=>{console.log(err)});
