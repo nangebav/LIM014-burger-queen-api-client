@@ -16,9 +16,12 @@ function Navbar() {
 
     useEffect(() => {
       // fx para reconocer si el token tiene admin true o false y reconozca el cambio
-      if (localStorage.token !== '') {
-        // setShow(parseJwt(localStorage.token).roles.admin)
-      }
+     
+     console.log(localStorage.token);
+    
+      
+      // setShow(parseJwt(localStorage.token).roles.admin)
+
     }, [admin])
 
     // fx para salir al login y "cerrar sesión"

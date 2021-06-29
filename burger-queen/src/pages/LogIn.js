@@ -37,7 +37,8 @@ function LogIn (){
           ) 
           .then((resp)=>{
             
-            localStorage.token = resp.data.token
+            const token = resp.data.token
+            localStorage.token = token
             // const token = parseJwt(localStorage.token).roles.admin
     
             // console.log(parseJwt(localStorage.token).roles.admin)
