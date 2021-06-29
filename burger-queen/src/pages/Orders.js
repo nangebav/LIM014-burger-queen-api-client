@@ -8,6 +8,7 @@ import useCart from '../hooks/useCart.js';
 import { useContext } from 'react';
 import CartContext from '../hooks/CartContext';
 import ProductItem from '../components/ProductItem';
+import {addOrders} from '../Services/orders'
 
 
 function Order(props) {
@@ -22,31 +23,27 @@ function Order(props) {
     const orderProducts = order.products
     // console.log(orderProducts);
       // objeto para post cuando tengamos el API
-        // const test = {
-        //   "userId": "M11",
-        //   "client": order.client,
-        //   "products": [
-        //     {
-        //       "qty": 1,
-        //       "product": {
-        //         "name": "hamburguesa",
-        //         "id": "123"
-        //       }
-        //     },
-        //     {
-        //       "qty": 1,
-        //       "product": {
-        //         "name": "sprite",
-        //         "id": "111"
-        //       }
-        //     }
-        //   ],
-        // }
+      const fecha = new Date()
+      // console.log(fecha);
+
+         const orderPost = {
+           "userId": "M11",
+           "client": order.client,
+           "products": order.products,
+           "status": "pending",
+           "dateEntry": fecha,
+           "dateProcesed": '',
+         }
+
     // función para ingresar data a API
-        // const sendOrder = (test) =>{
-        //   addOrders(test)
-        //   .then((res)=> console.log(res.data))
-        // }
+        const sendOrder = (test) =>{
+           addOrders(localStorage.token, test)
+           .then((res)=> res.data
+          )
+     }
+
+    console.log(orderPost);
+    
 
     return (
     <section className="Orden">
@@ -79,6 +76,7 @@ function Order(props) {
                         <tr>
                             <td>Total</td>
                             <td></td>
+                            <td>${order.total}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -90,7 +88,7 @@ function Order(props) {
                 <p> {order.note}</p>
             </section>
             <section className="orderFlex" >
-            <button className="buttonOrder"> Enviar Pedido  </button>
+            <button className="buttonOrder" onClick={() => sendOrder(orderPost)}> Enviar Pedido  </button>
             <button className="buttonOrder"> Anular pedido </button>
             </section>
         </header>

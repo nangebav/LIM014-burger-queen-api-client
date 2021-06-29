@@ -33,9 +33,7 @@ function AdminEmployees(){
             <h1 className="name"> Administración </h1>
             <p className="addCard"> + Agregar Empleado</p>
         </section>
-        <section>
             <Employees employees={employees}/>
-        </section>
     </section>
 )
 };

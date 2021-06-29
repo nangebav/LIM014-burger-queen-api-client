@@ -36,8 +36,10 @@ function LogIn (){
             }
           ) 
           .then((resp)=>{
-
-            localStorage.token = resp.data
+            
+            localStorage.token = resp.data.token
+            // const token = parseJwt(localStorage.token).roles.admin
+    
             // console.log(parseJwt(localStorage.token).roles.admin)
             // history.location.reload('/home')
             // location.reload();

@@ -1,25 +1,52 @@
 const axios = require('axios');
 
+
+// const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/products'
+// const baseUrl = 'https://burguer-api.herokuapp.com/products'
 const baseUrl = 'http://localhost:3001/products'
 
-export const getProducts = async () => {
-    const resp = await axios.get(baseUrl); 
+export const getProducts = async (token) => {
+    const resp = await axios({
+        method: 'get',
+        url: baseUrl,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+      });
     return resp;
 }
 
-export const getProductId = async (productId) => {
+export const getProductId = async (productId, token) => {
     const server = `${baseUrl}/${productId}`;
-    const resp = await axios.get(server); 
+    const resp = await axios({
+        method: 'get',
+        url: server,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+      });
     return resp;
 }
 
-export const putProducts = async () => {
-    const resp = await axios.put(baseUrl); 
+export const putProducts = async (token) => {
+    const resp = await axios({
+        method: 'put',
+        url: baseUrl,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+      });
     return resp;
 }
 
-export const postProducts = async () => {
-    const resp = await axios.post(baseUrl); 
+export const postProducts = async (token) => {
+    const resp = await axios({
+        method: 'post',
+        url: baseUrl,
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+      });
     return resp;
 }
 
