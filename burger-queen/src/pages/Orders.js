@@ -1,47 +1,49 @@
 import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
 import {Link} from 'react-router-dom';
- import OrderList from '../components/OrderList'
+import OrderList from '../components/OrderList'
 // import useCart from '../hooks/useCart.js';
 import {useLocation} from 'react-router-dom';
 import useCart from '../hooks/useCart.js';
 import { useContext } from 'react';
 import CartContext from '../hooks/CartContext';
+import ProductItem from '../components/ProductItem';
+import {addOrders} from '../Services/orders'
 
 
-function Order() {
+function Order(props) {
+
+    
 
     const location = useLocation(); 
     const order = location.state // traemos la orden con useState desde Table Order
     
-    console.log(location)
+    // console.log(order) // 
 
+    const orderProducts = order.products
+    // console.log(orderProducts);
       // objeto para post cuando tengamos el API
-        // const test = {
-        //   "userId": "M11",
-        //   "client": "andrea",
-        //   "products": [
-        //     {
-        //       "qty": 1,
-        //       "product": {
-        //         "name": "hamburguesa",
-        //         "id": "123"
-        //       }
-        //     },
-        //     {
-        //       "qty": 1,
-        //       "product": {
-        //         "name": "sprite",
-        //         "id": "111"
-        //       }
-        //     }
-        //   ],
-        // }
+      const fecha = new Date()
+      // console.log(fecha);
+
+         const orderPost = {
+           "userId": "M11",
+           "client": order.client,
+           "products": order.products,
+           "status": "pending",
+           "dateEntry": fecha,
+           "dateProcesed": '',
+         }
+
     // función para ingresar data a API
-        // const sendOrder = (test) =>{
-        //   addOrders(test)
-        //   .then((res)=> console.log(res.data))
-        // }
+        const sendOrder = (test) =>{
+           addOrders(localStorage.token, test)
+           .then((res)=> res.data
+          )
+     }
+
+    console.log(orderPost);
+    
 
     return (
     <section className="Orden">
@@ -62,28 +64,19 @@ function Order() {
                 <table>
                     <thead>
                         <tr>
-                            <th align="left" >Mesa</th>
+                            <th align="left" >Productos</th>
                             <th align="left" >Cantidad</th>
                             <th align="left" >Total del producto</th>
                         </tr>
                     </thead>
-                    <OrderList
-                    order="1"
-                    food="Hamburguesa Doble"
-                    typeFoods="Pollo"
-                    quantity="1"
-                    price="10.0"/>
-                    <OrderList 
-                    order="2"
-                    food="Papas fritas"
-                    typeFoods=""
-                    quantity="2"
-                    price="15.0"
-                    />
+                    {orderProducts.map((product) => 
+                    <OrderList selectedProduct={props.selectedProduct} food={product.name} quantity={product.quantity} price={product.totalPrice} key={product.name}/>
+                    )}
                     <tbody>
                         <tr>
                             <td>Total</td>
                             <td></td>
+                            <td>${order.total}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -95,7 +88,7 @@ function Order() {
                 <p> {order.note}</p>
             </section>
             <section className="orderFlex" >
-            <button className="buttonOrder"> Enviar Pedido  </button>
+            <button className="buttonOrder" onClick={() => sendOrder(orderPost)}> Enviar Pedido  </button>
             <button className="buttonOrder"> Anular pedido </button>
             </section>
         </header>

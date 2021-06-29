@@ -17,7 +17,7 @@ function AdminEmployees(){
         .then((res)=> {
             const data = res.data.filter(userType => !userType.roles.admin )
             console.log(data);
-        setEmployees(data);
+           setEmployees(data);
         })
         .catch((err)=>{console.log(err)});
 
@@ -33,9 +33,7 @@ function AdminEmployees(){
             <h1 className="name"> Administración </h1>
             <p className="addCard"> + Agregar Empleado</p>
         </section>
-        <section>
             <Employees employees={employees}/>
-        </section>
     </section>
 )
 };
