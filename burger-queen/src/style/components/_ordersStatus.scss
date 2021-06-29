@@ -32,6 +32,18 @@ $colorYellow: rgb(255,200,57);
 
 .tableCard{
     border-bottom: 1px solid rgb(202, 202, 202);
+    .statusWrapper{
+        display: flex;
+        button{
+            border:none;
+            margin-left: 15%;
+            background-color: transparent;
+            img{
+                width:1em;
+            }
+            
+        }
+    }
 }
 .tableStatus > h2 {
     margin-right: 0px;

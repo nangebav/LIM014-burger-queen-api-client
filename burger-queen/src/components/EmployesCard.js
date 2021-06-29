@@ -1,4 +1,4 @@
-import Employ from "./Employ";
+import Employ from "./Employes";
 
 // PENDIENTE FUNCIONALIDAD
 

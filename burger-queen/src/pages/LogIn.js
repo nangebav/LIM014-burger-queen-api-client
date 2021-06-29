@@ -6,7 +6,7 @@ import '../style/main.scss';
 import {useHistory} from 'react-router-dom';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
-
+import jwt_decode from "jwt-decode";
 
 
 function LogIn (){
@@ -37,13 +37,14 @@ function LogIn (){
           ) 
           .then((resp)=>{
             
-            const token = resp.data.token
-            localStorage.token = token
+            localStorage.token = resp.data.token
+            // console.log(resp.data.token)
             // const token = parseJwt(localStorage.token).roles.admin
     
             // console.log(parseJwt(localStorage.token).roles.admin)
             // history.location.reload('/home')
             // location.reload();
+            // console.log(jwt_decode(localStorage.token).roles.admin)
             window.location = '/home';
           })
           .catch((err)=>{

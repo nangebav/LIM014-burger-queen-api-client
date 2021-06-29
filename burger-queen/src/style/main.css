@@ -565,6 +565,22 @@ td, table {
   border-bottom: 1px solid #cacaca;
 }
 
+.tableCard .statusWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tableCard .statusWrapper button {
+  border: none;
+  margin-left: 15%;
+  background-color: transparent;
+}
+
+.tableCard .statusWrapper button img {
+  width: 1em;
+}
+
 .tableStatus > h2 {
   margin-right: 0px;
   color: #e92f48;
