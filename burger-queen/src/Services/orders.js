@@ -13,3 +13,9 @@ export const addOrders = async (newOrder) => {
     
     return resp;
 }
+
+export const deleteOrders = async (orderId) => {
+    const resp = await axios.delete(baseUrl, orderId ); 
+    
+    return resp;
+}

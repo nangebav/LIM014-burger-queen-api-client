@@ -6,13 +6,20 @@ function OrdersListKitchen(props) {
 
   const orders = props.orders;
 
-  const orderList = orders.map((order) => 
-  
-    <OrderToKitchenUnitary client={order.client} dateEntry={order.dateEntry} status={order.status} key={order._id}/>
-
-  );
     return (
-      <>{orderList}</>
+      <>
+      { orders.map((order) => 
+  
+        < OrderToKitchenUnitary 
+          client={order.client} 
+          dateEntry={order.dateEntry} 
+          status={order.status} 
+          key={order._id} 
+          products={order.products.map((item) => <p> {item.qty} {item.product.name}</p>)}
+        
+        />
+    
+      )} </>
     );
 }
   
