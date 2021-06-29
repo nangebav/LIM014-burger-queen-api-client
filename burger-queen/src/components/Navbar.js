@@ -4,21 +4,25 @@ import { Link , useHistory, useLocation} from "react-router-dom";
 import Dropdown from "./Dropdown";
 import logo from "../images/burger-queen-logo.png";
 import { parseJwt } from "../Services/localFx";
+import jwt_decode from "jwt-decode";
 
 function Navbar() {
     const history = useHistory();
     const location = useLocation();
-
+    
 
     const [ admin, setShow ] = useState(false)
     const [dropdown, setDropdown] = useState(false);
     const [dropdownTwo, setDropdownTwo] = useState(false);  
 
     useEffect(() => {
+      // localStorage.token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGMzNGEzMWI2NjZlZTE3OThkMzFlOGQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjIzNTU0NzU4LCJleHAiOjk5OTk5OTk5OTk5fQ.zGMhPbJxmlZUvznOr76NqBnI2DKx0l4612qdET0-66w'
       // fx para reconocer si el token tiene admin true o false y reconozca el cambio
-      if (localStorage.token !== '') {
-        setShow(parseJwt(localStorage.token).roles.admin)
-      }
+      var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGMzNGEzMWI2NjZlZTE3OThkMzFlOGQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjIzNTU0NzU4LCJleHAiOjk5OTk5OTk5OTk5fQ.zGMhPbJxmlZUvznOr76NqBnI2DKx0l4612qdET0-66w";
+      const decoded = (jwt_decode(token).roles.admin);
+    
+      setShow(decoded)
+      //console.log(localStorage.token)
     }, [admin])
 
     // fx para salir al login y "cerrar sesión"
@@ -46,7 +50,7 @@ function Navbar() {
 
     return (
       <>
-        <nav className={`navbar ${ isHome || !admin ? "hide" : ""}`}>
+        <nav className={`navbar ${ isHome || localStorage.token ==='' ? "hide" : ""}`}>
           <Link to="/home" className="navbar-logo">
             <img alt="BQ" src={logo}></img>
           </Link>

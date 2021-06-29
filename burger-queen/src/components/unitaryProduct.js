@@ -46,7 +46,6 @@ function UnitaryProduct(props){
             </article>
             <p> $ {props.price*quantity} </p>
         </article>
-
     )
 
 }

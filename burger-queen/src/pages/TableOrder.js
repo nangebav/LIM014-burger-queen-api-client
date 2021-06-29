@@ -1,5 +1,4 @@
-
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
 import {useHistory} from 'react-router-dom';
@@ -38,7 +37,7 @@ function TableOrder(props) {
   useEffect(()=> {
     
     const getData = () =>{
-      getProducts()
+      getProducts(localStorage.token)
       .then((res)=> {
         const newItems = res.data.filter(productType => productType.type === typeProduct)
         setProducts(newItems);
@@ -49,11 +48,16 @@ function TableOrder(props) {
     
   },[typeProduct])
 
+  let priceProducts = cart.map(c => c.totalPrice);
+  let total = priceProducts.reduce((a, b) => a + b, 0);
+
+console.log(total);
 
     const totalOrder = {
       "client": name ,
       "note": note,
       "products": cart,
+      "total": total,
     }
 
 
