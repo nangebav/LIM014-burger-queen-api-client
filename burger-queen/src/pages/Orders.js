@@ -8,7 +8,7 @@ import useCart from '../hooks/useCart.js';
 import { useContext, useState } from 'react';
 import CartContext from '../hooks/CartContext';
 import ProductItem from '../components/ProductItem';
-import {addOrders} from '../Services/orders'
+import {postOrders} from '../Services/orders'
 
 
 function Order(props) {
@@ -36,7 +36,7 @@ function Order(props) {
 
     // función para ingresar data a API
         const sendOrder = (obj) =>{
-           addOrders(localStorage.token, obj)
+           postOrders(localStorage.token, obj)
            .then((res)=> res.data
           )
      }

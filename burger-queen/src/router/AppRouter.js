@@ -34,7 +34,7 @@ function AppRouter() {
             <LogIn/>
           </Route>
           <Route path="*">
-            <Error messageTitle="MENSAJE" message1 ="Cuenta de usuario no es válida." message2 = "Inténtelo otra vez." button="ACEPTAR"/>
+            <Error messageTitle="MENSAJE" message1 ="Email o contraseña no es inválidos." message2 = "Inténtelo otra vez." button="ACEPTAR"/>
           </Route>
         </Switch>
       </Router>

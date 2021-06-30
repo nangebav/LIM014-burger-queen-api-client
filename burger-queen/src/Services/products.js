@@ -11,8 +11,9 @@ export const getProducts = async (token) => {
         url: baseUrl,
         headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
         }
-      });
+      }); // Falta header parameters
     return resp;
 }
 
@@ -23,33 +24,48 @@ export const getProductId = async (productId, token) => {
         url: server,
         headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
         }
       });
     return resp;
 }
 
-export const putProducts = async (token) => {
+export const putProducts = async (token, changeProduct) => {
     const resp = await axios({
         method: 'put',
         url: baseUrl,
         headers: {
             Authorization: `Bearer ${token}`,
-        }
+            'Content-Type': 'application/json',
+        },
+        data:changeProduct,
       });
     return resp;
 }
 
-export const postProducts = async (token) => {
+export const postProducts = async (token, newProduct) => {
     const resp = await axios({
         method: 'post',
         url: baseUrl,
         headers: {
             Authorization: `Bearer ${token}`,
-        }
-      });
+            'Content-Type': 'application/json',
+        },
+        data: newProduct,
+    });
     return resp;
 }
 
-
-
-
+export const deleteProduct = async (token, productId) => {
+    const resp = await axios({
+        method: 'post',
+        url: `${baseUrl}/${productId}`,
+        header: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+        data: productId,
+    }); 
+    
+    return resp;
+}

@@ -29,28 +29,22 @@ function LogIn (){
 
   const traerDatos =(event) => {
     event.preventDefault() 
-          postRequest(
-            { 
-              email:datos.email,
-              password:datos.password,
-            }
-          ) 
-          .then((resp)=>{
-            
-            localStorage.token = resp.data.token
-            // console.log(resp.data.token)
-            // const token = parseJwt(localStorage.token).roles.admin
-    
-            // console.log(parseJwt(localStorage.token).roles.admin)
-            // history.location.reload('/home')
-            // location.reload();
-            // console.log(jwt_decode(localStorage.token).roles.admin)
-            window.location = '/home';
-          })
-          .catch((err)=>{
-            console.error(err);  
-            history.push('/error')
-          });
+    postRequest(
+      { 
+        email:datos.email,
+        password:datos.password,
+      }
+    )
+    .then((resp)=>{
+      // console.log(resp)
+        localStorage.token = resp.data.token
+        window.location = '/home';
+    })
+    .catch((err)=>{
+      console.error('email o contraseña incorrectos')
+      history.push('/error')
+
+    })
   }
 
       return (

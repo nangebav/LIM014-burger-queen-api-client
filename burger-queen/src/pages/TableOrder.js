@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom';
 import MenuOrderProducts from '../components/MenuOrderProducts';
 import ProductItem from '../components/ProductItem';
 import logo from '../images/burger-queen-logo.png';
-import { addOrders } from '../Services/orders.js';
+import { postOrders } from '../Services/orders.js';
 
 
 function TableOrder(props) {
