@@ -15,7 +15,6 @@ function SupplyUnitaryItem(props){
           <img alt="imgPhoto" src= {props.productItemImg}></img>
           <div className="counterSupply">
             <div>15</div>
-            <div className="initialSupply">  </div>
             <div className="buttonWrap">
                 <img src={pen} alt="Editar" ></img>
                 <img src={deleteUser} alt="Eliminar"></img>
