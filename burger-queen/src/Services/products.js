@@ -39,10 +39,11 @@ export const putProducts = async (token) => {
     return resp;
 }
 
-export const postProducts = async (token) => {
+export const postProducts = async (token, product) => {
     const resp = await axios({
         method: 'post',
         url: baseUrl,
+        data: JSON.stringify(product),
         headers: {
             Authorization: `Bearer ${token}`,
         }

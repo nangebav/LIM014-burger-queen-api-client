@@ -16,13 +16,11 @@ export const getUsers = async () => {
 }
 
 
-export const deleteUsers = async (token, userId) => {
+export const deleteUsers = async (userId) => {
     const resp = await axios({
         method: 'delete',
         url: `${baseUrl}/${userId}`,
-        data: {
-            userId
-        },
+        data: userId,
         header: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.token}`,
