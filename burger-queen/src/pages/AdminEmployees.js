@@ -10,20 +10,17 @@ import { useState, useEffect } from 'react';
 function AdminEmployees(){
 
     const [employees, setEmployees] = useState([]);
-    // const [admin, setAdmin] = useState(true);
+    // const [admin, setAdmin] = useState(true)
 
-    useEffect(()=> {
+    useEffect(()=> { 
         getUsers()
         .then((res)=> {
-            const data = res.data.filter(userType => !userType.roles.admin )
-            console.log(data);
-            setEmployees(data);
+             const data = res.data.filter(userType => !userType.roles.admin )
+             console.log(data);
+             setEmployees(data);
         })
-        .catch((err)=>{console.log(err)});
-
-
-    getUsers()
-    },[]);
+             .catch((err)=>{console.log(err)}); 
+        getUsers() },[]); 
 
 
     return(

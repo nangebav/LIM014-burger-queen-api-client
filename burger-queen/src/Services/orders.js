@@ -33,12 +33,12 @@ export const getOrders = async (token) => {
 export const postOrders = async (token, newOrder) => {
     const resp = await axios({
         method: 'post',
+        data: newOrder,
         url: baseUrl,
         header: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
-        },
-        data: newOrder,
+        }
     }); 
     
     return resp;
@@ -46,15 +46,15 @@ export const postOrders = async (token, newOrder) => {
 
 export const deleteOrders = async (token, orderId) => {
     const resp = await axios({
-        method: 'post',
+        method: 'delete',
         url: `${baseUrl}/${orderId}`,
-        header: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-        },
         data: {
             orderId
         },
+        header: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        }
     }); 
     
     return resp;

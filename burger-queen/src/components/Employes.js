@@ -1,6 +1,7 @@
 import pen from '../images/pen.svg';
 import deleteUser from '../images/X.svg';
-import '../style/main.scss'
+import '../style/main.scss';
+
 
 function Employ(props){
 
@@ -15,7 +16,11 @@ function Employ(props){
             </section>
             <section className="editAndDelete">
                 <img src={pen} alt="Editar" ></img>
-                <img src={deleteUser} alt="Eliminar"></img>
+                <img 
+                className={props._id}
+                /* onClick={e => deleteUsersFx(e.target.className)} */
+                src={deleteUser}
+                alt="Eliminar"></img>
             </section>
         </section>
         </main>
