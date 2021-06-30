@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-// const baseUrl = 'http://localhost:3001/orders';
-const baseUrl = 'http://localhost:3001/orders'
+const baseUrl = 'http://localhost:3001/orders';
+// const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/orders'
 
 export const getOrders = async (token) => {
     const resp = await axios({
@@ -18,9 +18,7 @@ export const getOrders = async (token) => {
 export const addOrders = async (token, newOrder) => {
     const resp = await axios({
         method: 'post',
-        data: {
-            newOrder
-        },
+        data: newOrder,
         url: baseUrl,
         header: {
             Authorization: `Bearer ${token}`,

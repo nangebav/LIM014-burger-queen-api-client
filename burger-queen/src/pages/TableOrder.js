@@ -51,7 +51,7 @@ function TableOrder(props) {
   let priceProducts = cart.map(c => c.totalPrice);
   let total = priceProducts.reduce((a, b) => a + b, 0);
 
-console.log(total);
+    //console.log(total);
 
     const totalOrder = {
       "client": name ,
@@ -73,7 +73,7 @@ console.log(total);
           </header>
           <MenuOrderProducts setTypeProduct={setTypeProduct}/>
           <h2>Elige el tipo de producto</h2>
-          <ProductItem products={products} selectedProduct={selectedProduct}/>
+          <ProductItem products={products} selectedProduct={selectedProduct} total ={total} />
           <section className="bottomOrderWrap">
             <textarea rows="5" name='noteClient' placeholder=" Notas" onChange={clientNote}></textarea>
             <button className="next" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>

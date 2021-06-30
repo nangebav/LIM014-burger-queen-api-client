@@ -34,23 +34,30 @@ function LogIn (){
               email:datos.email,
               password:datos.password,
             }
-          ) 
+          )
           .then((resp)=>{
+            switch (resp.status) {
+              
+              case 200:
+                localStorage.token = resp.data.token
+                window.location = '/home';
+                break;
+
+                case 400:
+                  history.push('/error')
+                  console.log('Email y contraseña mal escritos')
+                break;
+
+                default:
+                break;
+            }
             
-            localStorage.token = resp.data.token
-            // console.log(resp.data.token)
-            // const token = parseJwt(localStorage.token).roles.admin
-    
-            // console.log(parseJwt(localStorage.token).roles.admin)
-            // history.location.reload('/home')
-            // location.reload();
-            // console.log(jwt_decode(localStorage.token).roles.admin)
-            window.location = '/home';
+            
           })
-          .catch((err)=>{
-            console.error(err);  
-            history.push('/error')
-          });
+          // .catch((err)=>{
+          //   console.error(err);  
+          //   history.push('/error')
+          // });
   }
 
       return (

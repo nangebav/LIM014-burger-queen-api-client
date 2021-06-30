@@ -5,7 +5,7 @@ import OrderList from '../components/OrderList'
 // import useCart from '../hooks/useCart.js';
 import {useLocation} from 'react-router-dom';
 import useCart from '../hooks/useCart.js';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import CartContext from '../hooks/CartContext';
 import ProductItem from '../components/ProductItem';
 import {addOrders} from '../Services/orders'
@@ -14,19 +14,18 @@ import {addOrders} from '../Services/orders'
 function Order(props) {
 
     
-
     const location = useLocation(); 
     const order = location.state // traemos la orden con useState desde Table Order
-    
+    const [orderProducts, setOrderProducts] = useState(order.products)
     // console.log(order) // 
 
-    const orderProducts = order.products
+    // const orderProducts = order.products
     // console.log(orderProducts);
       // objeto para post cuando tengamos el API
       const fecha = new Date()
       // console.log(fecha);
 
-         const orderPost = {
+         let orderPost = {
            "userId": "M11",
            "client": order.client,
            "products": order.products,
@@ -36,14 +35,20 @@ function Order(props) {
          }
 
     // función para ingresar data a API
-        const sendOrder = (test) =>{
-           addOrders(localStorage.token, test)
+        const sendOrder = (obj) =>{
+           addOrders(localStorage.token, obj)
            .then((res)=> res.data
           )
      }
 
-    console.log(orderPost);
-    
+    // console.log(orderPost);
+        const deleteOrder = () => {
+                setOrderProducts([]); 
+                order.total = '' ;
+                order.client='';
+                order.note='';
+        } ;
+        
 
     return (
     <section className="Orden">
@@ -57,8 +62,8 @@ function Order(props) {
                 <img src={logo} alt="logo"></img>
             </section>
             <section className="orderFlex">
-                <h2>La Orden : {order.client} </h2>
-                <button> Agregar + </button>
+                <h2>La Orden :  </h2>
+                <button> {order.client} </button>
             </section>
             <section className="orderList">
                 <table>
@@ -89,7 +94,7 @@ function Order(props) {
             </section>
             <section className="orderFlex" >
             <button className="buttonOrder" onClick={() => sendOrder(orderPost)}> Enviar Pedido  </button>
-            <button className="buttonOrder"> Anular pedido </button>
+            <button className="buttonOrder" onClick={() => deleteOrder()}> Anular pedido </button>
             </section>
         </header>
     </section>
