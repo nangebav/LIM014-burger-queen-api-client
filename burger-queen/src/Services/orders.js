@@ -9,19 +9,35 @@ export const getOrders = async (token) => {
         url: baseUrl,
         header: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
         }
-      });
-    
+      })
+      .then((res)=>{
+        switch (res.status) {
+            case 200:
+                //console.log(res.json());
+                // console.log('good')
+                return res;
+            case 400:
+                return new Error('userId o productos son requeridos');
+            case 401:
+                return new Error('no hay cabecera de autentización');      
+            default:
+                break;
+        }
+      })
+      // pendiente header parameters
     return resp;
 }
 
-export const addOrders = async (token, newOrder) => {
+export const postOrders = async (token, newOrder) => {
     const resp = await axios({
         method: 'post',
-        data: JSON.stringify(newOrder),
+        data: newOrder,
         url: baseUrl,
         header: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
         }
     }); 
     
@@ -32,11 +48,17 @@ export const deleteOrders = async (token, orderId) => {
     const resp = await axios({
         method: 'delete',
         url: `${baseUrl}/${orderId}`,
-        data: orderId,
+        data: {
+            orderId
+        },
         header: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         }
-    })
+    }); 
+    
     return resp;
 }
+
+// PENDIENTE PUT 
+// PENDIENTE GET ORDER BY ID
