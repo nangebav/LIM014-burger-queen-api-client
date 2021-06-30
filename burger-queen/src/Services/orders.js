@@ -18,24 +18,27 @@ export const getOrders = async (token) => {
 export const addOrders = async (token, newOrder) => {
     const resp = await axios({
         method: 'post',
+        data: newOrder,
         url: baseUrl,
         header: {
             Authorization: `Bearer ${token}`,
         }
-    },newOrder); 
+    }); 
     
     return resp;
 }
 
 export const deleteOrders = async (token, orderId) => {
-    const resp = await axios.delete({
-        method: 'post',
-        url: baseUrl,
+    const resp = await axios({
+        method: 'delete',
+        url: `${baseUrl}/${orderId}`,
+        data: {
+            orderId
+        },
         header: {
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         }
-    }, orderId ); 
-    
+    })
     return resp;
 }
-

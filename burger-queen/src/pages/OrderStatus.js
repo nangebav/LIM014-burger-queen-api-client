@@ -1,6 +1,5 @@
 import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
-
 import StatusListTable from '../components/StatusListTable'
 import { useEffect, useState } from 'react';
 import { getOrders } from '../Services/orders';
@@ -36,7 +35,7 @@ function OrderStatus() {
             <section>
                 {  orderStatus.map((order) => 
 
-                    <StatusListTable status={order.status} client={order.client}/>
+                    <StatusListTable status={order.status} client={order.client} orderId={order._id} key={order._id}/>
 
                 )}
             </section>

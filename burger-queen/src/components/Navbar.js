@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Link , useHistory, useLocation} from "react-router-dom";
 import Dropdown from "./Dropdown";
 import logo from "../images/burger-queen-logo.png";
-import { parseJwt } from "../Services/localFx";
 import jwt_decode from "jwt-decode";
 
 function Navbar() {
