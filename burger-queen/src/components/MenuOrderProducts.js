@@ -1,7 +1,7 @@
 // import { useState, useEffect } from 'react';
 // import {BrowserRouter as Link, useRouteMatch} from 'react-router-dom';
 import '../style/main.scss'
-// import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import sandwich from '../images/sandwichMenu.svg';
 import hamburger from '../images/ordersButtonHome.svg';
 import aside from '../images/AcompañantesMenu.svg';
@@ -17,37 +17,64 @@ import drinksColor from '../images/bebidasColor.svg';
 
 
 function MenuOrderProducts(props) {
-
+  const [btns, setBtns] = useState([]);
+  const [colorImage, setColorImage] = useState('');
   // let { path, url } = useRouteMatch();
-  
+useEffect(() =>{
+//   btns.forEach(element => {
+//     element.getAttribute('src') === 
+// });
+}, [btns])
+
+  const clickColor = (e, imageColor, imageNotColor) =>{
+    setBtns(e.parentElement.childNodes)
+    setColorImage(e.getAttribute('src'))
+    e.getAttribute('src') ===  colorImage ?  e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor)
+  //   if (colorImage !== e.getAttribute('alt')) {
+  //     e.getAttribute('src') !== imageColor ? e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor) 
+  //  } else {
+  //     console.log('no se harán cambios');
+  //  }
+  }
+
   return (
     <nav className="menu">
 
-      <button><img className="menuImg" alt="sandwich" src={sandwich}
-      onMouseEnter={(e) => {e.target.setAttribute( 'src', sandwichColor)}}
-      onMouseLeave={(e) => {e.target.setAttribute( 'src', sandwich)}}
-      onClick={() => {props.setTypeProduct("burger")}}   // función onclick para agregar tipo de producto
-      /></button>
+      <img className="menuImg" alt="sandwich" src={sandwich}
+      // onMouseEnter={(e) => {e.target.setAttribute( 'src', sandwichColor)}}
+      // onMouseLeave={(e) => {e.target.setAttribute( 'src', sandwich)}}
+      onClick={(e) =>{
+        clickColor(e.target, sandwichColor, sandwich)
+        props.setTypeProduct("burger")
+      }}
+      />
 
-      <button><img className="menuImg" alt="hbmn" src={hamburger}
-      onMouseEnter={(e) => {e.target.setAttribute( 'src',hamburgerColor)}}
-      onMouseLeave={(e) => {e.target.setAttribute( 'src', hamburger)}}
-      onClick={() => props.setTypeProduct("burger")}
-      /></button>
+      <img className="menuImg" alt="hbmn" src={hamburger}
+      // onMouseEnter={(e) => {e.target.setAttribute( 'src',hamburgerColor)}}
+      // onMouseLeave={(e) => {e.target.setAttribute( 'src', hamburger)}}
+      onClick={(e) =>{
+        clickColor(e.target,hamburgerColor, hamburger)
+        props.setTypeProduct("burger")
+      }}
+      />
 
-      <button><img className="menuImg" alt="aside" src={aside}
-      onMouseEnter={(e) => {e.target.setAttribute( 'src', asideColor)}}
-      onMouseLeave={(e) => {e.target.setAttribute( 'src', aside)}}
-      onClick={() => props.setTypeProduct("side dishes")}  
-      /></button>
- 
-      <button>
+      <img className="menuImg" alt="aside" src={aside}
+      // onMouseEnter={(e) => {e.target.setAttribute( 'src', asideColor)}}
+      // onMouseLeave={(e) => {e.target.setAttribute( 'src', aside)}}
+      onClick={(e) =>{
+        clickColor(e.target,asideColor, aside)
+        props.setTypeProduct("side dishes")
+      }}
+      />
+
       <img className="menuImg" alt="drinks"  src={drinks}
-      onMouseEnter={(e) => {e.target.setAttribute( 'src', drinksColor)}}
-      onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}
-      onClick={() => props.setTypeProduct("drink")}  
-      /></button>
-
+      // onMouseEnter={(e) => {e.target.setAttribute( 'src', drinksColor)}}
+      // onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}
+      onClick={(e) =>{
+        clickColor(e.target,drinksColor,drinks)
+        props.setTypeProduct("drink")
+      }}
+      />
 
     </nav>
 );

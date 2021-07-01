@@ -29,35 +29,22 @@ function LogIn (){
 
   const traerDatos =(event) => {
     event.preventDefault() 
-          postRequest(
-            { 
-              email:datos.email,
-              password:datos.password,
-            }
-          )
-          .then((resp)=>{
-            switch (resp.status) {
-              
-              case 200:
-                localStorage.token = resp.data.token
-                window.location = '/home';
-                break;
+    postRequest(
+      { 
+        email:datos.email,
+        password:datos.password,
+      }
+    )
+    .then((resp)=>{
+      // console.log(resp)
+        localStorage.token = resp.data.token
+        window.location = '/home';
+    })
+    .catch((err)=>{
+      console.error('email o contraseña incorrectos')
+      history.push('/error')
 
-                case 400:
-                  history.push('/error')
-                  console.log('Email y contraseña mal escritos')
-                break;
-
-                default:
-                break;
-            }
-            
-            
-          })
-          // .catch((err)=>{
-          //   console.error(err);  
-          //   history.push('/error')
-          // });
+    })
   }
 
       return (

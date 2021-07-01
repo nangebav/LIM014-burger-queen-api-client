@@ -8,7 +8,7 @@ function ProductSupply(props) {
 
   const listProductSupply = products.map((product) => 
   
-    <SupplyUnitaryItem productName={product.name} productItemImg={product.image} key={product._id}/>
+    <SupplyUnitaryItem productName={product.name} productItemImg={product.image} id={product._id} key={product._id}/>
 
   );
     return (

@@ -3,7 +3,7 @@ import '../style/main.scss'
 import {Link} from 'react-router-dom';
 import OrderList from '../components/OrderList'
 // import useCart from '../hooks/useCart.js';
-import {useLocation} from 'react-router-dom';
+import {useLocation , useHistory} from 'react-router-dom';
 import useCart from '../hooks/useCart.js';
 import { useContext, useState } from 'react';
 import CartContext from '../hooks/CartContext';
@@ -13,7 +13,7 @@ import {postOrders} from '../Services/orders'
 
 function Order(props) {
 
-    
+    const history = useHistory();
     const location = useLocation(); 
     const order = location.state // traemos la orden con useState desde Table Order
     const [orderProducts, setOrderProducts] = useState(order.products)
@@ -36,8 +36,11 @@ function Order(props) {
 
     // función para ingresar data a API
         const sendOrder = (obj) =>{
-            postOrders(localStorage.token, obj)
-           .then((res)=> res.data
+           postOrders(localStorage.token, obj)
+           .then((res)=> {
+            history.push('/tableOrder')
+            return res.data
+            }
           )
      }
 

@@ -48,9 +48,7 @@ export const deleteOrders = async (token, orderId) => {
     const resp = await axios({
         method: 'delete',
         url: `${baseUrl}/${orderId}`,
-        data: {
-            orderId
-        },
+        data: orderId,
         header: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
@@ -61,4 +59,5 @@ export const deleteOrders = async (token, orderId) => {
 }
 
 // PENDIENTE PUT 
+// PENDIENTE GET ORDER BY ID
 // PENDIENTE GET ORDER BY ID
