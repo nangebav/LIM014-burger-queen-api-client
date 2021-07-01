@@ -1,23 +1,23 @@
 const axios = require('axios');
 
 const baseUrl = 'http://localhost:3001/orders';
+const token = localStorage.token
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/orders'
 
 export const getOrders = async (token) => {
     const resp = await axios({
         method: 'get',
-        url: baseUrl,
+        url: `${baseUrl}`        ,
         header: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         }
       })
-      .then((res)=>{
-        switch (res.status) {
+        switch (resp.status) {
             case 200:
                 //console.log(res.json());
                 // console.log('good')
-                return res;
+                return resp;
             case 400:
                 return new Error('userId o productos son requeridos');
             case 401:
@@ -25,7 +25,6 @@ export const getOrders = async (token) => {
             default:
                 break;
         }
-      })
       // pendiente header parameters
     return resp;
 }

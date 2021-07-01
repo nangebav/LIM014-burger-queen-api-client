@@ -13,10 +13,7 @@ function LogIn (){
 
   const history = useHistory();
 
-  const [datos, setDatos] = useState({
-    email: '',
-    password: ''
-  })
+  const [datos, setDatos] = useState({})
 
   const handleInputChange = (event) => {
   //  console.log(event.target.name)
@@ -26,6 +23,7 @@ function LogIn (){
         [event.target.name] : event.target.value
     })
   }
+  //console.log(datos)
 
   const traerDatos =(event) => {
     event.preventDefault() 
@@ -40,7 +38,7 @@ function LogIn (){
         localStorage.token = resp.data.token
         window.location = '/home';
     })
-    .catch((err)=>{
+    .catch(()=>{
       console.error('email o contraseña incorrectos')
       history.push('/error')
 

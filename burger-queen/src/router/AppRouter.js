@@ -29,7 +29,7 @@ function AppRouter() {
           <Route path="/orders" component={Orders} />
           <Route path="/OrdersStatus" component={OrderStatus} />
           <Route path="/kitchen" component={Kitchen} />
-          <Route  path="/supply" component={ProductsListSupply} />
+          <Route  path="/products" component={ProductsListSupply} />
           <Route exact path="/">
             <LogIn/>
           </Route>

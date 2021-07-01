@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-
+const token = localStorage.token
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/products'
 // const baseUrl = 'https://burguer-api.herokuapp.com/products'
 const baseUrl = 'http://localhost:3001/products'
@@ -8,7 +8,7 @@ const baseUrl = 'http://localhost:3001/products'
 export const getProducts = async (token) => {
     const resp = await axios({
         method: 'get',
-        url: baseUrl,
+        url: `${baseUrl}?page=1&limit=10`,
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -30,10 +30,10 @@ export const getProductId = async (productId, token) => {
     return resp;
 }
 
-export const putProducts = async (token, changeProduct) => {
+export const putProducts = async (changeProduct, productId) => {
     const resp = await axios({
         method: 'put',
-        url: baseUrl,
+        url: `${baseUrl}/${productId}`,
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
