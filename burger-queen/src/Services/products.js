@@ -67,15 +67,3 @@ export const deleteProduct = async (token, productId) => {
     });    
     return resp;
 }
-export const deleteUsers = async (token, userId) => {
-    const resp = await axios({
-        method: 'delete',
-        url: `${baseUrl}/${userId}`,
-        data: userId,
-        header: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-        }
-    })
-    return resp;
-}

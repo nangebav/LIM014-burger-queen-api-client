@@ -44,15 +44,27 @@ export const postUser = async (token, newUser) => {
         return resp; 
     } 
 
-export const deleteUsers = async (token, userId) => {
+export const deleteUsers = async (userId) => {
     const resp = await axios({
         method: 'delete',
         url: `${baseUrl}/${userId}`,
-        data:userId,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         }
     })
+    return resp;
+}
+
+export const putUsers = async (objectEdit, userId) => {
+    const resp = await axios({
+        method: 'put',
+        url: `${baseUrl}/${userId}`,
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+        data:JSON.stringify(objectEdit),
+      });
     return resp;
 }

@@ -8,6 +8,7 @@ import { getProducts } from '../Services/products';
 function ProductsListSupply() {
 
     const [products, setProducts] = useState([]);
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
 
     useEffect(()=> {
@@ -29,10 +30,9 @@ function ProductsListSupply() {
             <header className="productSupplyHeader"> 
                 <p>Lista de Productos</p>
                 <p>Información </p>
-  
             </header>
-            
             <section className="productsListSupply">
+                <p onClick={() => setModalIsOpen(true)}> + Agregar producto </p>
                 <ProductSupply products={products} />
             </section>
         </>

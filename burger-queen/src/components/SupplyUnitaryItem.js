@@ -14,10 +14,12 @@ function SupplyUnitaryItem(props){
         return res.data})
         .catch(err => console.log(err))
 }
+    console.log(props.id)
 
 
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [boxIsOpen, setBoxModalIsOpen] = useState(false)
     const [ products, setProducts] = useState({})
 
     const handleInputChange = (event) => {
@@ -28,6 +30,7 @@ function SupplyUnitaryItem(props){
     }
     
     const id = props.id
+    console.log(id);
     const updateProducts = (obj, idProduct) =>{
       putProducts(obj, idProduct)
       .then((res)=> {
@@ -46,13 +49,20 @@ function SupplyUnitaryItem(props){
         <article className="supplyWrap">
           <img alt="imgPhoto" src= {props.productItemImg}></img>
           <div className="counterSupply">
-
-            <div className="buttonWrap">
+                <div className="buttonWrap">
                 <i className="fas fa-edit" onClick={() => setModalIsOpen(true)}></i>
-               
-                <button  name={props.id} onClick={(e) => deleteProductFx(e.target.name)}>
-                  <i className="fas fa-trash-alt" ></i>
-                </button>
+                <i className="fas fa-trash-alt" onClick={() => setBoxModalIsOpen(true) }></i>
+                
+                <Modal isOpen={boxIsOpen}
+                onRequestClose={() => setBoxModalIsOpen(false)}
+                className="Modal">
+                  <i className="far fa-window-close" onClick={() => setBoxModalIsOpen(false)}></i>
+                  <h3> ¿Segur@ que desea eliminar este producto? </h3>
+                  <p> Esta acción será irreversible</p>
+                  <button onClick={() => deleteProductFx(props.id)}  > Eliminar </button>
+                  <button  onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
+
+                </Modal>
 
                 <Modal
                   isOpen={modalIsOpen}
