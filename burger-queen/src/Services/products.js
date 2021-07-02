@@ -43,29 +43,27 @@ export const putProducts = async (changeProduct, productId) => {
     return resp;
 }
 
-export const postProducts = async (token, newProduct) => {
+export const postProducts = async (token, product) => {
     const resp = await axios({
         method: 'post',
         url: baseUrl,
+        data: JSON.stringify(product),
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         },
-        data: newProduct,
     });
     return resp;
 }
 
 export const deleteProduct = async (token, productId) => {
     const resp = await axios({
-        method: 'post',
+        method: 'delete',
         url: `${baseUrl}/${productId}`,
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         },
-        data: productId,
-    }); 
-    
+    });    
     return resp;
 }

@@ -1,7 +1,7 @@
 // import { useState, useEffect } from 'react';
 // import {BrowserRouter as Link, useRouteMatch} from 'react-router-dom';
 import '../style/main.scss'
-// import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import sandwich from '../images/sandwichMenu.svg';
 import hamburger from '../images/ordersButtonHome.svg';
 import aside from '../images/AcompañantesMenu.svg';
@@ -17,9 +17,24 @@ import drinksColor from '../images/bebidasColor.svg';
 
 
 function MenuOrderProducts(props) {
-
+  const [btns, setBtns] = useState([]);
+  const [colorImage, setColorImage] = useState('');
   // let { path, url } = useRouteMatch();
-  
+useEffect(() =>{
+//   btns.forEach(element => {
+//     element.getAttribute('src') === 
+// });
+}, [btns])
+
+  const clickColor = (e, imageColor, imageNotColor) =>{
+    e.getAttribute('src') ===  imageNotColor ?  e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor)
+  //   if (colorImage !== e.getAttribute('alt')) {
+  //     e.getAttribute('src') !== imageColor ? e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor) 
+  //  } else {
+  //     console.log('no se harán cambios');
+  //  }
+  }
+
   return (
     <nav className="menu">
 
@@ -47,7 +62,6 @@ function MenuOrderProducts(props) {
       onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}
       onClick={() => props.setTypeProduct("drink")}  
       /></button>
-
 
     </nav>
 );

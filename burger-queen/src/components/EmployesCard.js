@@ -12,6 +12,7 @@ function Employees (props) {
     _id={employee._id}
     email={employee.email}
     password = {employee.password}
+    admin= {employee.roles.admin}
     />))
 }
   
