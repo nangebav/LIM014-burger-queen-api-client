@@ -14,7 +14,6 @@ function SupplyUnitaryItem(props){
         return res.data})
         .catch(err => console.log(err))
 }
-    console.log(props.id)
 
 
     Modal.setAppElement('#root')
@@ -49,28 +48,31 @@ function SupplyUnitaryItem(props){
           <div className="counterSupply">
 
             <div className="buttonWrap">
-                <img src={pen} alt="Editar" ></img>
-                <img name={props.id} src={deleteUser} alt="Eliminar" onClick={e => deleteProductFx(e.target.name)}></img>
                 <i className="fas fa-edit" onClick={() => setModalIsOpen(true)}></i>
+               
+                <button  name={props.id} onClick={(e) => deleteProductFx(e.target.name)}>
+                  <i className="fas fa-trash-alt" ></i>
+                </button>
+
                 <Modal
                   isOpen={modalIsOpen}
                   onRequestClose={() => setModalIsOpen(false)}
                   className="Modal"
                   // overlayClassName="Overlay"
                 >
-                  <i className="far fa-window-close" onClick={() => setModalIsOpen(false)}></i>
+                  <i className="far fa-window-close" name={props.id} onClick={
+                    () => setModalIsOpen(false)}></i>
                   <section className="productsInfo">
                     <p>Nombre:  <input name="name" placeholder={props.productName} onChange={handleInputChange } ></input></p>
                     <p>Precio:   <input name="price" placeholder={props.price} onChange={handleInputChange }></input></p>
                     <p>Tipo:    <input name="type" placeholder={props.type} onChange={handleInputChange }></input></p>
-                    <p>Fecha de entrada: <input name="dateEntry" placeholder={props.dateEntry} onChange={handleInputChange }></input></p>
                     <button onClick={()=> 
                       //console.log(products)
                       updateProducts(products,id)
                     }>Guardar</button>
                   </section>
                 </Modal>
-                <i className="fas fa-trash-alt"></i>
+                
             </div>
           </div>
         </article>

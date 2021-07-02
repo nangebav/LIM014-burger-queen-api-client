@@ -1,28 +1,30 @@
 const axios = require('axios');
 
-const baseUrl = 'http://nodejs-bq-api.herokuapp.com/users'
+// const baseUrl = 'http://localhost:3001/users'
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/users'
 // const baseUrl = 'http://localhost:3001/users'
-const token = localStorage.token;
+const baseUrl = 'http://nodejs-bq-api.herokuapp.com/users'
 
-export const getUsers = async () => { 
-    const resp = await axios(
-        { 
+const token = localStorage.token
+//console.log(token)
+export const getUsers = async () => {
+    const resp = await axios({
         method: 'get',
-        url: baseUrl,
+        url: `${baseUrl}?page=1&limit=50`,
         headers: {
-            Authorization: `Bearer ${token}?page=1&&limit=50`, 
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
-         } 
-        }); // Falta header parameters
-        return resp; 
-    } 
+        }
+    });   
+    return resp;
+}
 
-    export const getUser = async (token, userId) => { 
-        const resp = await axios({ 
-            method: 'get', 
-            url: `${baseUrl}/${userId}`, 
-            header: { Authorization: `Bearer ${token}`, 
+export const getUser = async (token, userId) => {
+    const resp = await axios({
+        method: 'get',
+        url: `${baseUrl}/${userId}`,
+        headers: {
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
          },
         }); 
@@ -32,10 +34,10 @@ export const getUsers = async () => {
 export const postUser = async (token, newUser) => {
      const resp = await axios({ 
         method: 'post',
-        url: baseUrl, 
-        header: { 
-            Authorization: `Bearer ${token}`, 
-            'Content-Type': 'application/json', 
+        url: baseUrl,
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
         },
         data: JSON.stringify(newUser), 
         });
@@ -46,8 +48,8 @@ export const deleteUsers = async (token, userId) => {
     const resp = await axios({
         method: 'delete',
         url: `${baseUrl}/${userId}`,
-        data: userId,
-        header: {
+        data:userId,
+        headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         }

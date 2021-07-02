@@ -10,7 +10,10 @@
         font-size:1.2em;
         padding: 5%;
     }
+
 }
+
+ 
 .productSupply{
     display:grid;
     grid-template-columns: 6fr 6fr;
@@ -18,10 +21,18 @@
     text-align: center;
     align-items: center;
     font-size:1em;
+
+    button{
+        background-color: transparent;
+        border: none;
+        padding: 0px;
+        
+    }
     .supplyWrap{
         display:grid;
         grid-template-columns: 1fr 1fr;
     }
+
     .counterSupply{
         display: grid;
         // grid-template-columns: 3fr 3fr;

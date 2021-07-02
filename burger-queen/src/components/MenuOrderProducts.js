@@ -38,41 +38,30 @@ useEffect(() =>{
   return (
     <nav className="menu">
 
-      <img className="menuImg" alt="sandwich" src={sandwich}
-      // onMouseEnter={(e) => {e.target.setAttribute( 'src', sandwichColor)}}
-      // onMouseLeave={(e) => {e.target.setAttribute( 'src', sandwich)}}
-      onClick={(e) =>{
-        clickColor(e.target, sandwichColor, sandwich)
-        props.setTypeProduct("sandwich")
-      }}
-      />
+      <button><img className="menuImg" alt="sandwich" src={sandwich}
+      onMouseEnter={(e) => {e.target.setAttribute( 'src', sandwichColor)}}
+      onMouseLeave={(e) => {e.target.setAttribute( 'src', sandwich)}}
+      onClick={() => {props.setTypeProduct("sandwich")}}   // función onclick para agregar tipo de producto
+      /></button>
 
-      <img className="menuImg" alt="hbmn" src={hamburger}
-      // onMouseEnter={(e) => {e.target.setAttribute( 'src',hamburgerColor)}}
-      // onMouseLeave={(e) => {e.target.setAttribute( 'src', hamburger)}}
-      onClick={(e) =>{
-        clickColor(e.target,hamburgerColor, hamburger)
-        props.setTypeProduct("burger")
-      }}
-      />
+      <button><img className="menuImg" alt="hbmn" src={hamburger}
+      onMouseEnter={(e) => {e.target.setAttribute( 'src',hamburgerColor)}}
+      onMouseLeave={(e) => {e.target.setAttribute( 'src', hamburger)}}
+      onClick={() => props.setTypeProduct("burger")}
+      /></button>
 
-      <img className="menuImg" alt="aside" src={aside}
-      // onMouseEnter={(e) => {e.target.setAttribute( 'src', asideColor)}}
-      // onMouseLeave={(e) => {e.target.setAttribute( 'src', aside)}}
-      onClick={(e) =>{
-        clickColor(e.target,asideColor, aside)
-        props.setTypeProduct("side dishes")
-      }}
-      />
-
+      <button><img className="menuImg" alt="aside" src={aside}
+      onMouseEnter={(e) => {e.target.setAttribute( 'src', asideColor)}}
+      onMouseLeave={(e) => {e.target.setAttribute( 'src', aside)}}
+      onClick={() => props.setTypeProduct("side dishes")}  
+      /></button>
+ 
+      <button>
       <img className="menuImg" alt="drinks"  src={drinks}
-      // onMouseEnter={(e) => {e.target.setAttribute( 'src', drinksColor)}}
-      // onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}
-      onClick={(e) =>{
-        clickColor(e.target,drinksColor,drinks)
-        props.setTypeProduct("drink")
-      }}
-      />
+      onMouseEnter={(e) => {e.target.setAttribute( 'src', drinksColor)}}
+      onMouseLeave={(e) => {e.target.setAttribute( 'src', drinks)}}
+      onClick={() => props.setTypeProduct("drink")}  
+      /></button>
 
     </nav>
 );

@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 
 
 function AdminEmployees(){
+    console.log(localStorage.token)
 
     const [employees, setEmployees] = useState([]);
     // const [admin, setAdmin] = useState(true)
@@ -18,9 +19,12 @@ function AdminEmployees(){
              const data = res.data.filter(userType => !userType.roles.admin)
              console.log(data);
              setEmployees(data);
+            // console.log(res)
         })
-             .catch((err)=>{console.log(err)}); 
-     },[]); 
+        .catch((err)=>{console.log(err)}); 
+        //getUsers() 
+    
+    },[]); 
 
 
     return(

@@ -8,7 +8,7 @@ const baseUrl = 'http://nodejs-bq-api.herokuapp.com/products'
 export const getProducts = async (token) => {
     const resp = await axios({
         method: 'get',
-        url: `${baseUrl}?page=1&&limit=50`,
+        url: `${baseUrl}?page=1&limit=50`,
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -60,10 +60,9 @@ export const deleteProduct = async (token, productId) => {
     const resp = await axios({
         method: 'delete',
         url: `${baseUrl}/${productId}`,
-        data: productId,
-        header: {
-            'Content-Type': 'application/json',
+        headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
         },
     });    
     return resp;

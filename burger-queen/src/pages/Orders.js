@@ -22,23 +22,21 @@ function Order(props) {
     // const orderProducts = order.products
     // console.log(orderProducts);
       // objeto para post cuando tengamos el API
-      const fecha = new Date()
+      // const fecha = new Date()
       // console.log(fecha);
 
          let orderPost = {
            "userId": "M11",
            "client": order.client,
            "products": order.products,
-           "status": "pending",
-           "dateEntry": fecha,
-           "dateProcesed": '',
+           "note": order.note
          }
 
     // función para ingresar data a API
         const sendOrder = (obj) =>{
            postOrders(localStorage.token, obj)
            .then((res)=> {
-            history.push('/tableOrder')
+            //history.push('/tableOrder')
             return res.data
             }
           )
@@ -51,7 +49,8 @@ function Order(props) {
                 order.client='';
                 order.note='';
         } ;
-        
+    
+    console.log(orderPost)
 
     return (
     <section className="Orden">
@@ -78,7 +77,7 @@ function Order(props) {
                         </tr>
                     </thead>
                     {orderProducts.map((product) => 
-                    <OrderList selectedProduct={props.selectedProduct} food={product.name} quantity={product.quantity} price={product.totalPrice} key={product.name}/>
+                    <OrderList selectedProduct={props.selectedProduct} food={product.name} qty={product.qty} price={product.totalPrice} key={product.name}/>
                     )}
                     <tbody>
                         <tr>
