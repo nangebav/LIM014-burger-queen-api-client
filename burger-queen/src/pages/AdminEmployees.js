@@ -15,12 +15,12 @@ function AdminEmployees(){
     useEffect(()=> { 
         getUsers()
         .then((res)=> {
-             const data = res.data.filter(userType => !userType.roles.admin )
+             const data = res.data.filter(userType => !userType.roles.admin)
              console.log(data);
              setEmployees(data);
         })
              .catch((err)=>{console.log(err)}); 
-        getUsers() },[]); 
+     },[]); 
 
 
     return(

@@ -1,15 +1,17 @@
 const axios = require('axios');
 
-const baseUrl = 'http://localhost:3001/users'
+const baseUrl = 'http://nodejs-bq-api.herokuapp.com/users'
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/users'
 // const baseUrl = 'http://localhost:3001/users'
+const token = localStorage.token;
 
-export const getUsers = async (token) => { 
+export const getUsers = async () => { 
     const resp = await axios(
-        { method: 'get',
+        { 
+        method: 'get',
         url: baseUrl,
-        header: {
-            Authorization: `Bearer ${token}`, 
+        headers: {
+            Authorization: `Bearer ${token}?page=1&&limit=50`, 
             'Content-Type': 'application/json',
          } 
         }); // Falta header parameters
@@ -38,8 +40,7 @@ export const postUser = async (token, newUser) => {
         data: JSON.stringify(newUser), 
         });
         return resp; 
-        } 
-
+    } 
 
 export const deleteUsers = async (token, userId) => {
     const resp = await axios({

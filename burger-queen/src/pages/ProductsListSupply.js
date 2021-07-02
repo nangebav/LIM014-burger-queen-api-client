@@ -28,7 +28,7 @@ function ProductsListSupply() {
         <>
             <header className="productSupplyHeader"> 
                 <p>Lista de Productos</p>
-                <p>Inventario </p>
+                <p>Información </p>
   
             </header>
             

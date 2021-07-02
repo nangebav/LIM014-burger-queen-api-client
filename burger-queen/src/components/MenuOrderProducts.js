@@ -27,9 +27,7 @@ useEffect(() =>{
 }, [btns])
 
   const clickColor = (e, imageColor, imageNotColor) =>{
-    setBtns(e.parentElement.childNodes)
-    setColorImage(e.getAttribute('src'))
-    e.getAttribute('src') ===  colorImage ?  e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor)
+    e.getAttribute('src') ===  imageNotColor ?  e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor)
   //   if (colorImage !== e.getAttribute('alt')) {
   //     e.getAttribute('src') !== imageColor ? e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor) 
   //  } else {
@@ -45,7 +43,7 @@ useEffect(() =>{
       // onMouseLeave={(e) => {e.target.setAttribute( 'src', sandwich)}}
       onClick={(e) =>{
         clickColor(e.target, sandwichColor, sandwich)
-        props.setTypeProduct("burger")
+        props.setTypeProduct("sandwich")
       }}
       />
 
