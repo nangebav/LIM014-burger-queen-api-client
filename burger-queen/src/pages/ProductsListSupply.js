@@ -13,7 +13,7 @@ function ProductsListSupply() {
     useEffect(()=> {
       
       const getData = () =>{
-        getProducts()
+        getProducts(localStorage.token)
         .then((res)=> {
           setProducts(res.data);
         })

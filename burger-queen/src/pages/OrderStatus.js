@@ -10,9 +10,8 @@ function OrderStatus() {
 
 
     useEffect(()=> {
-      
       const getData = () =>{
-        getOrders()
+        getOrders(localStorage.token)
         .then((res)=> {
           setOrderStatus(res.data);
         })

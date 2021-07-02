@@ -60,7 +60,7 @@ function TableOrder(props) {
       "total": total,
     }
 
-
+  console.log(totalOrder)
 
   return (
        <div className="tableOrder">

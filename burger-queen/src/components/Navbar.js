@@ -91,7 +91,7 @@ function Navbar() {
               >
                 Admin <i className="fas fa-caret-down" />
               </Link>
-              {dropdown && <Dropdown title1="Almacén" to1="/products" title2="Personal" to2="/AdminEmployes"/>}
+              {dropdown && <Dropdown title1="Almacén" to1="/products" title2="Personal" to2="/users"/>}
             </li>
             <li className="nav-item" >
                 <i className="fas fa-sign-out-alt fa-2x" onClick={()=> logOut()}></i>

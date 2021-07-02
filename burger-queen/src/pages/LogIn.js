@@ -23,7 +23,6 @@ function LogIn (){
         [event.target.name] : event.target.value
     })
   }
-  //console.log(datos)
 
   const traerDatos =(event) => {
     event.preventDefault() 
@@ -38,7 +37,7 @@ function LogIn (){
         localStorage.token = resp.data.token
         window.location = '/home';
     })
-    .catch(()=>{
+    .catch((err)=>{
       console.error('email o contraseña incorrectos')
       history.push('/error')
 

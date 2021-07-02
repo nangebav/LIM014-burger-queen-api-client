@@ -11,7 +11,7 @@ function OrderList(props) {
                         <span>{props.typeFoods}</span>
                     </section>
                 </td>
-                <td>{props.quantity}</td>
+                <td>{props.qty}</td>
                 <td>${props.price}</td>
             </tr>
         </tbody>

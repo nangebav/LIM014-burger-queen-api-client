@@ -25,7 +25,7 @@ function AppRouter() {
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
           </Route>
-          <Route path="/AdminEmployes" component={AdminEmployees}/>   
+          <Route path="/users" component={AdminEmployees}/>   
           <Route path="/orders" component={Orders} />
           <Route path="/OrdersStatus" component={OrderStatus} />
           <Route path="/kitchen" component={Kitchen} />

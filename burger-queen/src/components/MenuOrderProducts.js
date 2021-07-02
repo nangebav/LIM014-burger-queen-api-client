@@ -26,7 +26,7 @@ function MenuOrderProducts(props) {
       <button><img className="menuImg" alt="sandwich" src={sandwich}
       onMouseEnter={(e) => {e.target.setAttribute( 'src', sandwichColor)}}
       onMouseLeave={(e) => {e.target.setAttribute( 'src', sandwich)}}
-      onClick={() => {props.setTypeProduct("burger")}}   // función onclick para agregar tipo de producto
+      onClick={() => {props.setTypeProduct("sandwich")}}   // función onclick para agregar tipo de producto
       /></button>
 
       <button><img className="menuImg" alt="hbmn" src={hamburger}

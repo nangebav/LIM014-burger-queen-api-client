@@ -11,7 +11,7 @@ function Kitchen() {
     useEffect(()=> {
       
       const getData = () =>{
-        getOrders()
+        getOrders(localStorage.token)
         .then((res)=> {
           setOrders(res.data);
         })
