@@ -20,7 +20,7 @@ function Home(){
             <Link to="/kitchen">
               <button><img alt="kitchen" src={kitchen}></img>COCINA</button>
             </Link>
-            <Link to="/supply">
+            <Link to="/products">
               <button><img alt="admin" src={admin}></img>ADMIN</button>
             </Link>
           </article>

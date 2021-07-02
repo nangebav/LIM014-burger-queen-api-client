@@ -50,7 +50,6 @@ function SupplyUnitaryItem(props){
                     <p>Nombre:  <input name="name" placeholder={props.productName} onChange={handleInputChange } ></input></p>
                     <p>Precio:   <input name="price" placeholder={props.price} onChange={handleInputChange }></input></p>
                     <p>Tipo:    <input name="type" placeholder={props.type} onChange={handleInputChange }></input></p>
-                    <p>Fecha de entrada: <input name="dateEntry" placeholder={props.dateEntry} onChange={handleInputChange }></input></p>
                     <button onClick={()=> 
                       //console.log(products)
                       updateProducts(products,id)

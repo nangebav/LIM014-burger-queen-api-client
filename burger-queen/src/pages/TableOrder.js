@@ -39,7 +39,7 @@ function TableOrder(props) {
     const getData = () =>{
       getProducts(localStorage.token)
       .then((res)=> {
-        const newItems = res.data.filter(productType => productType.type === typeProduct)
+        const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase() )
         setProducts(newItems);
       })
       .catch((err)=>{console.log(err)})
