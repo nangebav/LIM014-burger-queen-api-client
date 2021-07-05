@@ -13,6 +13,7 @@ function Kitchen() {
       const getData = () =>{
         getOrders(localStorage.token)
         .then((res)=> {
+          console.log(res);
           setOrders(res.data);
         })
         .catch((err)=>{console.log(err)})
