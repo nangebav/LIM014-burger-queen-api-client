@@ -14,33 +14,37 @@ function SupplyUnitaryItem(props){
         return res.data})
         .catch(err => console.log(err))
 }
-    console.log(props.id)
+    //console.log(props.id)
 
 
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [boxIsOpen, setBoxModalIsOpen] = useState(false)
-    const [ products, setProducts] = useState({})
+    const [ products, setProducts] = useState('')
 
+
+    
+    //const id = props.id
+    //console.log(id);
+    const updateProducts = (obj, idProduct) =>{
+      putProducts(obj, idProduct)
+      .then((res)=> {
+        return res.data
+       })
+       .catch((err) => {
+        console.log('No logramos actualizar');
+       })
+    };
+    
     const handleInputChange = (event) => {
       setProducts({
           ...products,
           [event.target.name] : event.target.value
       })
     }
-    
-    const id = props.id
-    console.log(id);
-    const updateProducts = (obj, idProduct) =>{
-      putProducts(obj, idProduct)
-      .then((res)=> {
-        // console.log(res)
-        return res.data
-       }
-     )};
-    
-    
-    // console.log(isChecked)
+
+    console.log(products)
+
     return (
         <article className="productSupply">
         <div>
@@ -73,13 +77,21 @@ function SupplyUnitaryItem(props){
                   <i className="far fa-window-close" name={props.id} onClick={
                     () => setModalIsOpen(false)}></i>
                   <section className="productsInfo">
-                    <p>Nombre:  <input name="name" placeholder={props.productName} onChange={handleInputChange } ></input></p>
-                    <p>Precio:   <input name="price" placeholder={props.price} onChange={handleInputChange }></input></p>
-                    <p>Tipo:    <input name="type" placeholder={props.type} onChange={handleInputChange }></input></p>
-                    <button onClick={()=> 
-                      //console.log(products)
-                      updateProducts(products,id)
-                    }>Guardar</button>
+                  <form className="form-modal-product">
+                    <p>Nombre:  <input 
+                      name="name" 
+                      defaultValue={props.productName} 
+                      onChange={handleInputChange } ></input></p>
+                    <p>Precio:   <input 
+                    name="price" defaultValue={props.price} onChange={handleInputChange }></input></p>
+                    <p>Tipo:    <input 
+                      name="type" 
+                      defaultValue={props.type} 
+                      onChange={handleInputChange }></input></p>
+                    </form>
+                    <button onClick={()=>{updateProducts(products,props.id)
+                    }}> Guardar</button>
+                  
                   </section>
                 </Modal>
                 

@@ -38,7 +38,7 @@ export const putProducts = async (changeProduct, productId) => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         },
-        data:changeProduct,
+        data:JSON.stringify(changeProduct),
       });
     return resp;
 }
