@@ -22,7 +22,6 @@ function OrderToKitchenUnitary(props) {
                 {props.products}
             </div>
             <div className="bottomOrderSection">
-                <textarea rows="4" defaultValue="Notas:"></textarea>
                 <button className="deliver">{props.status}</button>
             </div>
         </section>

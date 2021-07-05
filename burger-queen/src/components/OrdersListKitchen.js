@@ -15,7 +15,10 @@ function OrdersListKitchen(props) {
           dateEntry={order.dateEntry} 
           status={order.status} 
           key={order._id}
-          products={order.products.map((item) => <p key={order._id}> {item.qty} {item.product}</p>)}
+          products={order.products.map((item) => console.log(item)
+          // <p key={order._id + item.product.name}> {item.qty} {item.product.name}</p>
+          )}
+        
         />
     
       )} </>

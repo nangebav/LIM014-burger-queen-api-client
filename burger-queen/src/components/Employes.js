@@ -2,7 +2,6 @@ import pen from '../images/pen.svg';
 import deleteUser from '../images/X.svg';
 import '../style/main.scss';
 import {deleteUsers, putUsers} from '../Services/users'
-
 import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
 
@@ -30,10 +29,9 @@ function Employ(props){
       .then((res)=> {
         console.log('subiste tus cambios');
         return res.data
-        
        })
        .catch((err) => {
-      console.log('No logramos actualizar');
+        console.log('No logramos actualizar');
        })
     };
     
@@ -49,9 +47,7 @@ function Employ(props){
     // console.log(props._id);
     // console.log(props.admin);
     return (
-        <main>
-          <form>
-          </form>
+        <section>
         <section className="CardEmploy" key={props._id}>
             <img src={props.photoEmploy} className="img" alt="persona random" />
             <section className="userWrapper">
@@ -126,7 +122,7 @@ function Employ(props){
 
             </section>
         </section>
-        </main>
+        </section>
     )
 
 }

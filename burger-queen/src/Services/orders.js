@@ -7,7 +7,7 @@ const token = localStorage.token
 export const getOrders = async (token) => {
     const resp = await axios({
         method: 'get',
-        url: `${baseUrl}`,
+        url: `${baseUrl}?page=1&limit=50`,
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
