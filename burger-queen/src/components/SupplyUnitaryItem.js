@@ -14,28 +14,14 @@ function SupplyUnitaryItem(props){
         return res.data})
         .catch(err => console.log(err))
 }
-    //console.log(props.id)
+    console.log(props.id)
 
 
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [boxIsOpen, setBoxModalIsOpen] = useState(false)
-    const [ products, setProducts] = useState('')
+    const [ products, setProducts] = useState({})
 
-
-    
-    //const id = props.id
-    //console.log(id);
-    const updateProducts = (obj, idProduct) =>{
-      putProducts(obj, idProduct)
-      .then((res)=> {
-        return res.data
-       })
-       .catch((err) => {
-        console.log('No logramos actualizar');
-       })
-    };
-    
     const handleInputChange = (event) => {
       setProducts({
           ...products,
@@ -43,8 +29,29 @@ function SupplyUnitaryItem(props){
       })
     }
 
-    console.log(products)
+    const objProduct = {
+      "name": products.name,
+      "price": Number(products.price),
+      "type":  products.type,
+      "image":  products.image,
+  }
+    
+    const id = props.id
+    console.log(products);
 
+
+    console.log(id);
+    const updateProducts = (obj, idProduct) =>{
+      putProducts(obj, idProduct)
+      .then((res)=> {
+        // console.log(res)
+        return res.data
+       })
+       .catch(() => console.log('no se pudieron guardar los cambios'))
+      };
+    
+    
+    // console.log(isChecked)
     return (
         <article className="productSupply">
         <div>
@@ -65,7 +72,6 @@ function SupplyUnitaryItem(props){
                   <p> Esta acción será irreversible</p>
                   <button onClick={() => deleteProductFx(props.id)}  > Eliminar </button>
                   <button  onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
-
                 </Modal>
 
                 <Modal
@@ -77,21 +83,13 @@ function SupplyUnitaryItem(props){
                   <i className="far fa-window-close" name={props.id} onClick={
                     () => setModalIsOpen(false)}></i>
                   <section className="productsInfo">
-                  <form className="form-modal-product">
-                    <p>Nombre:  <input 
-                      name="name" 
-                      defaultValue={props.productName} 
-                      onChange={handleInputChange } ></input></p>
-                    <p>Precio:   <input 
-                    name="price" defaultValue={props.price} onChange={handleInputChange }></input></p>
-                    <p>Tipo:    <input 
-                      name="type" 
-                      defaultValue={props.type} 
-                      onChange={handleInputChange }></input></p>
-                    </form>
-                    <button onClick={()=>{updateProducts(products,props.id)
-                    }}> Guardar</button>
-                  
+                    <p>Nombre:  <input name="name" defaultValue={props.productName} onChange={handleInputChange } ></input></p>
+                    <p>Precio:   <input name="price" defaultValue={props.price} onChange={handleInputChange }></input></p>
+                    <p>Tipo:    <input name="type" defaultValue={props.type} onChange={handleInputChange }></input></p>
+                    <p>Imagen:    <input name="image" defaultValue={props.image} onChange={handleInputChange}></input></p>
+                    <button onClick={()=> {
+                      updateProducts(objProduct,id)}
+                    }>Guardar</button>
                   </section>
                 </Modal>
                 

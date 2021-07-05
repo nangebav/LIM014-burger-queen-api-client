@@ -31,7 +31,7 @@ export const getUser = async (token, userId) => {
     return resp; 
 } 
 
-export const postUser = async (token, newUser) => {
+export const postUser = async (newUser) => {
      const resp = await axios({ 
         method: 'post',
         url: baseUrl,

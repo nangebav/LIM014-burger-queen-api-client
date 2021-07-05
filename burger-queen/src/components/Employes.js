@@ -15,6 +15,7 @@ function Employ(props){
     }
 
     Modal.setAppElement('#root')
+
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [boxModalOpen, setBoxModalIsOpen] = useState(false)
     const [ editUser, setEditUser] = useState('')
@@ -41,7 +42,7 @@ function Employ(props){
           [event.target.name] : event.target.value
       })
     }
-    
+
 
     // console.log(props._id);
     // console.log(props.admin);
@@ -60,39 +61,47 @@ function Employ(props){
                   isOpen={modalIsOpen}
                   onRequestClose={() => setModalIsOpen(false)}
                   className="Modal"
-                  // overlayClassName="Overlay"
                 >
                 <i className="far fa-window-close" onClick={() => setModalIsOpen(false)}></i>
                 <section className="productsInfo">
                 <form className="form-modal">
-                  <div className="form-container">
-                    <p>Email:  <input
-                      defaultValue={props.email}
-                      id="input-email"
-                      name="email"
-                      type="email"
-                      onChange={handleInputChange}
-                    /></p>
-                    <p>Contraseña:  <input
-                      defaultValue={props.password}
-                      id="input-password"
-                      name="password"
-                      onChange={handleInputChange}
-                    /></p>
-                    <p> Admin: 
-                    <select id="input-admin" className="select-modal"
-                      defaultValue={props.admin ? 'SI' : 'NO'}
-                      name="admin"
-                    >
-                      <option value="NO">NO</option>
-                      <option value="SI">SI</option>
-                    </select>
-                    </p>
-                  </div>
-                </form>
-                <button onClick={()=> {updateUser(editUser,props._id)
-                    }}>Guardar</button>
-                </section>
+                <div className="form-container">
+                <p>Email:  <input
+                  defaultValue={props.email}
+                  data-testid="email"
+                  id="input-email"
+                  name="email"
+                  type="email"
+                  onChange={handleInputChange}
+                  //placeholder={error.email ? 'Campo requerido' : 'Ingrese el email'}
+                  // className={error.email ? 'input-modal error' : 'input-modal'}
+                  /></p>
+                  <p>Contraseña:  <input
+                  defaultValue={props.password}
+                  data-testid="password"
+                  id="input-password"
+                  name="password"
+                  onChange={handleInputChange}
+                  //placeholder={error.email ? 'Campo requerido' : 'Ingrese el email'}
+                  // className={error.email ? 'input-modal error' : 'input-modal'}
+                  /></p>
+                  <p> Admin: 
+                  <select id="input-admin" className="select-modal"
+                  defaultValue={props.admin ? 'SI' : 'NO'}
+                  name="admin"
+                  onChange={handleInputChange}
+                   // defaultValue={props.roles.admin ? 'SI' : 'NO'}
+                   >
+                    <option value="NO">NO</option>
+                    <option value="SI">SI</option>
+                  </select>
+                  </p>
+                    </div>
+                  </form>
+                    <button onClick={()=> {
+                      updateUser(editUser,props._id)
+                      }}>Guardar</button>
+                  </section>
                 </Modal>
                 <img 
                 className={props._id}
