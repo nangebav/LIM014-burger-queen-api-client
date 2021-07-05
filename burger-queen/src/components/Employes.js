@@ -16,6 +16,7 @@ function Employ(props){
     }
 
     Modal.setAppElement('#root')
+
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [boxModalOpen, setBoxModalIsOpen] = useState(false)
     const [ editUser, setEditUser] = useState('')
@@ -43,12 +44,14 @@ function Employ(props){
           [event.target.name] : event.target.value
       })
     }
-    
+
 
     // console.log(props._id);
     // console.log(props.admin);
     return (
         <main>
+          <form>
+          </form>
         <section className="CardEmploy" key={props._id}>
             <img src={props.photoEmploy} className="img" alt="persona random" />
             <section className="userWrapper">
@@ -62,7 +65,6 @@ function Employ(props){
                   isOpen={modalIsOpen}
                   onRequestClose={() => setModalIsOpen(false)}
                   className="Modal"
-                  // overlayClassName="Overlay"
                 >
                 <i className="far fa-window-close" onClick={() => setModalIsOpen(false)}></i>
                 <section className="productsInfo">
@@ -91,7 +93,7 @@ function Employ(props){
                   <select id="input-admin" className="select-modal"
                   defaultValue={props.admin ? 'SI' : 'NO'}
                   name="admin"
-                  
+                  onChange={handleInputChange}
                    // defaultValue={props.roles.admin ? 'SI' : 'NO'}
                    >
                     <option value="NO">NO</option>

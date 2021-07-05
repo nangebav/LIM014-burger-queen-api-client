@@ -28,16 +28,27 @@ function SupplyUnitaryItem(props){
           [event.target.name] : event.target.value
       })
     }
+
+    const objProduct = {
+      "name": products.name,
+      "price": Number(products.price),
+      "type":  products.type,
+      "image":  products.image,
+  }
     
     const id = props.id
+    console.log(products);
+
+
     console.log(id);
     const updateProducts = (obj, idProduct) =>{
       putProducts(obj, idProduct)
       .then((res)=> {
         // console.log(res)
         return res.data
-       }
-     )};
+       })
+       .catch(() => console.log('no se pudieron guardar los cambios'))
+      };
     
     
     // console.log(isChecked)
@@ -61,7 +72,6 @@ function SupplyUnitaryItem(props){
                   <p> Esta acción será irreversible</p>
                   <button onClick={() => deleteProductFx(props.id)}  > Eliminar </button>
                   <button  onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
-
                 </Modal>
 
                 <Modal
@@ -73,12 +83,12 @@ function SupplyUnitaryItem(props){
                   <i className="far fa-window-close" name={props.id} onClick={
                     () => setModalIsOpen(false)}></i>
                   <section className="productsInfo">
-                    <p>Nombre:  <input name="name" placeholder={props.productName} onChange={handleInputChange } ></input></p>
-                    <p>Precio:   <input name="price" placeholder={props.price} onChange={handleInputChange }></input></p>
-                    <p>Tipo:    <input name="type" placeholder={props.type} onChange={handleInputChange }></input></p>
-                    <button onClick={()=> 
-                      //console.log(products)
-                      updateProducts(products,id)
+                    <p>Nombre:  <input name="name" defaultValue={props.productName} onChange={handleInputChange } ></input></p>
+                    <p>Precio:   <input name="price" defaultValue={props.price} onChange={handleInputChange }></input></p>
+                    <p>Tipo:    <input name="type" defaultValue={props.type} onChange={handleInputChange }></input></p>
+                    <p>Imagen:    <input name="image" defaultValue={props.image} onChange={handleInputChange}></input></p>
+                    <button onClick={()=> {
+                      updateProducts(objProduct,id)}
                     }>Guardar</button>
                   </section>
                 </Modal>
