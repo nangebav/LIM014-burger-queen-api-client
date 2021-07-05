@@ -5,14 +5,26 @@ const token = localStorage.token
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/orders'
 
 export const getOrders = async (token) => {
-    const resp = await axios({
-        method: 'get',
-        url: `${baseUrl}?page=1&limit=50`,
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-        }
-      })
+    try {
+        const resp = await axios({
+            method: 'get',
+            url: `${baseUrl}?page=1&limit=50`,
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            }
+          }) 
+
+          if (resp.status !== 200) {
+            return new Error('Error');
+          } 
+          return resp;
+
+    } catch (error) {
+        return error
+    }
+ 
+    // console.table(resp.status);
     // switch (resp.status) {
     //     case 200:
     //         return resp;
@@ -23,8 +35,8 @@ export const getOrders = async (token) => {
     //     default:
     //         break;
     // }
-      // pendiente header parameters
-    return resp;
+    // pendiente header parameters
+    // return resp;
 }
 
 export const postOrders = async (token, newOrder) => {
