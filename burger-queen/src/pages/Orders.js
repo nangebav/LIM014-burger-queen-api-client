@@ -36,14 +36,10 @@ function Order(props) {
     // función para ingresar data a API
         const sendOrder = (obj) =>{
            postOrders(localStorage.token, obj)
-           .then((res)=> {
-            //history.push('/tableOrder')
-            return res.data
-            }
-          )
+           .then(()=> { history.push('/tableOrder') })
      }
 
-        console.log(order);
+        //console.log(order);
 
         const deleteOrder = () => {
                 setOrderProducts([]); 

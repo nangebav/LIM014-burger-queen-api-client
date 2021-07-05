@@ -10,13 +10,10 @@ function Kitchen() {
 
     useEffect(()=> {
       
-      const getData = () =>{
-        getOrders(localStorage.token)
-        .then((res)=> {
-          console.log(res);
-          setOrders(res.data);
-        })
-        .catch((err)=>{console.log(err)})
+      const getData = async () =>{
+        let response = await getOrders(localStorage.token)
+
+        setOrders(response.data)
       }
       getData()
       
