@@ -43,7 +43,7 @@ export const putProducts = async (changeProduct, productId) => {
     return resp;
 }
 
-export const postProducts = async (token, product) => {
+export const postProducts = async (product) => {
     const resp = await axios({
         method: 'post',
         url: baseUrl,

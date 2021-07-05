@@ -20,7 +20,12 @@ function SupplyUnitaryItem(props){
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [boxIsOpen, setBoxModalIsOpen] = useState(false)
-    const [ products, setProducts] = useState({})
+    const [ products, setProducts] = useState({
+      "name": props.productName,
+      "price": props.price,
+      "type":  props.type,
+      "image": props.productItemImg,
+    })
 
     const handleInputChange = (event) => {
       setProducts({
@@ -33,14 +38,11 @@ function SupplyUnitaryItem(props){
       "name": products.name,
       "price": Number(products.price),
       "type":  products.type,
-      "image":  products.image,
+      "image": products.image,
   }
-    
+
     const id = props.id
-    // console.log(products);
 
-
-    console.log(id);
     const updateProducts = (obj, idProduct) =>{
       putProducts(obj, idProduct)
       .then((res)=> {
@@ -83,10 +85,18 @@ function SupplyUnitaryItem(props){
                   <i className="far fa-window-close" name={props.id} onClick={
                     () => setModalIsOpen(false)}></i>
                   <section className="productsInfo">
-                    <p>Nombre:  <input name="name" defaultValue={props.productName} onChange={handleInputChange } ></input></p>
-                    <p>Precio:   <input name="price" defaultValue={props.price} onChange={handleInputChange }></input></p>
-                    <p>Tipo:    <input name="type" defaultValue={props.type} onChange={handleInputChange }></input></p>
-                    <p>Imagen:    <input name="image" defaultValue={props.image} onChange={handleInputChange}></input></p>
+                    <p>Nombre:  <input name="name" defaultValue={props.productName} onChange={handleInputChange} ></input></p>
+                    <p>Precio:   <input name="price" defaultValue={props.price} onChange={handleInputChange}></input></p>
+                    <p>Imagen:    <input name="image" defaultValue={props.productItemImg} onChange={handleInputChange}></input></p>
+                    <p>Tipo:
+                      <select name="type" onChange={handleInputChange }
+                        defaultValue={props.type}
+                      >
+                      <option value="drink">Bebidas</option>
+                      <option value="burger">Hamburguesas</option>
+                      <option value="sandwich">Sandwiches</option>
+                      <option value="side dishes">Acompañantes</option>
+                    </select></p>
                     <button onClick={()=> {
                       updateProducts(objProduct,id)}
                     }>Guardar</button>
