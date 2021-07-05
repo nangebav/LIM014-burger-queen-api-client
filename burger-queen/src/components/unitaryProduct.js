@@ -15,9 +15,10 @@ function UnitaryProduct(props){
     const obj = {
        name : name,
        totalPrice: price*qty,
-       qty: qty
+       qty: qty,
+       productId:props.id
     }
-
+    // console.log(obj)
     const handleOnChange = () => {
       setIsChecked(!isChecked);
       if(!isChecked){
@@ -30,13 +31,13 @@ function UnitaryProduct(props){
             <div>
             <input 
                 type="checkbox" 
-                id={props._id}
+                id={props.id}
                 className="checkbox-round"  
                 checked={isChecked}
                 onChange={handleOnChange}>
             </input>
             <span className="prueba"> </span>
-            <label htmlFor={props._id}> {props.name}</label>
+            <label htmlFor={props.id}> {props.name}</label>
             </div>
             <article className="counterWrap">
             <img alt="imgPhoto" src= {props.image}></img>

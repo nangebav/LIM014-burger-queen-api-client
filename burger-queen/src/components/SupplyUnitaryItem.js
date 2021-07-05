@@ -13,8 +13,8 @@ function SupplyUnitaryItem(props){
         console.log('se eliminó producto')
         return res.data})
         .catch(err => console.log(err))
-}
-    console.log(props.id)
+      }
+    //console.log(props.id)
 
 
     Modal.setAppElement('#root')
@@ -37,7 +37,7 @@ function SupplyUnitaryItem(props){
   }
     
     const id = props.id
-    console.log(products);
+    // console.log(products);
 
 
     console.log(id);

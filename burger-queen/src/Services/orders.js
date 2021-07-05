@@ -24,19 +24,6 @@ export const getOrders = async (token) => {
         return error
     }
  
-    // console.table(resp.status);
-    // switch (resp.status) {
-    //     case 200:
-    //         return resp;
-    //     case 400:
-    //         return new Error('userId o productos son requeridos');
-    //     case 401:
-    //         return new Error('no hay cabecera de autentización');      
-    //     default:
-    //         break;
-    // }
-    // pendiente header parameters
-    // return resp;
 }
 
 export const postOrders = async (token, newOrder) => {

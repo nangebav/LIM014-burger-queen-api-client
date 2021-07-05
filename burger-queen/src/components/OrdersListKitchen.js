@@ -1,12 +1,18 @@
 
 import '../style/main.scss'
 import OrderToKitchenUnitary from './OrderToKitchenUnitary';
+import {getProductId} from '../Services/products'
 
 function OrdersListKitchen(props) {
 
   const orders = props.orders;
+   // getProductId()
+  const getProductName = (id) =>{
+    getProductId(id, localStorage.token)
+    .then((res)=> console.log(res))
+  }
 
-    return (
+     return (
       <>
       { orders.map((order) => 
   
@@ -16,7 +22,8 @@ function OrdersListKitchen(props) {
           status={order.status} 
           key={order._id}
           products={order.products.map((item) => 
-          <p key={order._id + item.products}> {item.qty}</p>
+            console.log(item)
+            // <p key={order._id }> {item.qty}  </p>
           )}
         
         />
