@@ -3,7 +3,7 @@ const axios = require('axios');
 // const baseUrl = 'http://localhost:3001/users'
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/users'
 // const baseUrl = 'http://localhost:3001/users'
-const baseUrl = 'http://nodejs-bq-api.herokuapp.com/users'
+const baseUrl = 'http://localhost:8888/users'
 
 const token = localStorage.token
 //console.log(token)
