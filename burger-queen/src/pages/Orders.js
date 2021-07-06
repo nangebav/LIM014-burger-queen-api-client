@@ -17,7 +17,6 @@ function Order(props) {
     const location = useLocation(); 
     const order = location.state // traemos la orden con useState desde Table Order
     const [orderProducts, setOrderProducts] = useState(order.products)
-    console.log(order) // 
 
     // const orderProducts = order.products
     // console.log(orderProducts);
@@ -30,7 +29,7 @@ function Order(props) {
            "client": order.client,
            "products": order.products,
            "note": order.note,
-            "productId":order.productId
+           "productId":order.productId
          }
 
     // función para ingresar data a API

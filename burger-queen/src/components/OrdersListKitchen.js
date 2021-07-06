@@ -17,7 +17,8 @@ function OrdersListKitchen(props) {
       { orders.map((order) => 
   
         < OrderToKitchenUnitary 
-          client={order.client} 
+          client={order.client}
+          _id={order._id}
           dateEntry={order.dateEntry} 
           status={order.status} 
           key={order._id}

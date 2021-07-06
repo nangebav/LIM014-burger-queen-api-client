@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom';
 import MenuOrderProducts from '../components/MenuOrderProducts';
 import ProductItem from '../components/ProductItem';
 import logo from '../images/burger-queen-logo.png';
-import { postOrders } from '../Services/orders.js';
+
 
 
 function TableOrder(props) {
@@ -22,20 +22,25 @@ function TableOrder(props) {
     setName(event.target.value)
   }
 
+
   const selectedProduct = (product) => {
-    console.log(products)
+
     const productList = products.map((el)=>{
       const elem = el
+     
       if(el._id === product.productId){
         elem.qty = product.qty
-        elem.checked = true 
+        elem.checked = product.checked 
       }
       return elem
     })
     setProducts(productList);
-    setCart([...cart, product]);
-  }
-  console.log(cart)
+    //console.log(productList);
+    setCart([
+      ...cart, 
+      product]);
+
+  };
 
   useEffect( ()=> {
     // const getData = async() =>{
@@ -49,7 +54,11 @@ function TableOrder(props) {
     
   },[])
 
+  const cardChecked = cart.filter(obj => obj.checked === true)
+  console.log(cardChecked);
+  console.log(cart);
   let priceProducts = cart.map(c => c.totalPrice);
+
   let total = priceProducts.reduce((a, b) => a + b, 0);
 
     const totalOrder = {
@@ -58,6 +67,7 @@ function TableOrder(props) {
       "products": cart,
       "total": total,
     }
+
 
 
   return (

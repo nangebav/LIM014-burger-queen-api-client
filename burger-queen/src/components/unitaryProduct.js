@@ -12,6 +12,7 @@ function UnitaryProduct(props){
        name : name,
        totalPrice: price*qty,
        qty: qty,
+       checked: !isChecked,
        productId:props.id
     }
 
@@ -19,6 +20,9 @@ function UnitaryProduct(props){
     const handleOnChange = () => {
       setIsChecked(!isChecked);
       if(!isChecked){
+        selectedProduct(obj)
+      }
+      if (isChecked) {
         selectedProduct(obj)
       }
     };
