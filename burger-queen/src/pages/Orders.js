@@ -87,7 +87,7 @@ function Order(props) {
             </section>
             <section className="orderFlex" >
                 <h3> 
-                Notas del Cliente
+                “Nuestro mayor activo es el cliente! Trata a cada cliente como si fuera el único! ”
                 </h3>
                 <p> {order.note}</p>
             </section>
