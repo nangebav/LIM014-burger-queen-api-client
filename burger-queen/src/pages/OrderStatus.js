@@ -21,6 +21,7 @@ function OrderStatus() {
       
     },[])
 
+    //console.log((orderStatus))
 
     return (
     <section className="OrderStatus">
@@ -34,7 +35,7 @@ function OrderStatus() {
             <section>
                 {  orderStatus.map((order) => 
 
-                    <StatusListTable status={order.status} client={order.client} orderId={order._id} key={order._id}/>
+                    <StatusListTable products={order.products} status={order.status} client={order.client} orderId={order._id} key={order._id + order.client}/>
 
                 )}
             </section>

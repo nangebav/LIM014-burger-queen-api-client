@@ -13,7 +13,7 @@ export const getOrders = async (token) => {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
             }
-          }) 
+        }) 
 
           if (resp.status !== 200) {
             return new Error('Error');
@@ -53,6 +53,19 @@ export const deleteOrders = async (token, orderId) => {
         }
     }); 
     
+    return resp;
+}
+
+export const putOrders = async (changeOrder, OrderId) => {
+    const resp = await axios({
+        method: 'put',
+        url: `${baseUrl}/${OrderId}`,
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+        data:JSON.stringify(changeOrder),
+      });
     return resp;
 }
 
