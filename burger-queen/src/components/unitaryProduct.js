@@ -22,9 +22,6 @@ function UnitaryProduct(props){
       if(!isChecked){
         selectedProduct(obj)
       }
-      if (isChecked) {
-        selectedProduct(obj)
-      }
     };
 
     return (
