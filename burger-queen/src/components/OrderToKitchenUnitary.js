@@ -13,7 +13,7 @@ function OrderToKitchenUnitary(props) {
                         <p>Hora de Pedido</p>
                         <div className="alertWrap">
                             <img alt="alert" className="alertIcon" src={alertIcon}></img>
-                            <button className="alertTime"><img alt="clock" src={clock} ></img> {props.dateEntry}</button>
+                            <button className="Time"><img alt="clock" src={clock} ></img> {props.dateEntry}</button>
                         </div>
                     </article>
                 </div>

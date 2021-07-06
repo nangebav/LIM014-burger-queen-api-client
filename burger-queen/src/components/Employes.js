@@ -5,7 +5,7 @@ import {deleteUsers, putUsers} from '../Services/users'
 import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import waiterGirl from '../images/waiterGirl.svg'
 
 function Employ(props){
   const history = useHistory();
@@ -44,13 +44,13 @@ function Employ(props){
     return (
         <section>
         <section className="CardEmploy" key={props._id}>
-            <img src={props.photoEmploy} className="img" alt="persona random" />
+            <img src={waiterGirl} className="img" alt="persona random" />
             <section className="userWrapper">
                 <h3>{props.email}</h3>
                 <p>Cargo: Servicio</p>
             </section>
             <section className="editAndDelete">
-                <img src={pen} alt="Editar" onClick={() => setModalIsOpen(true)}></img>
+                <i className="fas fa-edit" alt="Editar" onClick={() => setModalIsOpen(true)}></i>
                 <Modal
                   isOpen={modalIsOpen}
                   onRequestClose={() => setModalIsOpen(false)}
@@ -97,11 +97,10 @@ function Employ(props){
                       }}>Guardar</button>
                   </section>
                 </Modal>
-                <img 
-                className={props._id}
+                <i className="fas fa-trash-alt"
                 onClick={e => setBoxModalIsOpen(true)}
                 src={deleteUser}
-                alt="Eliminar"></img>
+                alt="Eliminar"></i>
                 
                 <Modal isOpen={boxModalOpen}
                 onRequestClose={() => setBoxModalIsOpen(false)}
@@ -112,8 +111,6 @@ function Employ(props){
                   <button className="btnDelete" onClick={() => {deleteUsersFx(props._id)}}> Eliminar </button>
                   <button className="cancel" onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
                 </Modal>
-
-
             </section>
         </section>
         </section>

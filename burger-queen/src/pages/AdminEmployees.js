@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 import {postUser} from '../Services/users'
 
 
-
 function AdminEmployees(){
 
     const history =  useHistory();
@@ -78,7 +77,7 @@ function AdminEmployees(){
                     <button onClick={()=>{fxpostUser()}}> Crear Usuario</button>
                     <button  onClick={() => fxNexUser()} > Cancelar </button>
             </section>
-            <Employees employees={employees}/>
+            <Employees employees={employees} />
     </section>
 )
 };

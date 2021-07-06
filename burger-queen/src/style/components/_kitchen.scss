@@ -24,9 +24,8 @@ $colorGreen: rgb(94,201,110);
 .orderToKitchen{
     background-color:  rgba(255, 199, 57, 0.541);
     width: 80%;
-    height: 27%;
     margin: 2% auto;
-    padding: 2%;
+    padding: 3%;
     font-family: 'ABeeZee', sans-serif;
     font-size: 1.2em;
     font-style: italic;
@@ -72,7 +71,7 @@ $colorGreen: rgb(94,201,110);
     .bottomOrderSection{
         display:flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-content: center;
         align-items: center;
         textarea{

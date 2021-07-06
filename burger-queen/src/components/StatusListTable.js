@@ -53,7 +53,7 @@ function StatusListTable(props) {
                     <h1> {props.status} </h1>
                 </section>
                 
-                <button><img alt="btn" src={editOrder} onClick={()=> setModalIsOpen(true)}></img></button>
+                <button><i className="fas fa-edit" onClick={()=> setModalIsOpen(true)}></i></button>
                 <Modal
                   isOpen={modalIsOpen}
                   onRequestClose={() => setModalIsOpen(false)}
@@ -84,7 +84,7 @@ function StatusListTable(props) {
                 </Modal>
 
 
-                <button><img name={props.orderId} onClick={() => setBoxModalIsOpen(true)} alt="btn" src={deleteOrder}></img></button>
+                <button><i className="fas fa-trash-alt" name={props.orderId} onClick={() => setBoxModalIsOpen(true)} alt="btn" src={deleteOrder}></i></button>
                 
                 <Modal isOpen={boxModalOpen}
                 onRequestClose={() => setBoxModalIsOpen(false)}
