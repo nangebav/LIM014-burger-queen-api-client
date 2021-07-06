@@ -54,9 +54,9 @@ function TableOrder(props) {
     
   },[])
 
-  const cardChecked = cart.filter(obj => obj.checked === true)
-  console.log(cardChecked);
-  console.log(cart);
+  //const cardChecked = cart.filter(obj => obj.checked === true)
+  // console.log(cardChecked);
+  // console.log(cart);
   let priceProducts = cart.map(c => c.totalPrice);
 
   let total = priceProducts.reduce((a, b) => a + b, 0);

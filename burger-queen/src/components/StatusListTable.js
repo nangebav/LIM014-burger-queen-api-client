@@ -12,6 +12,7 @@ function StatusListTable(props) {
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [boxModalOpen, setBoxModalIsOpen] = useState(false);
+    const [statusModal, setStatusModal] = useState(false)
     const [order, setOrder] = useState();
     
 
@@ -20,8 +21,7 @@ function StatusListTable(props) {
         console.log('Eliminaste Orden');
         history.go(0)
     }
-    
-    Modal.setAppElement('#root')
+
 
     const handleInputChange = (event) => {
         setOrder({
@@ -61,9 +61,21 @@ function StatusListTable(props) {
                 <p> {props.client} </p>
             </section>
             <section className="statusWrapper">
-                <section className={props.status === 'delivering' ? 'statusOk' :'statusAlert'}>
+                <section className={props.status} 
+                    onClick={()=> setStatusModal(true)}>
                     <h1> {props.status} </h1>
                 </section>
+                <Modal
+                        isOpen={statusModal}
+                        onRequestClose={() => setStatusModal(false)}
+                        className="Modal"
+                    >
+                        <i className="far fa-window-close" 
+                            onClick={() => setStatusModal(false)}></i>
+                        <h3>¿Ya entregó su pedido?</h3>
+                        <button onClick={()=>updateOrder({status:"delivered"}, props.orderId)}>Sí</button>
+                        <button onClick={() => setStatusModal(false)}>No</button>
+                    </Modal>
                 
                 <button><i className="fas fa-edit" onClick={()=> setModalIsOpen(true)}></i></button>
                 <Modal
@@ -82,7 +94,7 @@ function StatusListTable(props) {
                                     {props.products.map((product)=>
                                             <tr key={product.product._id}>
                                                 <td> {product.product.name} </td>
-                                                <td><input defaultValue={product.qty} name="qty"></input></td>
+                                                <td>{product.qty}</td>
                                             </tr>                           
                                         )}
 

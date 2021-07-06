@@ -62,19 +62,23 @@ $colorYellow: rgb(255,200,57);
     margin-right: 20px;
 }
 
-.statusOk,.statusAlert {
+.delivered,.pending,.delivering {
     width: 100px;
     padding: 10px;
     border: none;
     font-family: "Alata", sans-serif;
 }
-.statusOk{
+.delivered{
     background-color: $colorGreen;
     color: $colorBlack;
 }
-.statusAlert{
-    background-color: $colorYellow;
+.pending{
+    background-color: $colorRedPink;
     color: $colorWhite;
+}
+.delivering{
+    background-color: rgb(255, 183, 50);
+    color: $colorBlack;
 }
 .ordersTable{
     input{
