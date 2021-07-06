@@ -1,5 +1,4 @@
 import deleteOrder from '../images/X.svg'
-import editOrder from '../images/pen.svg'
 import {deleteOrders} from '../Services/orders'
 import Modal from 'react-modal';
 import { useState } from 'react';
@@ -11,9 +10,10 @@ function StatusListTable(props) {
     const history = useHistory()
     
     Modal.setAppElement('#root')
-    const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [boxModalOpen, setBoxModalIsOpen] = useState(false)
-    const [order, setOrder] = useState()
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [boxModalOpen, setBoxModalIsOpen] = useState(false);
+    const [order, setOrder] = useState();
+    
 
     const deleteOrderFx = async(id) => {
         await deleteOrders(id)
@@ -26,10 +26,22 @@ function StatusListTable(props) {
     const handleInputChange = (event) => {
         setOrder({
             ...order,
-            [event.target.name] : event.target.value
-        })
+            [event.target.name] : event.target.value,
+        }) 
       }
-      console.log(order)
+    
+    // const arrProducts = [];
+    // const handleProductChange = (event) =>{
+        
+    //     setProducts(
+    //         arrProducts.concat(...products, 
+    //             {
+    //             [event.target.name] : event.target.value,
+    //         })
+    //    )
+        
+    //     return products;
+    // }
 
       const updateOrder = (obj, idProduct) =>{
         putOrders(obj, idProduct)
@@ -61,22 +73,21 @@ function StatusListTable(props) {
                 >
                   <i className="far fa-window-close" name={props.id} onClick={
                     () => setModalIsOpen(false)}></i>
-                                <table className="ordersTable">
+                            <table className="ordersTable">
+                                <tbody>
                                     <tr>
                                         <th>Productos </th>
                                         <th>Cantidad </th>
                                     </tr>
-                                    <tbody>
                                     {props.products.map((product)=>
-                                            <tr key={product.name +product.product._id}>
+                                            <tr key={product.product._id}>
                                                 <td> {product.product.name} </td>
-                                                <td><input defaultValue={product.qty} name="qty" onChange={handleInputChange }></input></td>
+                                                <td><input defaultValue={product.qty} name="qty"></input></td>
                                             </tr>                           
                                         )}
 
-                                    </tbody>
-
-                                </table>
+                                </tbody>
+                            </table>
                   <section className="ordersInfo">
                     <p>Nombre:  <input name="client" defaultValue={props.client} onChange={handleInputChange } ></input></p>
                     <button onClick={()=> updateOrder(order, props.orderId)}>Guardar</button>

@@ -9,8 +9,18 @@ function ProductItem(props) {
   // map de los unitaryproduct
   return (
     <>{products.map((product) => 
-      <UnitaryProduct selectedProduct={props.selectedProduct} name={product.name} price={product.price} id={product._id} image={product.image} key={product._id}/>
-    )}</>
+      <UnitaryProduct 
+        selectedProduct={props.selectedProduct} 
+        name={product.name}
+        price={product.price} 
+        id={product._id} 
+        image={product.image} 
+        key={product._id}
+        qtty={product.qty}
+        checked={product.checked}
+      />
+    )}
+    </>
   );
 }
   
