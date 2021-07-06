@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:8888/orders';
 const token = localStorage.token
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/orders'
 
-export const getOrders = async (token) => {
+export const getOrders = async () => {
     try {
         const resp = await axios({
             method: 'get',
@@ -13,20 +13,18 @@ export const getOrders = async (token) => {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
             }
-        }) 
-
+          }) 
           if (resp.status !== 200) {
             return new Error('Error');
           } 
           return resp;
-
     } catch (error) {
         return error
     }
- 
 }
 
-export const postOrders = async (token, newOrder) => {
+export const postOrders = async (newOrder) => {
+    try {
     const resp = await axios({
         method: 'post',
         data: newOrder,
@@ -35,25 +33,40 @@ export const postOrders = async (token, newOrder) => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         }
-    }); 
-    
-    return resp;
+    });
+    if (resp.status !== 200) {
+        return new Error('Error');
+      } 
+      return resp;
+    } catch (error) {
+        return error
+    }
+
 }
 
-export const deleteOrders = async (token, orderId) => {
-    const resp = await axios({
-        method: 'delete',
-        url: `${baseUrl}/${orderId}`,
-        data: {
-            orderId
-        },
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-        }
-    }); 
-    
-    return resp;
+export const deleteOrders = async (orderId) => {
+    try {
+        const resp = await axios({
+            method: 'delete',
+            url: `${baseUrl}/${orderId}`,
+            data: {
+                orderId
+            },
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            }
+        });
+
+        if (resp.status !== 200) {
+            return new Error('Error');
+          } 
+          return resp;
+
+    } catch (error) {
+        return error
+    }
+
 }
 
 export const putOrders = async (changeOrder, OrderId) => {

@@ -35,24 +35,21 @@ function AdminEmployees(){
         }
     }
 
-    const fxpostUser = () =>{
-        postUser(objEmployee)
-        .then(() =>{
+    const fxpostUser = async () =>{
+        await postUser(objEmployee)
         fxNexUser()
         history.go(0)
-    })
+
     }
 
+
     useEffect(()=> { 
-        getUsers()
-        .then((res)=> {
-             const data = res.data.filter(userType => !userType.roles.admin)
-             setEmployees(data);
-            // console.log(res)
-        })
-        .catch((err)=>{console.log(err)}); 
-        //getUsers() 
-    
+        const getData = async () =>{
+            let res = await getUsers()
+            const data = res.data.filter(userType => !userType.roles.admin)
+            setEmployees(data);
+        }
+        getData()
     },[]); 
 
 

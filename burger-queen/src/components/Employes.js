@@ -4,14 +4,15 @@ import '../style/main.scss';
 import {deleteUsers, putUsers} from '../Services/users'
 import Modal from 'react-modal';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 function Employ(props){
-
-    const deleteUsersFx = (uid) =>{
-        deleteUsers(uid)
-        .then((res)=> console.log(res.data)
-          )
-          .catch((err)=>{console.log('No se logró la petición')})
+  const history = useHistory();
+    const deleteUsersFx = async (uid) =>{
+        await deleteUsers(uid)
+        console.log('Eliminaste al usuario');
+        history.go(0)
     }
 
     Modal.setAppElement('#root')
@@ -23,16 +24,10 @@ function Employ(props){
 
     //const id = props.id
 
-    const updateUser = (obj, uid) =>{
-      
-      putUsers(obj, uid)
-      .then((res)=> {
-        console.log('subiste tus cambios');
-        return res.data
-       })
-       .catch((err) => {
-        console.log('No logramos actualizar');
-       })
+    const updateUser = async(obj, uid) =>{
+      await putUsers(obj, uid)
+      console.log('subiste tus cambios');
+      history.go(0)
     };
     
 
@@ -53,7 +48,6 @@ function Employ(props){
             <section className="userWrapper">
                 <h3>{props.email}</h3>
                 <p>Cargo: Servicio</p>
-                <p>Password: {props.password}</p>
             </section>
             <section className="editAndDelete">
                 <img src={pen} alt="Editar" onClick={() => setModalIsOpen(true)}></img>
@@ -115,8 +109,8 @@ function Employ(props){
                   <i className="far fa-window-close" onClick={() => setBoxModalIsOpen(false)}></i>
                   <h3> ¿Segur@ que desea eliminar al usuario? </h3>
                   <p> Esta acción será irreversible</p>
-                  <button onClick={() => {deleteUsersFx(props._id)}}> Eliminar </button>
-                  <button  onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
+                  <button className="btnDelete" onClick={() => {deleteUsersFx(props._id)}}> Eliminar </button>
+                  <button className="cancel" onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
                 </Modal>
 
 

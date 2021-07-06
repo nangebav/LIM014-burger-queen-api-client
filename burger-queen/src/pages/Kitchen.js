@@ -11,7 +11,7 @@ function Kitchen() {
     useEffect(()=> {
       
       const getData = async () =>{
-        let response = await getOrders(localStorage.token)
+        let response = await getOrders()
 
         setOrders(response.data)
       }
