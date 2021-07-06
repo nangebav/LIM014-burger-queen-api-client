@@ -13,7 +13,6 @@ function StatusListTable(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [boxModalOpen, setBoxModalIsOpen] = useState(false);
     const [order, setOrder] = useState();
-    const [products , setProducts] = useState([]);
     
 
     const deleteOrderFx = async(id) => {
@@ -32,17 +31,19 @@ function StatusListTable(props) {
       }
     
     // const arrProducts = [];
-
-    const handleProductChange = (event) =>{
+    // const handleProductChange = (event) =>{
         
-        const product = {
-            [event.target.name] : event.target.value
-        }
-        setProducts(...products, product)
-    }
-    console.log(products)
+    //     setProducts(
+    //         arrProducts.concat(...products, 
+    //             {
+    //             [event.target.name] : event.target.value,
+    //         })
+    //    )
+        
+    //     return products;
+    // }
 
-    const updateOrder = (obj, idProduct) =>{
+      const updateOrder = (obj, idProduct) =>{
         putOrders(obj, idProduct)
         .then(()=> {
           history.go(0)
@@ -81,7 +82,7 @@ function StatusListTable(props) {
                                     {props.products.map((product)=>
                                             <tr key={product.product._id}>
                                                 <td> {product.product.name} </td>
-                                                <td><input defaultValue={product.qty} name="qty" onChange={handleProductChange }></input></td>
+                                                <td><input defaultValue={product.qty} name="qty"></input></td>
                                             </tr>                           
                                         )}
 
