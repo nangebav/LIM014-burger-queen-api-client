@@ -16,6 +16,16 @@ function OrderToKitchenUnitary(props) {
           history.go(0)
     }
 
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+      setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+      }
+
     // useEffect(() =>  {
     //    window.location.reload();
     // }, [statusOrder])
@@ -40,10 +50,24 @@ function OrderToKitchenUnitary(props) {
             <div className="bottomOrderSection">
                 <button 
                 onClick={() =>{
-                 statusChange(props._id)}}
-                className="deliver">{status}</button>
+                 openModal()
+                 // statusChange(props._id)
+                }}
+                className="deliver">{props.status}</button>
             </div>
-            
+            <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Example Modal"
+            className="Modal">
+                <i className="far fa-window-close" onClick={() => closeModal()}></i>
+                <h3> ¿Desea entregar la orden?</h3>
+                <button 
+                onClick={() =>{
+                 statusChange(props._id)
+                }}
+                className="deliver">Entregar</button>
+            </Modal>
         </section>
     );
 }

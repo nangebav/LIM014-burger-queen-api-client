@@ -12,8 +12,8 @@ function Kitchen() {
       
       const getData = async () =>{
         let response = await getOrders()
-
-        setOrders(response.data)
+        const data = response.data.filter(orderStatus => orderStatus.status === "pending")
+        setOrders(data)
       }
       getData()
       

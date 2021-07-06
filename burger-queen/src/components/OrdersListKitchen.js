@@ -1,16 +1,18 @@
 
 import '../style/main.scss'
 import OrderToKitchenUnitary from './OrderToKitchenUnitary';
-import {getProductId} from '../Services/products'
+// import {getProductId} from '../Services/products'
 
 function OrdersListKitchen(props) {
 
   const orders = props.orders;
    // getProductId()
-  const getProductName = (id) =>{
-    getProductId(id, localStorage.token)
-    .then((res)=> console.log(res))
-  }
+  // const getProductName = (id) =>{
+  //   getProductId(id, localStorage.token)
+  //   .then((res)=> console.log(res))
+  // }
+
+  console.log(orders);
 
      return (
       <>
