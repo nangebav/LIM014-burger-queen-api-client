@@ -35,14 +35,11 @@ function TableOrder(props) {
   //console.log(cart)
 
   useEffect(()=> {
-    
-    const getData = () =>{
+    const getData = async() =>{
       getProducts(localStorage.token)
-      .then((res)=> {
+        let res = await getProducts(localStorage.token)
         const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
         setProducts(newItems);
-      })
-      .catch((err)=>{console.log(err)})
     }
     getData()
     

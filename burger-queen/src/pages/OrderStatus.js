@@ -8,19 +8,13 @@ function OrderStatus() {
 
     const [orderStatus, setOrderStatus] = useState([]);
 
-
-    useEffect(()=> {
-      const getData = () =>{
-        getOrders(localStorage.token)
-        .then((res)=> {
-          setOrderStatus(res.data);
-        })
-        .catch((err)=>{console.log(err)})
+    useEffect(()=> {   
+      const getData = async () =>{
+        let response = await getOrders()
+        setOrderStatus(response.data)
       }
       getData()
-      
     },[])
-
 
     return (
     <section className="OrderStatus">

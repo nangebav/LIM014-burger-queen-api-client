@@ -4,23 +4,26 @@ import pen from '../images/pen.svg';
 import deleteUser from '../images/X.svg';
 import { deleteProduct , postProducts, putProducts} from '../Services/products';
 import Modal from 'react-modal';
+import { useHistory } from 'react-router-dom';
 
 function SupplyUnitaryItem(props){
+  const history = useHistory();
   
-  const deleteProductFx = (name) => {
-    deleteProduct(localStorage.token, name)
-        .then(res => {
-        console.log('se eliminó producto')
-        return res.data})
-        .catch(err => console.log(err))
-      }
-    //console.log(props.id)
-
+  const deleteProductFx = async (name) => {
+    await deleteProduct(name);
+    console.log('Eliminaste Producto');
+    history.go(0)
+    }
 
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [boxIsOpen, setBoxModalIsOpen] = useState(false)
-    const [ products, setProducts] = useState({})
+    const [ products, setProducts] = useState({
+      "name": props.productName,
+      "price": props.price,
+      "type":  props.type,
+      "image": props.productItemImg,
+    })
 
     const handleInputChange = (event) => {
       setProducts({
@@ -33,21 +36,14 @@ function SupplyUnitaryItem(props){
       "name": products.name,
       "price": Number(products.price),
       "type":  products.type,
-      "image":  products.image,
+      "image": products.image,
   }
-    
+
     const id = props.id
-    // console.log(products);
 
-
-    console.log(id);
-    const updateProducts = (obj, idProduct) =>{
-      putProducts(obj, idProduct)
-      .then((res)=> {
-        // console.log(res)
-        return res.data
-       })
-       .catch(() => console.log('no se pudieron guardar los cambios'))
+    const updateProducts = async(obj, idProduct) =>{
+      await putProducts(obj, idProduct)
+      console.log('Se pudieron guardar los cambios')
       };
     
     
@@ -70,8 +66,8 @@ function SupplyUnitaryItem(props){
                   <i className="far fa-window-close" onClick={() => setBoxModalIsOpen(false)}></i>
                   <h3> ¿Segur@ que desea eliminar este producto? </h3>
                   <p> Esta acción será irreversible</p>
-                  <button onClick={() => deleteProductFx(props.id)}  > Eliminar </button>
-                  <button  onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
+                  <button className="btnDelete" onClick={() => deleteProductFx(props.id)}  > Eliminar </button>
+                  <button  className="cancel" onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
                 </Modal>
 
                 <Modal
@@ -83,10 +79,18 @@ function SupplyUnitaryItem(props){
                   <i className="far fa-window-close" name={props.id} onClick={
                     () => setModalIsOpen(false)}></i>
                   <section className="productsInfo">
-                    <p>Nombre:  <input name="name" defaultValue={props.productName} onChange={handleInputChange } ></input></p>
-                    <p>Precio:   <input name="price" defaultValue={props.price} onChange={handleInputChange }></input></p>
-                    <p>Tipo:    <input name="type" defaultValue={props.type} onChange={handleInputChange }></input></p>
-                    <p>Imagen:    <input name="image" defaultValue={props.image} onChange={handleInputChange}></input></p>
+                    <p>Nombre:  <input name="name" defaultValue={props.productName} onChange={handleInputChange} ></input></p>
+                    <p>Precio:   <input name="price" defaultValue={props.price} onChange={handleInputChange}></input></p>
+                    <p>Imagen:    <input name="image" defaultValue={props.productItemImg} onChange={handleInputChange}></input></p>
+                    <p>Tipo:
+                      <select name="type" onChange={handleInputChange }
+                        defaultValue={props.type}
+                      >
+                      <option value="drink">Bebidas</option>
+                      <option value="burger">Hamburguesas</option>
+                      <option value="sandwich">Sandwiches</option>
+                      <option value="side dishes">Acompañantes</option>
+                    </select></p>
                     <button onClick={()=> {
                       updateProducts(objProduct,id)}
                     }>Guardar</button>

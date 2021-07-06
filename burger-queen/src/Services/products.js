@@ -6,6 +6,7 @@ const token = localStorage.token
 const baseUrl = 'http://localhost:8888/products'
 
 export const getProducts = async (token) => {
+    try {
     const resp = await axios({
         method: 'get',
         url: `${baseUrl}?page=1&limit=50`,
@@ -13,8 +14,16 @@ export const getProducts = async (token) => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         }
-      }); // Falta header parameters
-    return resp;
+      });
+
+      if (resp.status !== 200) {
+        return new Error('Error');
+      } 
+      return resp;
+
+    } catch (error){
+        return error
+    }
 }
 
 export const getProductId = async (productId, token) => {
@@ -31,19 +40,28 @@ export const getProductId = async (productId, token) => {
 }
 
 export const putProducts = async (changeProduct, productId) => {
-    const resp = await axios({
-        method: 'put',
-        url: `${baseUrl}/${productId}`,
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-        },
-        data:JSON.stringify(changeProduct),
-      });
-    return resp;
+    try {
+        const resp = await axios({
+            method: 'put',
+            url: `${baseUrl}/${productId}`,
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            data:JSON.stringify(changeProduct),
+          });
+          if (resp.status !== 200) {
+            return new Error('Error');
+          } 
+          return resp;
+    
+        } catch (error){
+            return error
+        }
 }
 
-export const postProducts = async (token, product) => {
+export const postProducts = async (product) => {
+    try {
     const resp = await axios({
         method: 'post',
         url: baseUrl,
@@ -53,10 +71,18 @@ export const postProducts = async (token, product) => {
             'Content-Type': 'application/json',
         },
     });
-    return resp;
+    if (resp.status !== 200) {
+        return new Error('Error');
+      } 
+      return resp;
+    }   catch (error) {
+            return error
+    }
+
 }
 
-export const deleteProduct = async (token, productId) => {
+export const deleteProduct = async (productId) => {
+    try {
     const resp = await axios({
         method: 'delete',
         url: `${baseUrl}/${productId}`,
@@ -65,5 +91,12 @@ export const deleteProduct = async (token, productId) => {
             'Content-Type': 'application/json',
         },
     });    
-    return resp;
+    if (resp.status !== 200) {
+        return new Error('Error');
+      } 
+      return resp;
+    }
+    catch (error) {
+        return error
+    }
 }
