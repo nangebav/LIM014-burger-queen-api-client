@@ -8,6 +8,7 @@ const baseUrl = 'http://localhost:8888/users'
 const token = localStorage.token
 //console.log(token)
 export const getUsers = async () => {
+    try {
     const resp = await axios({
         method: 'get',
         url: `${baseUrl}?page=1&limit=50`,
@@ -15,56 +16,115 @@ export const getUsers = async () => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         }
-    });   
-    return resp;
+    })
+    if (resp.status !== 200) {
+        return new Error('Error');
+      } 
+      return resp;
+}
+    catch(err){
+        return err
+    }   
+}
+
+export const getProducts = async (token) => {
+    try {
+    const resp = await axios({
+        method: 'get',
+        url: `${baseUrl}?page=1&limit=50`,
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        }
+      });
+
+      if (resp.status !== 200) {
+        return new Error('Error');
+      } 
+      return resp;
+
+    } catch (error){
+        return error
+    }
 }
 
 export const getUser = async (token, userId) => {
-    const resp = await axios({
-        method: 'get',
-        url: `${baseUrl}/${userId}`,
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-         },
-        }); 
-    return resp; 
+    try {
+        const resp = await axios({
+            method: 'get',
+            url: `${baseUrl}/${userId}`,
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+             },
+            }); 
+        if (resp.status !== 200) {
+            return new Error('Error');
+          } 
+        return resp;
+    } catch (error) {
+        return error
+    }
+
 } 
 
 export const postUser = async (newUser) => {
-     const resp = await axios({ 
-        method: 'post',
-        url: baseUrl,
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-        },
-        data: JSON.stringify(newUser), 
-        });
-        return resp; 
-    } 
+    try {
+        const resp = await axios({ 
+            method: 'post',
+            url: baseUrl,
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            data: JSON.stringify(newUser), 
+            });
+        if (resp.status !== 200) {
+            return new Error('Error');
+         } 
+            return resp;
+        } catch (error) {
+            return error
+        }
+    }
 
 export const deleteUsers = async (userId) => {
-    const resp = await axios({
-        method: 'delete',
-        url: `${baseUrl}/${userId}`,
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-        }
-    })
-    return resp;
+    try {
+        const resp = await axios({
+            method: 'delete',
+            url: `${baseUrl}/${userId}`,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            }
+        })
+        if (resp.status !== 200) {
+            return new Error('Error');
+          } 
+        return resp;
+    } catch (error) {
+        return error
+    }
+
 }
 
 export const putUsers = async (objectEdit, userId) => {
-    const resp = await axios({
-        method: 'put',
-        url: `${baseUrl}/${userId}`,
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-        },
-        data:JSON.stringify(objectEdit),
-      });
-    return resp;
+    try {
+        const resp = await axios({
+            method: 'put',
+            url: `${baseUrl}/${userId}`,
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            data:JSON.stringify(objectEdit),
+          });
+          if (resp.status !== 200) {
+            return new Error('Error');
+          } 
+        return resp;
+    } catch (error) {
+        return error
+    }
+
 }

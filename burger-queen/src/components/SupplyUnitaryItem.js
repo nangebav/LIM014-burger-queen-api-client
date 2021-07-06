@@ -4,18 +4,16 @@ import pen from '../images/pen.svg';
 import deleteUser from '../images/X.svg';
 import { deleteProduct , postProducts, putProducts} from '../Services/products';
 import Modal from 'react-modal';
+import { useHistory } from 'react-router-dom';
 
 function SupplyUnitaryItem(props){
+  const history = useHistory();
   
-  const deleteProductFx = (name) => {
-    deleteProduct(localStorage.token, name)
-        .then(res => {
-        console.log('se eliminó producto')
-        return res.data})
-        .catch(err => console.log(err))
-      }
-    //console.log(props.id)
-
+  const deleteProductFx = async (name) => {
+    await deleteProduct(name);
+    console.log('Eliminaste Producto');
+    history.go(0)
+    }
 
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -43,13 +41,9 @@ function SupplyUnitaryItem(props){
 
     const id = props.id
 
-    const updateProducts = (obj, idProduct) =>{
-      putProducts(obj, idProduct)
-      .then((res)=> {
-        // console.log(res)
-        return res.data
-       })
-       .catch(() => console.log('no se pudieron guardar los cambios'))
+    const updateProducts = async(obj, idProduct) =>{
+      await putProducts(obj, idProduct)
+      console.log('Se pudieron guardar los cambios')
       };
     
     
@@ -72,8 +66,8 @@ function SupplyUnitaryItem(props){
                   <i className="far fa-window-close" onClick={() => setBoxModalIsOpen(false)}></i>
                   <h3> ¿Segur@ que desea eliminar este producto? </h3>
                   <p> Esta acción será irreversible</p>
-                  <button onClick={() => deleteProductFx(props.id)}  > Eliminar </button>
-                  <button  onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
+                  <button className="btnDelete" onClick={() => deleteProductFx(props.id)}  > Eliminar </button>
+                  <button  className="cancel" onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
                 </Modal>
 
                 <Modal

@@ -3,11 +3,14 @@ import '../style/main.scss'
 import ProductSupply from '../components/ProductSupply'
 import { useEffect, useState } from 'react'
 import { getProducts, postProducts} from '../Services/products';
+import { useHistory } from 'react-router-dom'; 
 import Modal from 'react-modal';
 
 
 function ProductsListSupply() {
 
+    const history =  useHistory();
+    
     const [products, setProducts] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [ newProduct, setNewProduct] = useState({
@@ -19,19 +22,14 @@ function ProductsListSupply() {
     Modal.setAppElement('#root')
 
     useEffect(()=> {
-      
-      const getData = () =>{
-        getProducts(localStorage.token)
-        .then((res)=> {
-          setProducts(res.data);
-        })
-        .catch((err)=>{console.log(err)})
+      const getData = async () =>{
+        let response = await getProducts(localStorage.token)
+
+        setProducts(response.data)
       }
       getData()
       
     },[])
-  
-
 
     const inputOnChange = (e) => {
       setNewProduct({
@@ -40,10 +38,10 @@ function ProductsListSupply() {
     })
     }
 
-    const formProduct = () => {
-      postProducts(newProduct)
+    const formProduct = async () => {
+      await postProducts(newProduct)
+      history.go(0)
     }
-    console.log(newProduct);
     
     return (
         <>
@@ -70,7 +68,7 @@ function ProductsListSupply() {
                       >
                       <option value="drink">Bebidas</option>
                       <option value="burger">Hamburguesas</option>
-                      <option value="sandiwch">Sandwiches</option>
+                      <option value="sandwich">Sandwiches</option>
                       <option value="side dishes">Acompañantes</option>
                     </select></p>
                   </form>

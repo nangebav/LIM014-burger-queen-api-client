@@ -9,15 +9,14 @@ function StatusListTable(props) {
     
     const history = useHistory()
 
-    const deletePostFx = (id) => {
-        //console.log(id)
-        deleteOrders(localStorage.token, id)
-            .then(() => history.go(0))
-            .catch(err => console.log(err))
+    const deleteOrderFx = async(id) => {
+        await deleteOrders(id)
+        console.log('Eliminaste Orden');
+        history.go(0)
     }
     
     Modal.setAppElement('#root')
-    const [modalIsOpen, setModalIsOpen] = useState(false)
+
     const [boxModalOpen, setBoxModalIsOpen] = useState(false)
 
     return (
@@ -42,8 +41,8 @@ function StatusListTable(props) {
                   <i className="far fa-window-close" onClick={() => setBoxModalIsOpen(false)}></i>
                   <h3> ¿Segur@ que desea eliminar la orden? </h3>
                   <p> Esta acción será irreversible</p>
-                  <button onClick={()=> deletePostFx(props.orderId)}> Eliminar </button>
-                  <button  onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
+                  <button className="btnDelete" onClick={()=> deleteOrderFx(props.orderId)}> Eliminar </button>
+                  <button className="cancel" onClick={() => setBoxModalIsOpen(false)} > Cancelar </button>
                 </Modal>
             </section>
         </section>

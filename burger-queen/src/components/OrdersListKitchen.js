@@ -22,8 +22,8 @@ function OrdersListKitchen(props) {
           status={order.status} 
           key={order._id}
           products={order.products.map((item) => 
-            console.log(item)
-            // <p key={order._id }> {item.qty}  </p>
+            //console.log(item)
+            <p key={order._id + item._id}> {item.qty}  {item.product.name}</p>
           )}
         
         />
