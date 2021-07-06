@@ -1,9 +1,25 @@
 
-import '../style/main.scss'
-import clock from '../images/clock.svg'
-import alertIcon from '../images/alertIcon.svg'
+import '../style/main.scss';
+import clock from '../images/clock.svg';
+import alertIcon from '../images/alertIcon.svg';
+import { putOrders } from '../Services/orders'
+import { useEffect, useState } from 'react'
+import Modal from 'react-modal';
+import { useHistory } from 'react-router-dom';
 
 function OrderToKitchenUnitary(props) {
+    const  history = useHistory();
+    const status = props.status;
+
+    const statusChange = async (id) =>{
+          await putOrders({ "status": 'delivering'}, id)
+          history.go(0)
+    }
+
+    // useEffect(() =>  {
+    //    window.location.reload();
+    // }, [statusOrder])
+
     return (
         <section className="orderToKitchen">
             <header>
@@ -22,8 +38,12 @@ function OrderToKitchenUnitary(props) {
                 {props.products}
             </div>
             <div className="bottomOrderSection">
-                <button className="deliver">{props.status}</button>
+                <button 
+                onClick={() =>{
+                 statusChange(props._id)}}
+                className="deliver">{status}</button>
             </div>
+            
         </section>
     );
 }
