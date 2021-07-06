@@ -1,16 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../style/main.scss'
 
 function UnitaryProduct(props){
-
-    const [isChecked, setIsChecked] = useState(false);
-    const [qty, setNumber] = useState(1);
+    const { name , price, selectedProduct, qtty, checked } = props;
+    const [isChecked, setIsChecked] = useState(checked || false);
+    const [qty, setNumber] = useState(qtty || 1);
     
-    const [order, setOrderClient] =useState ({});
-    const [datos, setDatos] = useState({})
-
-    const { name , price, selectedProduct } = props;
 
     const obj = {
        name : name,
@@ -18,7 +14,8 @@ function UnitaryProduct(props){
        qty: qty,
        productId:props.id
     }
-    // console.log(obj)
+
+    //console.log(isChecked)
     const handleOnChange = () => {
       setIsChecked(!isChecked);
       if(!isChecked){
@@ -32,7 +29,8 @@ function UnitaryProduct(props){
             <input 
                 type="checkbox" 
                 id={props.id}
-                className="checkbox-round"  
+                className="checkbox-round"
+                defaultValue={isChecked}
                 checked={isChecked}
                 onChange={handleOnChange}>
             </input>

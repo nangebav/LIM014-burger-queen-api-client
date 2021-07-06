@@ -16,34 +16,38 @@ function TableOrder(props) {
   const [products, setProducts] = useState([]);
   const [typeProduct, setTypeProduct] = useState('burger');
   const [cart , setCart] = useState([])
-  const [orderClient, setOrderClient] = useState({
-      /* Order*/
-    client: '',
-    noteClient: '',
-  })
+
 
   const clientName = (event) => {
     setName(event.target.value)
   }
-  const clientNote = (event) => {
-    setNote(event.target.value)
-  }
 
   const selectedProduct = (product) => {
-    setCart([...cart, product])
+    console.log(products)
+    const productList = products.map((el)=>{
+      const elem = el
+      if(el._id === product.productId){
+        elem.qty = product.qty
+        elem.checked = true 
+      }
+      return elem
+    })
+    setProducts(productList);
+    setCart([...cart, product]);
   }
-  //console.log(cart)
+  console.log(cart)
 
-  useEffect(()=> {
-    const getData = async() =>{
-      getProducts(localStorage.token)
-        let res = await getProducts(localStorage.token)
-        const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
-        setProducts(newItems);
-    }
-    getData()
+  useEffect( ()=> {
+    // const getData = async() =>{
+      // getProducts(localStorage.token)
+        getProducts(localStorage.token)
+        .then((res)=>setProducts(res.data))
+        // const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
+        // setProducts(res.data);
+    // }
+    // getData()
     
-  },[typeProduct])
+  },[])
 
   let priceProducts = cart.map(c => c.totalPrice);
   let total = priceProducts.reduce((a, b) => a + b, 0);
@@ -67,7 +71,7 @@ function TableOrder(props) {
           </header>
           <MenuOrderProducts setTypeProduct={setTypeProduct}/>
           <h2>Elige el tipo de producto</h2>
-          <ProductItem products={products} selectedProduct={selectedProduct} total ={total} />
+          <ProductItem products={products.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
           <section className="bottomOrderWrap">
             <button className="next" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
           </section>

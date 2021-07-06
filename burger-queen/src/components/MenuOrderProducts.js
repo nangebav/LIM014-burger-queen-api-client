@@ -19,13 +19,9 @@ import drinksColor from '../images/bebidasColor.svg';
 function MenuOrderProducts(props) {
   const [btns, setBtns] = useState([]);
   const [colorImage, setColorImage] = useState('');
-  // let { path, url } = useRouteMatch();
-useEffect(() =>{
-//   btns.forEach(element => {
-//     element.getAttribute('src') === 
-// });
-}, [btns])
 
+
+  // fx para pasar de hover a click
   const clickColor = (e, imageColor, imageNotColor) =>{
     e.getAttribute('src') ===  imageNotColor ?  e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor)
   //   if (colorImage !== e.getAttribute('alt')) {
