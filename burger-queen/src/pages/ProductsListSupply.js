@@ -13,7 +13,6 @@ function ProductsListSupply() {
     
     const [products, setProducts] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [addedProduct, setAddedProduct] = useState({})
     const [ newProduct, setNewProduct] = useState({
       "name": "",
       "price": "",
@@ -23,14 +22,17 @@ function ProductsListSupply() {
     Modal.setAppElement('#root')
 
     useEffect(()=> {
+      let componentMounted = true;
       const getData = async () =>{
         let response = await getProducts(localStorage.token)
-
-        setProducts(response.data)
+        if(componentMounted) {
+        setProducts(response.data)}
       }
       getData()
-      console.log('useEffect')
-    },[addedProduct])
+      return () => {
+        componentMounted = false;
+       }
+    },[products])
 
     const inputOnChange = (e) => {
       setNewProduct({
@@ -40,8 +42,8 @@ function ProductsListSupply() {
     }
 
     const formProduct = async () => {
-      const {data} = await postProducts(newProduct)
-      setAddedProduct(data)
+       await postProducts(newProduct)
+      setModalIsOpen(false)
     }
     
     return (

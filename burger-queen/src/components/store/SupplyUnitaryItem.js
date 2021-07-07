@@ -2,16 +2,14 @@ import React, { useState} from 'react';
 import '../../style/main.scss';
 import { deleteProduct , putProducts} from '../../Services/products';
 import Modal from 'react-modal';
-import { useHistory } from 'react-router-dom';
+
 
 function SupplyUnitaryItem(props){
-  const history = useHistory();
   
   const deleteProductFx = async (name) => {
     await deleteProduct(name);
-    console.log('Eliminaste Producto');
-    history.go(0)
-    }
+    setBoxModalIsOpen(false)
+  }
 
     Modal.setAppElement('#root')
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -41,8 +39,9 @@ function SupplyUnitaryItem(props){
 
     const updateProducts = async(obj, idProduct) =>{
       await putProducts(obj, idProduct)
-      console.log('Se pudieron guardar los cambios')
-      };
+      setModalIsOpen(false)
+
+    };
     
     
     // console.log(isChecked)

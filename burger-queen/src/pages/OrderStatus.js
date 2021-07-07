@@ -9,12 +9,17 @@ function OrderStatus() {
     const [orderStatus, setOrderStatus] = useState([]);
 
     useEffect(()=> {   
+        let componentMounted = true;
       const getData = async () =>{
         let response = await getOrders()
-        setOrderStatus(response.data)
+        if(componentMounted) {
+        setOrderStatus(response.data)}
       }
       getData()
-    },[])
+      return () => {
+        componentMounted = false;
+       }
+    },[orderStatus])
 
     return (
     <section className="OrderStatus">
