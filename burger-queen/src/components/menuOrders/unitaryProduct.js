@@ -23,6 +23,8 @@ function UnitaryProduct(props){
         selectedProduct(obj)
       }
     };
+// console.log(selectedProduct);
+
 
     return (
         <article className="productItem">

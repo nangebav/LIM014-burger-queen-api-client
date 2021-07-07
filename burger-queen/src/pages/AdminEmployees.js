@@ -55,7 +55,7 @@ function AdminEmployees(){
     <section className="CardEmployees">
         <img src={ logoBurgerQueen } className="logoBQ" alt="logo"></img>
         <section>
-            <h1 className="name"> Administración </h1>
+            <h1 className="name"> Admin </h1>
             <p className="addCard" onClick={() => fxNexUser()}> + Agregar Empleado</p>
         </section>
             <section className="userWrapper" hidden= {newUser ? false : true}>
@@ -69,7 +69,7 @@ function AdminEmployees(){
                     onChange={handleInputChange}/></p>
                     <p> Cargo: 
                     <select name="cargo" defaultValue="servicio" onChange={handleInputChange}>
-                        <option value="admin">Administrador</option>
+                        <option value="admin">Admin</option>
                         <option value="servicio">Servicio</option>
                     </select>
                   </p>

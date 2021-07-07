@@ -16,7 +16,7 @@ function ProductsListSupply() {
     const [ newProduct, setNewProduct] = useState({
       "name": "",
       "price": "",
-      "imagen": "",
+      "image": "",
       "type": "burger"
     })
     Modal.setAppElement('#root')
@@ -40,7 +40,6 @@ function ProductsListSupply() {
 
     const formProduct = async () => {
       await postProducts(newProduct)
-      history.go(0)
     }
     
     return (
@@ -61,7 +60,7 @@ function ProductsListSupply() {
                   <form className="form-modal"  >
                     <p>Nombre:<input name="name" onChange={inputOnChange}/></p>
                     <p>Precio:<input name="price" onChange={inputOnChange}/></p>
-                    <p>Imagen:<input name="image" onChange={inputOnChange}/></p>
+                    <p>Imagen:<input name="image" onChange={inputOnChange} onClick={inputOnChange}/></p>
                     <p>Tipo:
                       <select name="type" onChange={inputOnChange}
                         defaultValue="burger"

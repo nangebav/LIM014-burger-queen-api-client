@@ -81,7 +81,7 @@ function Employ(props){
                   <p> Admin: 
                   <select id="input-admin" className="select-modal"
                   defaultValue={props.admin ? 'SI' : 'NO'}
-                  name="admin"
+                  name=""
                   onChange={handleInputChange}
                    // defaultValue={props.roles.admin ? 'SI' : 'NO'}
                    >
