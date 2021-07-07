@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import '../style/main.scss'
+import '../../style/main.scss'
 
 function UnitaryProduct(props){
     const { name , price, selectedProduct, qtty, checked } = props;

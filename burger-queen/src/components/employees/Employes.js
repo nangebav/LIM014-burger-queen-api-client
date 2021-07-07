@@ -1,11 +1,9 @@
-import pen from '../images/pen.svg';
-import deleteUser from '../images/X.svg';
-import '../style/main.scss';
-import {deleteUsers, putUsers} from '../Services/users'
+import '../../style/main.scss';
+import {deleteUsers, putUsers} from '../../Services/users'
 import Modal from 'react-modal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import waiterGirl from '../images/waiterGirl.svg'
+import waiterGirl from '../../images/waiterGirl.svg'
 
 function Employ(props){
   const history = useHistory();
@@ -99,7 +97,6 @@ function Employ(props){
                 </Modal>
                 <i className="fas fa-trash-alt"
                 onClick={e => setBoxModalIsOpen(true)}
-                src={deleteUser}
                 alt="Eliminar"></i>
                 
                 <Modal isOpen={boxModalOpen}

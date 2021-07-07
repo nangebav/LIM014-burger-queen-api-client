@@ -1,9 +1,9 @@
 
-import '../style/main.scss';
-import clock from '../images/clock.svg';
-import alertIcon from '../images/alertIcon.svg';
-import { putOrders } from '../Services/orders'
-import { useEffect, useState } from 'react'
+import '../../style/main.scss';
+import clock from '../../images/clock.svg';
+import alertIcon from '../../images/alertIcon.svg';
+import { putOrders } from '../../Services/orders'
+import { useState } from 'react'
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 
@@ -39,7 +39,7 @@ function OrderToKitchenUnitary(props) {
                         <p>Hora de Pedido</p>
                         <div className="alertWrap">
                             <img alt="alert" className="alertIcon" src={alertIcon}></img>
-                            <button className="Time"><img alt="clock" src={clock} ></img> {props.dateEntry}</button>
+                            <button className="Time"><img alt="clock" src={clock} ></img><p>{props.dateEntry}</p> </button>
                         </div>
                     </article>
                 </div>

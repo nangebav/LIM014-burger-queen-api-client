@@ -2,8 +2,8 @@ import {Link, useLocation} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
 import {useHistory} from 'react-router-dom';
-import MenuOrderProducts from '../components/MenuOrderProducts';
-import ProductItem from '../components/ProductItem';
+import MenuOrderProducts from '../components/menuOrders/MenuOrderProducts';
+import ProductItem from '../components/menuOrders/ProductItem';
 import logo from '../images/burger-queen-logo.png';
 
 

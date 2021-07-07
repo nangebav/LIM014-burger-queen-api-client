@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import '../style/main.scss'
-import pen from '../images/pen.svg';
-import deleteUser from '../images/X.svg';
-import { deleteProduct , postProducts, putProducts} from '../Services/products';
+import React, { useState} from 'react';
+import '../../style/main.scss';
+import { deleteProduct , putProducts} from '../../Services/products';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 

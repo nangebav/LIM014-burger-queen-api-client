@@ -1,6 +1,6 @@
 // import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
-import ProductSupply from '../components/ProductSupply'
+import ProductSupply from '../components/store/ProductSupply'
 import { useEffect, useState } from 'react'
 import { getProducts, postProducts} from '../Services/products';
 import { useHistory } from 'react-router-dom'; 

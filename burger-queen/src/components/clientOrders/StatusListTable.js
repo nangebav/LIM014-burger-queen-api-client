@@ -1,9 +1,8 @@
-import deleteOrder from '../images/X.svg'
-import {deleteOrders} from '../Services/orders'
+import {deleteOrders} from '../../Services/orders'
 import Modal from 'react-modal';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import {putOrders} from '../Services/orders';
+import {putOrders} from '../../Services/orders';
 
 function StatusListTable(props) {
     
@@ -107,7 +106,7 @@ function StatusListTable(props) {
                 </Modal>
 
 
-                <button><i className="fas fa-trash-alt" name={props.orderId} onClick={() => setBoxModalIsOpen(true)} alt="btn" src={deleteOrder}></i></button>
+                <button><i className="fas fa-trash-alt" name={props.orderId} onClick={() => setBoxModalIsOpen(true)} alt="btn"></i></button>
                 
                 <Modal isOpen={boxModalOpen}
                 onRequestClose={() => setBoxModalIsOpen(false)}

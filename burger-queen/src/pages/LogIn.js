@@ -6,7 +6,6 @@ import '../style/main.scss';
 import {useHistory} from 'react-router-dom';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
-import jwt_decode from "jwt-decode";
 
 
 function LogIn (){
@@ -14,10 +13,8 @@ function LogIn (){
   const history = useHistory();
 
   const [datos, setDatos] = useState({})
-
+  const [hidePassword, setHidePassword] = useState(true)
   const handleInputChange = (event) => {
-  //  console.log(event.target.name)
-  //  console.log(event.target.value)
     setDatos({
         ...datos,
         [event.target.name] : event.target.value
@@ -65,10 +62,12 @@ function LogIn (){
               <div className="inputLogIn">
               <img src={passwordIcon} alt="userPic"/>
               <input 
-              type="password"
+              type={hidePassword ? "password" : "text"}
               name="password"
               onChange={handleInputChange }/>
+              <i className={hidePassword ? "far fa-eye-slash" : "far fa-eye"} onClick={()=> hidePassword ? setHidePassword(false) : setHidePassword(true) }></i>
               </div>
+              
             </label>
             <button className="logIn-button" > INGRESAR </button>
           </form>

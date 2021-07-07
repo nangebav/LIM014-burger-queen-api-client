@@ -1,13 +1,9 @@
 import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
 import {Link} from 'react-router-dom';
-import OrderList from '../components/OrderList'
-// import useCart from '../hooks/useCart.js';
+import OrderList from '../components/clientOrders/OrderList'
 import {useLocation , useHistory} from 'react-router-dom';
-import useCart from '../hooks/useCart.js';
-import { useContext, useState } from 'react';
-import CartContext from '../hooks/CartContext';
-import ProductItem from '../components/ProductItem';
+import { useState } from 'react';
 import {postOrders} from '../Services/orders'
 
 

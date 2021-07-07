@@ -1,7 +1,6 @@
 import logoBurgerQueen from '../images/BQ-logo.svg';
-import '../style/main.scss'
-// import employA from '../images/prueba/employA.png'
-import Employees from '../components/EmployesCard'
+import '../style/main.scss';
+import Employees from '../components/employees/EmployesCard'
 import { getUsers} from '../Services/users';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'; 

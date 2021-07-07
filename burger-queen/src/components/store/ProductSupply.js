@@ -1,5 +1,5 @@
 
-import '../style/main.scss'
+import '../../style/main.scss'
 import SupplyUnitaryItem from './SupplyUnitaryItem';
 
 function ProductSupply(props) {

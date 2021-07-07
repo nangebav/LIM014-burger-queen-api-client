@@ -1,7 +1,6 @@
 
-import '../style/main.scss'
+import '../../style/main.scss'
 import OrderToKitchenUnitary from './OrderToKitchenUnitary';
-// import {getProductId} from '../Services/products'
 
 function OrdersListKitchen(props) {
 
@@ -12,16 +11,16 @@ function OrdersListKitchen(props) {
   //   .then((res)=> console.log(res))
   // }
 
-  console.log(orders);
+  ;
 
      return (
       <>
       { orders.map((order) => 
-  
+        // console.log(order.dateEntry)
         < OrderToKitchenUnitary 
           client={order.client}
           _id={order._id}
-          dateEntry={order.dateEntry} 
+          dateEntry={new Date(order.dateEntry).getHours()+":"+new Date(order.dateEntry).getMinutes()+":"+new Date(order.dateEntry).getSeconds()} 
           status={order.status} 
           key={order._id}
           products={order.products.map((item) => 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import OrdersListKitchen from '../components/OrdersListKitchen';
+import OrdersListKitchen from '../components/kitchen/OrdersListKitchen';
 import { getOrders } from '../Services/orders';
-// import logo from '../images/burger-queen-logo.png';
 
 function Kitchen() {
 

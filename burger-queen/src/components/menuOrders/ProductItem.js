@@ -1,5 +1,5 @@
  import React, { useState, useEffect } from 'react';
-import '../style/main.scss'
+ import '../../style/main.scss'
 import UnitaryProduct from './unitaryProduct';
 
 function ProductItem(props) {

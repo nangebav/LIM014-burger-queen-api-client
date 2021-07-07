@@ -1,6 +1,6 @@
 import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
-import StatusListTable from '../components/StatusListTable'
+import StatusListTable from '../components/clientOrders/StatusListTable'
 import { useEffect, useState } from 'react';
 import { getOrders } from '../Services/orders';
 
@@ -15,8 +15,6 @@ function OrderStatus() {
       }
       getData()
     },[])
-
-    //console.log((orderStatus))
 
     return (
     <section className="OrderStatus">

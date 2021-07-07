@@ -1,18 +1,16 @@
-// import { useState, useEffect } from 'react';
-// import {BrowserRouter as Link, useRouteMatch} from 'react-router-dom';
-import '../style/main.scss'
-import React, { useEffect, useState } from "react";
-import sandwich from '../images/sandwichMenu.svg';
-import hamburger from '../images/ordersButtonHome.svg';
-import aside from '../images/AcompañantesMenu.svg';
-import drinks from '../images/bebidas.svg'
-// import { getProducts } from '../Services/products.js'
+
+import '../../style/main.scss'
+import React, {  useState } from "react";
+import sandwich from '../../images/sandwichMenu.svg';
+import hamburger from '../../images/ordersButtonHome.svg';
+import aside from '../../images/AcompañantesMenu.svg';
+import drinks from '../../images/bebidas.svg'
 
 // Imagenes a Color
-import sandwichColor from '../images/sandwichMenuColor.svg';
-import hamburgerColor from '../images/hamburguesaColor.svg';
-import asideColor from '../images/AcompañantesMenuColor.svg';
-import drinksColor from '../images/bebidasColor.svg';
+import sandwichColor from '../../images/sandwichMenuColor.svg';
+import hamburgerColor from '../../images/hamburguesaColor.svg';
+import asideColor from '../../images/AcompañantesMenuColor.svg';
+import drinksColor from '../../images/bebidasColor.svg';
 
 
 
