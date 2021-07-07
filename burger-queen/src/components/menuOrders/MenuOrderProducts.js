@@ -15,19 +15,19 @@ import drinksColor from '../../images/bebidasColor.svg';
 
 
 function MenuOrderProducts(props) {
-  const [btns, setBtns] = useState([]);
-  const [colorImage, setColorImage] = useState('');
+  // const [btns, setBtns] = useState([]);
+  // const [colorImage, setColorImage] = useState('');
 
 
   // fx para pasar de hover a click
-  const clickColor = (e, imageColor, imageNotColor) =>{
-    e.getAttribute('src') ===  imageNotColor ?  e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor)
+  //const clickColor = (e, imageColor, imageNotColor) =>{
+  // e.getAttribute('src') ===  imageNotColor ?  e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor)
   //   if (colorImage !== e.getAttribute('alt')) {
   //     e.getAttribute('src') !== imageColor ? e.setAttribute( 'src', imageColor) : e.setAttribute( 'src', imageNotColor) 
   //  } else {
   //     console.log('no se harán cambios');
   //  }
-  }
+  // }
 
   return (
     <nav className="menu">

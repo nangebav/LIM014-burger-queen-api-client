@@ -13,6 +13,7 @@ function ProductsListSupply() {
     
     const [products, setProducts] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [addedProduct, setAddedProduct] = useState({})
     const [ newProduct, setNewProduct] = useState({
       "name": "",
       "price": "",
@@ -28,8 +29,8 @@ function ProductsListSupply() {
         setProducts(response.data)
       }
       getData()
-      
-    },[])
+      console.log('useEffect')
+    },[addedProduct])
 
     const inputOnChange = (e) => {
       setNewProduct({
@@ -39,8 +40,8 @@ function ProductsListSupply() {
     }
 
     const formProduct = async () => {
-      await postProducts(newProduct)
-      history.go(0)
+      const {data} = await postProducts(newProduct)
+      setAddedProduct(data)
     }
     
     return (
