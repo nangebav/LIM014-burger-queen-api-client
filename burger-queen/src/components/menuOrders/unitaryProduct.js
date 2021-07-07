@@ -24,6 +24,8 @@ function UnitaryProduct(props){
       }
       console.log(selectedProduct)
     };
+// console.log(selectedProduct);
+
 
     return (
         <article className="productItem">

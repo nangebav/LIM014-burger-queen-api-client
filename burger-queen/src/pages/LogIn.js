@@ -10,7 +10,14 @@ import passwordIcon from '../images/passwordIcon.png'
 
 function LogIn (){
 
+
   const history = useHistory();
+
+  // if (!localStorage.token) {
+  //   localStorage.token= "";
+  // } else{
+  //   history.push('/home')
+  // }
 
   const [datos, setDatos] = useState({})
   const [hidePassword, setHidePassword] = useState(true)

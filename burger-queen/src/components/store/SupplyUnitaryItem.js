@@ -40,8 +40,7 @@ function SupplyUnitaryItem(props){
     const updateProducts = async(obj, idProduct) =>{
       await putProducts(obj, idProduct)
       setModalIsOpen(false)
-
-    };
+      };
     
     
     // console.log(isChecked)
