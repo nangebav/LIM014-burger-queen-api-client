@@ -16,6 +16,23 @@ import Navbar from '../components/Navbar';
 function AppRouter() {
   const history = useHistory();
 
+    if ( localStorage.token=== "") {
+
+    //No estoy segura de esta función
+      return (
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <LogIn/> 
+            </Route>
+            <Route path="*">
+              <Error messageTitle="MENSAJE" message1 ="Email o contraseña no es inválidos." message2 = "Inténtelo otra vez." button="ACEPTAR"/>
+            </Route>
+          </Switch>
+        </Router>
+      );
+    } //
+
     return (
       <Router>
        < Navbar />
@@ -31,7 +48,7 @@ function AppRouter() {
           <Route path="/kitchen" component={Kitchen} />
           <Route  path="/products" component={ProductsListSupply} />
           <Route exact path="/">
-            <LogIn/>
+            <LogIn/> 
           </Route>
           <Route path="*">
             <Error messageTitle="MENSAJE" message1 ="Email o contraseña no es inválidos." message2 = "Inténtelo otra vez." button="ACEPTAR"/>

@@ -3,20 +3,16 @@ import '../style/main.scss'
 import ProductSupply from '../components/store/ProductSupply'
 import { useEffect, useState } from 'react'
 import { getProducts, postProducts} from '../Services/products';
-import { useHistory } from 'react-router-dom'; 
 import Modal from 'react-modal';
 
 
 function ProductsListSupply() {
-
-    const history =  useHistory();
-    
     const [products, setProducts] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [ newProduct, setNewProduct] = useState({
       "name": "",
       "price": "",
-      "imagen": "",
+      "image": "",
       "type": "burger"
     })
     Modal.setAppElement('#root')
@@ -40,7 +36,8 @@ function ProductsListSupply() {
     }
 
     const formProduct = async () => {
-       await postProducts(newProduct)
+      await postProducts(newProduct)
+      // setAddedProduct(data)
       setModalIsOpen(false)
     }
     
@@ -62,7 +59,7 @@ function ProductsListSupply() {
                   <form className="form-modal"  >
                     <p>Nombre:<input name="name" onChange={inputOnChange}/></p>
                     <p>Precio:<input name="price" onChange={inputOnChange}/></p>
-                    <p>Imagen:<input name="image" onChange={inputOnChange}/></p>
+                    <p>Imagen:<input name="image" onChange={inputOnChange} onClick={inputOnChange}/></p>
                     <p>Tipo:
                       <select name="type" onChange={inputOnChange}
                         defaultValue="burger"
