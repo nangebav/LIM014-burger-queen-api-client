@@ -29,9 +29,7 @@ function ProductsListSupply() {
         setProducts(response.data)}
       }
       getData()
-      return () => {
-        componentMounted = false;
-       }
+      return () => componentMounted = false;
     },[products])
 
     const inputOnChange = (e) => {

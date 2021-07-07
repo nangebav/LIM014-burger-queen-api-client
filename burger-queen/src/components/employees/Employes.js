@@ -7,11 +7,7 @@ import waiterGirl from '../../images/waiterGirl.svg'
 
 function Employ(props){
   const history = useHistory();
-    const deleteUsersFx = async (uid) =>{
-        await deleteUsers(uid)
-        console.log('Eliminaste al usuario');
-        history.go(0)
-    }
+
 
     Modal.setAppElement('#root')
 
@@ -21,11 +17,16 @@ function Employ(props){
 
 
     //const id = props.id
+    const deleteUsersFx = async (uid) =>{
+      await deleteUsers(uid)
+      console.log('Eliminaste al usuario');
+      setBoxModalIsOpen(false)
+    }
 
     const updateUser = async(obj, uid) =>{
       await putUsers(obj, uid)
       console.log('subiste tus cambios');
-      history.go(0)
+      setModalIsOpen(false)
     };
     
 

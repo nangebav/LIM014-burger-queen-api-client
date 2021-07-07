@@ -12,13 +12,11 @@ function OrderStatus() {
         let componentMounted = true;
       const getData = async () =>{
         let response = await getOrders()
-        if(componentMounted) {
-        setOrderStatus(response.data)}
+        if(componentMounted) {setOrderStatus(response.data)}
       }
       getData()
-      return () => {
-        componentMounted = false;
-       }
+      return () => componentMounted = false
+      
     },[orderStatus])
 
     return (
