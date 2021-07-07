@@ -36,8 +36,6 @@ function AdminEmployees(){
     const fxpostUser = async () =>{
         await postUser(objEmployee)
         fxNexUser()
-        history.go(0)
-
     }
 
 
@@ -48,7 +46,7 @@ function AdminEmployees(){
             setEmployees(data);
         }
         getData()
-    },[]); 
+    },[employees]); 
 
 
     return(

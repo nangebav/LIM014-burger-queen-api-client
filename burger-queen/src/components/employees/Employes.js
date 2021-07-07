@@ -2,15 +2,14 @@ import '../../style/main.scss';
 import {deleteUsers, putUsers} from '../../Services/users'
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+
 import waiterGirl from '../../images/waiterGirl.svg'
 
 function Employ(props){
-  const history = useHistory();
+
     const deleteUsersFx = async (uid) =>{
         await deleteUsers(uid)
-        console.log('Eliminaste al usuario');
-        history.go(0)
+        setBoxModalIsOpen(false)
     }
 
     Modal.setAppElement('#root')
@@ -19,13 +18,9 @@ function Employ(props){
     const [boxModalOpen, setBoxModalIsOpen] = useState(false)
     const [ editUser, setEditUser] = useState('')
 
-
-    //const id = props.id
-
     const updateUser = async(obj, uid) =>{
       await putUsers(obj, uid)
-      console.log('subiste tus cambios');
-      history.go(0)
+      setModalIsOpen(false)
     };
     
 
@@ -95,6 +90,7 @@ function Employ(props){
                       }}>Guardar</button>
                   </section>
                 </Modal>
+
                 <i className="fas fa-trash-alt"
                 onClick={e => setBoxModalIsOpen(true)}
                 alt="Eliminar"></i>

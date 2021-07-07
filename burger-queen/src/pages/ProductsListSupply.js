@@ -3,14 +3,10 @@ import '../style/main.scss'
 import ProductSupply from '../components/store/ProductSupply'
 import { useEffect, useState } from 'react'
 import { getProducts, postProducts} from '../Services/products';
-import { useHistory } from 'react-router-dom'; 
 import Modal from 'react-modal';
 
 
 function ProductsListSupply() {
-
-    const history =  useHistory();
-    
     const [products, setProducts] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [ newProduct, setNewProduct] = useState({
@@ -24,12 +20,10 @@ function ProductsListSupply() {
     useEffect(()=> {
       const getData = async () =>{
         let response = await getProducts(localStorage.token)
-
         setProducts(response.data)
       }
       getData()
-      
-    },[])
+    },[products])
 
     const inputOnChange = (e) => {
       setNewProduct({
@@ -40,6 +34,8 @@ function ProductsListSupply() {
 
     const formProduct = async () => {
       await postProducts(newProduct)
+      // setAddedProduct(data)
+      setModalIsOpen(false)
     }
     
     return (
