@@ -17,8 +17,7 @@ function StatusListTable(props) {
 
     const deleteOrderFx = async(id) => {
         await deleteOrders(id)
-        console.log('Eliminaste Orden');
-        history.go(0)
+        setBoxModalIsOpen(false)
     }
 
 
@@ -45,7 +44,8 @@ function StatusListTable(props) {
       const updateOrder = (obj, idProduct) =>{
         putOrders(obj, idProduct)
         .then(()=> {
-          history.go(0)
+          setStatusModal(false)
+          setModalIsOpen(false)
          })
          .catch(() => console.log('no se pudieron guardar los cambios'))
         };

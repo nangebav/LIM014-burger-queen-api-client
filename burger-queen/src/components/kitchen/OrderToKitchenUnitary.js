@@ -10,14 +10,15 @@ import { useHistory } from 'react-router-dom';
 function OrderToKitchenUnitary(props) {
     const  history = useHistory();
     //const status = props.status;
+    const [modalIsOpen, setIsOpen] = useState(false);
 
     const statusChange = async (id) =>{
           await putOrders({ "status": 'delivering'}, id)
-          history.go(0)
+          setIsOpen(false)
     }
 
-    const [modalIsOpen, setIsOpen] = useState(false);
-
+    Modal.setAppElement('#root')
+    
     function openModal() {
       setIsOpen(true);
     }

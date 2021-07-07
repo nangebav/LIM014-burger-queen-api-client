@@ -18,11 +18,16 @@ function ProductsListSupply() {
     Modal.setAppElement('#root')
 
     useEffect(()=> {
+      let componentMounted = true;
       const getData = async () =>{
         let response = await getProducts(localStorage.token)
-        setProducts(response.data)
+        if(componentMounted) {
+        setProducts(response.data)}
       }
       getData()
+      return () => {
+        componentMounted = false;
+       }
     },[products])
 
     const inputOnChange = (e) => {
