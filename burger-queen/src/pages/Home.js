@@ -38,7 +38,7 @@ function Home(){
             <Link to="/kitchen" className={`nav-item ${adminShow === true ? "hide" : "show"}`}>
               <button><img alt="kitchen" src={kitchen}></img>COCINA</button>
             </Link>
-            <Link to="/products" >
+            <Link to="/products" className={`nav-item ${adminShow === false ? "hide" : "show"}`}>
               <button><img alt="admin" src={admin}></img>ADMIN</button>
             </Link>
           </article>
