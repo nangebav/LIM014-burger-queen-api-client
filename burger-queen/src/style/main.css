@@ -365,16 +365,7 @@
   border-radius: 5px;
 }
 
-.next {
-  height: 3em;
-  overflow: scroll;
-  background-color: #e92f48;
-  border: transparent;
-  width: 6em;
-  font-size: x-large;
-  color: white;
-  font-family: 'Alata', sans-serif;
-}
+
 
 .bottomOrderWrap {
   display: -webkit-box;

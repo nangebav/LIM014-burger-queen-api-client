@@ -83,7 +83,7 @@ function TableOrder(props) {
           <h2>Elige el tipo de producto</h2>
           <ProductItem products={products.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
           <section className="bottomOrderWrap">
-            <button className="next" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
+            <button className="nextPage" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
           </section>
         </div>
     );

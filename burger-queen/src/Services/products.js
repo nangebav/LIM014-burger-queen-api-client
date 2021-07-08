@@ -5,11 +5,11 @@ const token = localStorage.token
 // const baseUrl = 'https://burguer-api.herokuapp.com/products'
 const baseUrl = 'http://localhost:8888/products'
 
-export const getProducts = async (token) => {
+export const getProducts = async (token,page) => {
     try {
     const resp = await axios({
         method: 'get',
-        url: `${baseUrl}?page=1&limit=50`,
+        url: `${baseUrl}?page=${page}&limit=8`,
         headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
