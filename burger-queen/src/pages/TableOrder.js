@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom';
 import MenuOrderProducts from '../components/menuOrders/MenuOrderProducts';
 import ProductItem from '../components/menuOrders/ProductItem';
 import logo from '../images/burger-queen-logo.png';
+import ReactPaginate from 'react-paginate';
 
 
 
@@ -18,11 +19,11 @@ function TableOrder(props) {
   const [cart , setCart] = useState([])
 
   const [messageName, setMessageName] = useState('')
+  const [offset, setOffset] = useState(0);
 
   const clientName = (event) => {
     setName(event.target.value)
   }
-
 
   const selectedProduct = (product) => {
 
@@ -32,29 +33,35 @@ function TableOrder(props) {
       if(el._id === product.productId){
         elem.qty = product.qty
         elem.checked = product.checked 
+
+        // if(product.checked === false){
+        //   delete elem.qty;
+        //   delete elem.checked
+        // }
       }
+     
       return elem
     })
+
     setProducts(productList);
-    //console.log(productList);
+    // console.log(productList);
     setCart([
       ...cart, 
       product]);
-
+    //console.log(product)
   };
 
   useEffect( ()=> {
     // const getData = async() =>{
       // getProducts(localStorage.token)
-        getProducts(localStorage.token,1,50)
-        .then((res)=>{setProducts(res.data);
-        console.log(res.data);})
+        getProducts(offset,12)
+        .then((res)=>setProducts(res.data))
         // const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
         // setProducts(res.data);
     // }
     // getData()
     
-  },[])
+  },[offset])
 
   //const cardChecked = cart.filter(obj => obj.checked === true)
   // console.log(cardChecked);
@@ -71,6 +78,11 @@ function TableOrder(props) {
 
 console.log(totalOrder.products.length);
 console.log(totalOrder)
+    const handlePageClick = (e) => {
+      const selectedPage = e.selected;
+      setOffset(selectedPage + 1)
+  };
+
 
   return (
        <div className="tableOrder">
@@ -88,10 +100,25 @@ console.log(totalOrder)
             <p className="errorName">{messageName ? '⚠️ Llenar casillas' : '' }</p>
           </section>
           <ProductItem products={products.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
-          <section className="bottomOrderWrap">
-            <button className="nextPage" onClick={()=> totalOrder.products.length !== 0 && totalOrder.client ? history.push('/orders', totalOrder) : setMessageName('Campo Obligatorio!')}> Siguiente</button>
+
+          <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              pageCount={3}
+            />
+
+            <section className="bottomOrderWrap">
+            <button className="nextPage" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
           </section>
+
+
         </div>
+        
     );
 }
   

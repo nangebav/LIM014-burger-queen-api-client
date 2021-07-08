@@ -76,7 +76,7 @@ function StatusListTable(props) {
                         <button onClick={() => setStatusModal(false)}>No</button>
                     </Modal>
                 
-                <button><i className="fas fa-edit" onClick={()=> setModalIsOpen(true)}></i></button>
+                <button><i className={props.status==="pending" ? "fas fa-edit": "hide"} onClick={()=> setModalIsOpen(true)}></i></button>
                 <Modal
                   isOpen={modalIsOpen}
                   onRequestClose={() => setModalIsOpen(false)}
@@ -108,7 +108,7 @@ function StatusListTable(props) {
                 </Modal>
 
 
-                <button><i className="fas fa-trash-alt" name={props.orderId} onClick={() => setBoxModalIsOpen(true)} alt="btn"></i></button>
+                <button><i className={props.status==="pending" ? "fas fa-trash-alt": "hide"} name={props.orderId} onClick={() => setBoxModalIsOpen(true)} alt="btn"></i></button>
                 
                 <Modal isOpen={boxModalOpen}
                 onRequestClose={() => setBoxModalIsOpen(false)}
