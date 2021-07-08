@@ -40,12 +40,16 @@ function AdminEmployees(){
 
 
     useEffect(()=> { 
+        let componentMounted = true;
         const getData = async () =>{
             let res = await getUsers()
             const data = res.data.filter(userType => !userType.roles.admin)
-            setEmployees(data);
+            if(componentMounted) {
+            setEmployees(data)}
         }
         getData()
+        return () => componentMounted = false;
+           
     },[employees]); 
 
 

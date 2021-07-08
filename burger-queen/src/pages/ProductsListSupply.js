@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react'
 import { getProducts, postProducts} from '../Services/products';
 import Modal from 'react-modal';
 
+import ReactPaginate from 'react-paginate';
 
 function ProductsListSupply() {
     const [products, setProducts] = useState([]);
+    const [offset, setOffset] = useState(0);
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [ newProduct, setNewProduct] = useState({
       "name": "",
@@ -20,15 +22,14 @@ function ProductsListSupply() {
     useEffect(()=> {
       let componentMounted = true;
       const getData = async () =>{
-        let response = await getProducts(localStorage.token)
+        let response = await getProducts(localStorage.token, offset)
         if(componentMounted) {
-        setProducts(response.data)}
+        setProducts(response.data)
+      }
       }
       getData()
-      return () => {
-        componentMounted = false;
-       }
-    },[products])
+      return () => componentMounted = false;
+    },[products, offset])
 
     const inputOnChange = (e) => {
       setNewProduct({
@@ -39,9 +40,13 @@ function ProductsListSupply() {
 
     const formProduct = async () => {
       await postProducts(newProduct)
-      // setAddedProduct(data)
       setModalIsOpen(false)
     }
+
+    const handlePageClick = (e) => {
+      const selectedPage = e.selected;
+      setOffset(selectedPage + 1)
+  };
     
     return (
         <>
@@ -78,6 +83,16 @@ function ProductsListSupply() {
 
                 <ProductSupply products={products} />
             </section>
+            <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              pageCount={3}
+            />
             
         </>
     )}

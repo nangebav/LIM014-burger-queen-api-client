@@ -45,6 +45,8 @@ $colorGreen: rgb(94,201,110);
     option{
         font-size: medium;
     }
+
+
 }
 .menu{
     text-align: center;
@@ -107,7 +109,7 @@ $colorGreen: rgb(94,201,110);
         }
     }
 }
-.next{
+.nextPage{
     height:3em;
     overflow: scroll;
     background-color: $colorRed ;
@@ -133,5 +135,23 @@ $colorGreen: rgb(94,201,110);
         border-width: 1px;
         outline: none;
     }
+}
+
+.errorName{
+    color: rgb(216, 0, 0);
+    background-color: $colorYellow;
+}
+
+.description{
+    display: flex;
+    flex-direction: row;
+
+    p{
+        margin-left: 40%;
+        height: 2.2em;
+        align-self: center;
+
+    }
+
 }
 

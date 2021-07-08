@@ -12,11 +12,12 @@ function TableOrder(props) {
 
   const history = useHistory(); 
   const [name , setName] = useState('') //
-  const [note , setNote] = useState('')
+
   const [products, setProducts] = useState([]);
   const [typeProduct, setTypeProduct] = useState('burger');
   const [cart , setCart] = useState([])
 
+  const [messageName, setMessageName] = useState('')
 
   const clientName = (event) => {
     setName(event.target.value)
@@ -45,8 +46,9 @@ function TableOrder(props) {
   useEffect( ()=> {
     // const getData = async() =>{
       // getProducts(localStorage.token)
-        getProducts(localStorage.token)
-        .then((res)=>setProducts(res.data))
+        getProducts(localStorage.token,1,50)
+        .then((res)=>{setProducts(res.data);
+        console.log(res.data);})
         // const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
         // setProducts(res.data);
     // }
@@ -63,27 +65,31 @@ function TableOrder(props) {
 
     const totalOrder = {
       "client": name ,
-      "note": note,
       "products": cart,
       "total": total,
     }
 
-
+console.log(totalOrder.products.length);
+console.log(totalOrder)
 
   return (
        <div className="tableOrder">
           <header className="tableOrderHeader">
             <nav> 
-              <input className="selectTable" placeholder="Nombre del cliente ✍" name='client' onChange={clientName} >
+              <input className="selectTable" placeholder="Nombre del cliente ✍" name='client' onChange={clientName} onClick={() => setMessageName('')}>
               </input>
+              <p className="errorName">{messageName}</p>
             </nav>
             <img src={logo} alt="logo"></img>
           </header>
           <MenuOrderProducts setTypeProduct={setTypeProduct}/>
-          <h2>Elige el tipo de producto</h2>
+          <section className="description">
+            <h2>Elige el tipo de producto</h2>
+            <p className="errorName">{messageName ? '⚠️ Llenar casillas' : '' }</p>
+          </section>
           <ProductItem products={products.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
           <section className="bottomOrderWrap">
-            <button className="next" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
+            <button className="nextPage" onClick={()=> totalOrder.products.length !== 0 && totalOrder.client ? history.push('/orders', totalOrder) : setMessageName('Campo Obligatorio!')}> Siguiente</button>
           </section>
         </div>
     );

@@ -12,14 +12,11 @@ function LogIn (){
 
 
   const history = useHistory();
-  const token = localStorage.getItem('token')
-  if (!localStorage.token) {
-     localStorage.token= "";
-  } else{
-    if (jwt_decode(token).email) {
-      history.push('/home')
-   }
-}
+
+//  if (!localStorage.token) {
+//     localStorage.token= "";
+//  } 
+
 
   const [datos, setDatos] = useState({})
   const [hidePassword, setHidePassword] = useState(true)
