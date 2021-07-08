@@ -21,7 +21,7 @@ function ProductsListSupply() {
     useEffect(()=> {
       let componentMounted = true;
       const getData = async () =>{
-        let response = await getProducts(localStorage.token, offset)
+        let response = await getProducts(offset,8)
         if(componentMounted) {
         setProducts(response.data)}
       }

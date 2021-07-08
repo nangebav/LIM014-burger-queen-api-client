@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom';
 import MenuOrderProducts from '../components/menuOrders/MenuOrderProducts';
 import ProductItem from '../components/menuOrders/ProductItem';
 import logo from '../images/burger-queen-logo.png';
+import ReactPaginate from 'react-paginate';
 
 
 
@@ -16,12 +17,11 @@ function TableOrder(props) {
   const [products, setProducts] = useState([]);
   const [typeProduct, setTypeProduct] = useState('burger');
   const [cart , setCart] = useState([])
-
+  const [offset, setOffset] = useState(0);
 
   const clientName = (event) => {
     setName(event.target.value)
   }
-
 
   const selectedProduct = (product) => {
 
@@ -45,14 +45,14 @@ function TableOrder(props) {
   useEffect( ()=> {
     // const getData = async() =>{
       // getProducts(localStorage.token)
-        getProducts(localStorage.token)
+        getProducts(offset,12)
         .then((res)=>setProducts(res.data))
         // const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
         // setProducts(res.data);
     // }
     // getData()
     
-  },[])
+  },[offset])
 
   //const cardChecked = cart.filter(obj => obj.checked === true)
   // console.log(cardChecked);
@@ -68,6 +68,10 @@ function TableOrder(props) {
       "total": total,
     }
 
+    const handlePageClick = (e) => {
+      const selectedPage = e.selected;
+      setOffset(selectedPage + 1)
+  };
 
 
   return (
@@ -82,10 +86,25 @@ function TableOrder(props) {
           <MenuOrderProducts setTypeProduct={setTypeProduct}/>
           <h2>Elige el tipo de producto</h2>
           <ProductItem products={products.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
-          <section className="bottomOrderWrap">
+
+          <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              pageCount={3}
+            />
+
+            <section className="bottomOrderWrap">
             <button className="nextPage" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
           </section>
+
+
         </div>
+        
     );
 }
   

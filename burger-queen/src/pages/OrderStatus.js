@@ -3,25 +3,32 @@ import '../style/main.scss'
 import StatusListTable from '../components/clientOrders/StatusListTable'
 import { useEffect, useState } from 'react';
 import { getOrders } from '../Services/orders';
+import ReactPaginate from 'react-paginate';
 
 function OrderStatus() {
 
     const [orderStatus, setOrderStatus] = useState([]);
+    const [offset, setOffset] = useState(0);
 
     useEffect(()=> {   
         let componentMounted = true;
       const getData = async () =>{
-        let response = await getOrders()
+        let response = await getOrders(offset, 5)
         if(componentMounted) {setOrderStatus(response.data)}
       }
-      getData()
+      getData(offset)
       return () => componentMounted = false
       
-    },[orderStatus])
+    },[orderStatus,offset])
+
+    const handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        setOffset(selectedPage + 1)
+    };
 
     return (
     <section className="OrderStatus">
-        <header className="orderStatusHeader">
+        <section className="orderStatusHeader">
             <img src={logo} alt="logo"></img>
             <h1>PEDIDOS</h1>
             <section className="table">
@@ -35,7 +42,17 @@ function OrderStatus() {
 
                 )}
             </section>
-        </header>
+        </section>
+        <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              pageCount={3}
+            />
     </section>
     )}
 

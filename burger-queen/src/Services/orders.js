@@ -4,11 +4,11 @@ const baseUrl = 'http://localhost:8888/orders';
 const token = localStorage.token
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/orders'
 
-export const getOrders = async () => {
+export const getOrders = async (page,limit) => {
     try {
         const resp = await axios({
             method: 'get',
-            url: `${baseUrl}?page=1&limit=50`,
+            url: `${baseUrl}?page=${page}&limit=${limit}`,
             headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',

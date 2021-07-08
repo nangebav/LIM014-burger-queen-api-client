@@ -7,7 +7,6 @@ function Kitchen() {
 
   const [orders, setOrders] = useState([]);
 
-
     useEffect(()=> {
       let componentMounted = true;
       const getData = async () =>{
