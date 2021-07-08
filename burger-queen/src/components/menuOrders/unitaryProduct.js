@@ -21,9 +21,11 @@ function UnitaryProduct(props){
       setIsChecked(!isChecked);
       if(!isChecked){
         selectedProduct(obj)
+      } else {
+        selectedProduct(obj)
       }
     };
-// console.log(selectedProduct);
+     
 
 
     return (

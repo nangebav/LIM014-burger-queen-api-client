@@ -22,7 +22,9 @@ $colorGreen: rgb(94,201,110);
     }
 }
 .orderToKitchen{
-    background-color:  rgba(255, 199, 57, 0.541);
+    background-color:rgb(254, 243, 207);
+    border: 20px solid ;
+    border-image: url('../../images/burgerBackground.png') 45 round;
     width: 80%;
     margin: 2% auto;
     padding: 3%;

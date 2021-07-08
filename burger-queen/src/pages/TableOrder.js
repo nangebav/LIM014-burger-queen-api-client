@@ -31,15 +31,22 @@ function TableOrder(props) {
       if(el._id === product.productId){
         elem.qty = product.qty
         elem.checked = product.checked 
+
+        // if(product.checked === false){
+        //   delete elem.qty;
+        //   delete elem.checked
+        // }
       }
+     
       return elem
     })
+
     setProducts(productList);
-    //console.log(productList);
+    // console.log(productList);
     setCart([
       ...cart, 
       product]);
-
+    //console.log(product)
   };
 
   useEffect( ()=> {

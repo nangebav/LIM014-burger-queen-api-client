@@ -24,9 +24,9 @@ function Home(){
   }, [adminShow])
 
 
-  console.log(adminShow);
+  //console.log(adminShow);
 
-      return(
+    return(
       <section className="home">
         <main className="main-home">
           <img src={burgerQueenLogo} id="bq-home" alt="burgerQueenLogo" />

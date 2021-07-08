@@ -60,11 +60,11 @@ function AdminEmployees(){
             <h1 className="name"> Admin </h1>
             <p className="addCard" onClick={() => fxNexUser()}> + Agregar Empleado</p>
         </section>
-            <section className="userWrapper" hidden= {newUser ? false : true}>
-                    <h3>Email: <input 
+            <section className="newUserWrapper" hidden= {newUser ? false : true}>
+                    <p>Email: <input 
                     type="email"
                     name="email"
-                    onChange={handleInputChange}/></h3>
+                    onChange={handleInputChange}/></p>
                     <p>Password: <input 
                     name="password"
                     type="text"

@@ -18,6 +18,14 @@ function LogIn (){
   // } else{
   //   history.push('/home')
   // }
+  
+  // const history = useHistory();
+  // const token = localStorage.getItem('token')
+
+  if (!localStorage.token) {
+     localStorage.token= "";
+  } 
+
 
   const [datos, setDatos] = useState({})
   const [hidePassword, setHidePassword] = useState(true)

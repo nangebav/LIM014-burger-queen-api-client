@@ -61,12 +61,29 @@
         }
     }
     .userWrapper{
+
         width: 280px;
         // padding-top: 5%;
         margin-left: 80px;
         align-self: center;
         p{
             width: 280px;
+        }
+    }
+    .newUserWrapper{
+        border: grey solid;
+        border-width: 2px;
+        width: 45%;
+        text-align: center;
+        margin:3% auto ;
+        padding:1%;
+        background-image: url('../../images/pattern3.png');
+        p{
+            margin:2%;
+            font-weight: bold;
+        }
+        button{
+            margin:2%;
         }
     }
 }
