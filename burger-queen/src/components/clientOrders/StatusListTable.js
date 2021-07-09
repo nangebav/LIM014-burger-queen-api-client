@@ -72,7 +72,7 @@ function StatusListTable(props) {
                         <i className="far fa-window-close" 
                             onClick={() => setStatusModal(false)}></i>
                         <h3>¿Ya entregó su pedido?</h3>
-                        <button onClick={()=>updateOrder({status:"delivered"}, props.orderId)}>Sí</button>
+                        <button onClick={()=>updateOrder({status:"delivered",dateProcessed: new Date()}, props.orderId)}>Sí</button>
                         <button onClick={() => setStatusModal(false)}>No</button>
                     </Modal>
                 
@@ -101,6 +101,8 @@ function StatusListTable(props) {
                             </table>
                   <section className="ordersInfo">
                     <p>Nombre:  <input name="client" defaultValue={props.client} onChange={handleInputChange } ></input></p>
+                    <p>Hora de Entrada de Orden: {`${new Date(props.dateEntry).getHours()} : ${new Date(props.dateEntry).getMinutes()}`}</p>
+                    <p>Hora de Salida de Orden: {`${new Date(props.dateProcessed).getHours()} : ${new Date(props.dateProcessed).getMinutes()}`}</p>
                     <button onClick={()=> updateOrder(order, props.orderId)}>Guardar</button>
                   </section>
                 </Modal>

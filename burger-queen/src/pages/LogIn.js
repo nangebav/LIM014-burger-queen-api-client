@@ -6,25 +6,16 @@ import '../style/main.scss';
 import {useHistory} from 'react-router-dom';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
-
+import jwt_decode from "jwt-decode";
 
 function LogIn (){
 
 
   const history = useHistory();
 
-  // if (!localStorage.token) {
-  //   localStorage.token= "";
-  // } else{
-  //   history.push('/home')
-  // }
-  
-  // const history = useHistory();
-  // const token = localStorage.getItem('token')
-
-  if (!localStorage.token) {
-     localStorage.token= "";
-  } 
+//  if (!localStorage.token) {
+//     localStorage.token= "";
+//  } 
 
 
   const [datos, setDatos] = useState({})
