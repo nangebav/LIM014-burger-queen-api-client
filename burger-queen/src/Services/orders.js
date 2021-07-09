@@ -14,9 +14,9 @@ export const getOrders = async (page,limit) => {
                 'Content-Type': 'application/json',
             }
           }) 
-          if (resp.status !== 200) {
-            return new Error('Error');
-          } 
+        //   if (resp.status !== 200) {
+        //     return new Error('Error');
+        //   } 
           return resp;
     } catch (error) {
         return error
