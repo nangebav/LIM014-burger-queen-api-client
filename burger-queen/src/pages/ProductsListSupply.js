@@ -4,6 +4,7 @@ import ProductSupply from '../components/store/ProductSupply'
 import { useEffect, useState } from 'react'
 import { getProducts, postProducts} from '../Services/products';
 import Modal from 'react-modal';
+
 import ReactPaginate from 'react-paginate';
 
 function ProductsListSupply() {
@@ -23,7 +24,8 @@ function ProductsListSupply() {
       const getData = async () =>{
         let response = await getProducts(offset,8)
         if(componentMounted) {
-        setProducts(response.data)}
+        setProducts(response.data)
+      }
       }
       getData()
       return () => componentMounted = false;

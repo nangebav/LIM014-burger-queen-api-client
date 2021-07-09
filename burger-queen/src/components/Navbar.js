@@ -75,7 +75,7 @@ function Navbar() {
             >
               <Link
                 to="/kitchen"
-                className="nav-links"
+                className={`nav-links ${admin === true ? "hide" : "show"}`}
               >
                 Cocina 
               </Link>
