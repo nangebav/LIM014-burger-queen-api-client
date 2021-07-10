@@ -27,27 +27,6 @@ export const getUsers = async () => {
     }   
 }
 
-export const getProducts = async (token) => {
-    try {
-    const resp = await axios({
-        method: 'get',
-        url: `${baseUrl}?page=1&limit=50`,
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-        }
-      });
-
-      if (resp.status !== 200) {
-        return new Error('Error');
-      } 
-      return resp;
-
-    } catch (error){
-        return error
-    }
-}
-
 export const getUser = async (token, userId) => {
     try {
         const resp = await axios({
