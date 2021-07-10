@@ -1,6 +1,5 @@
 
 import '../../style/main.scss'
-import React, {  useState } from "react";
 import sandwich from '../../images/sandwichMenu.svg';
 import hamburger from '../../images/ordersButtonHome.svg';
 import aside from '../../images/AcompañantesMenu.svg';

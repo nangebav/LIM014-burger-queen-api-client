@@ -6,7 +6,6 @@ import '../style/main.scss';
 import {useHistory} from 'react-router-dom';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
-import jwt_decode from "jwt-decode";
 
 function LogIn (){
 
