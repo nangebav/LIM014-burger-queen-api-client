@@ -3,15 +3,16 @@ import '../style/main.scss'
 
 function Error(props) {
 
+    // History para enviar del menu al login
     const history = useHistory();
 
     return (
         <section className="Error">
             <section className="errorLogIn">
-                <section id="errorMessage"> {props.messageTitle} </section>
+                <section id="errorMessage"> MENSAJE </section>
                 <section id="errorBody"> 
                     {props.message1} <br></br>{props.message2} <br></br>
-                    <button onClick ={()=> history.push('/')}>{props.button}</button>
+                    <button onClick ={()=> history.go(-1)}>ACEPTAR</button>
                 </section>
             </section>
         </section>

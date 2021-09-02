@@ -22,11 +22,12 @@ $colorGreen: rgb(94,201,110);
     }
 }
 .orderToKitchen{
-    background-color:  rgba(255, 199, 57, 0.541);
+    background-color:rgb(254, 243, 207);
+    border: 20px solid ;
+    border-image: url('../../images/burgerBackground.png') 45 round;
     width: 80%;
-    height: 27%;
     margin: 2% auto;
-    padding: 2%;
+    padding: 3%;
     font-family: 'ABeeZee', sans-serif;
     font-size: 1.2em;
     font-style: italic;
@@ -60,11 +61,15 @@ $colorGreen: rgb(94,201,110);
             background-color: $colorGreen;
             border:none;
             border-radius: 20px;
-            text-align: left;
-            padding-left:5%;
+            justify-content: right;
+            padding-left:7%;
             align-content: center;
             align-items: center;
         }  
+        p{
+            font-size:20px;
+            padding-left:2%;
+        }
         img{
             width:1.8em;
         }
@@ -72,7 +77,7 @@ $colorGreen: rgb(94,201,110);
     .bottomOrderSection{
         display:flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-content: center;
         align-items: center;
         textarea{

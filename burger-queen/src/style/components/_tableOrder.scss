@@ -6,6 +6,7 @@ $colorRed: rgb(233,47,72);
 $colorGreen: rgb(94,201,110);
 
 .tableOrder{
+    
     h2{
         font-family: 'ABeeZee', sans-serif;
         font-size: 1em;
@@ -45,6 +46,8 @@ $colorGreen: rgb(94,201,110);
     option{
         font-size: medium;
     }
+
+
 }
 .menu{
     text-align: center;
@@ -63,11 +66,11 @@ $colorGreen: rgb(94,201,110);
     text-align: center;
 }
 .productItem{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 5fr 3fr 3fr;
     font-family: 'ABeeZee', sans-serif;
     margin: 0% 5% 3% 5%;
-    justify-content: space-around;
+    text-align: center;
     align-items: center;
 
     img{
@@ -107,7 +110,7 @@ $colorGreen: rgb(94,201,110);
         }
     }
 }
-.next{
+.nextPage{
     height:3em;
     overflow: scroll;
     background-color: $colorRed ;
@@ -133,5 +136,23 @@ $colorGreen: rgb(94,201,110);
         border-width: 1px;
         outline: none;
     }
+}
+
+.errorName{
+    color: rgb(216, 0, 0);
+    background-color: $colorYellow;
+}
+
+.description{
+    display: flex;
+    flex-direction: row;
+
+    p{
+        margin-left: 40%;
+        height: 2.2em;
+        align-self: center;
+
+    }
+
 }
 

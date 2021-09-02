@@ -1,11 +1,50 @@
 import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
-
-import OrderList from '../components/OrderList'
 import {Link} from 'react-router-dom';
+import OrderList from '../components/clientOrders/OrderList'
+import {useLocation , useHistory} from 'react-router-dom';
+import { useState } from 'react';
+import {postOrders} from '../Services/orders'
 
 
-function Order() {
+function Order(props) {
+
+    const history = useHistory();
+    const location = useLocation(); 
+    const order = location.state // traemos la orden con useState desde Table Order
+    const [orderProducts, setOrderProducts] = useState(order.products)
+
+    // const orderProducts = order.products
+    // console.log(orderProducts);
+      // objeto para post cuando tengamos el API
+      // const fecha = new Date()
+      // console.log(fecha);
+
+         let orderPost = {
+           "userId": "M11",
+           "client": order.client,
+           "products": order.products,
+           "note": order.note,
+           "productId":order.productId
+         }
+
+    // función para ingresar data a API
+        const sendOrder = async (obj) =>{
+            await postOrders(obj);
+            history.push('/tableOrder')
+     }
+
+        //console.log(order);
+
+        const deleteOrder = () => {
+                setOrderProducts([]); 
+                order.total = '' ;
+                order.client='';
+                order.note='';
+        } ;
+    
+    //console.log(orderPost)
+
     return (
     <section className="Orden">
         <header className="ordersHeader">
@@ -18,48 +57,39 @@ function Order() {
                 <img src={logo} alt="logo"></img>
             </section>
             <section className="orderFlex">
-                <h2>La Orden : {localStorage.nameClient}</h2>
-                <button> Agregar + </button>
+                <h2>La Orden :  </h2>
+                <button> {order.client} </button>
             </section>
             <section className="orderList">
                 <table>
                     <thead>
                         <tr>
-                            <th align="left" >Mesa</th>
+                            <th align="left" >Productos</th>
                             <th align="left" >Cantidad</th>
                             <th align="left" >Total del producto</th>
                         </tr>
                     </thead>
-                    <OrderList
-                    order="1"
-                    food="Hamburguesa Doble"
-                    typeFoods="Pollo"
-                    quantity="1"
-                    price="10.0"/>
-                    <OrderList 
-                    order="2"
-                    food="Papas fritas"
-                    typeFoods=""
-                    quantity="2"
-                    price="15.0"
-                    />
+                    {orderProducts.map((product) => 
+                    <OrderList selectedProduct={props.selectedProduct} food={product.name} qty={product.qty} price={product.totalPrice} key={product.name}/>
+                    )}
                     <tbody>
                         <tr>
                             <td>Total</td>
-                            <td>{}</td>
+                            <td></td>
+                            <td>${order.total}</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             <section className="orderFlex" >
                 <h3> 
-                Notas del Cliente
+                “Nuestro mayor activo es el cliente! Trata a cada cliente como si fuera el único! ”
                 </h3>
-                <p> {localStorage.notesClient}</p>
+                <p> {order.note}</p>
             </section>
             <section className="orderFlex" >
-            <button className="buttonOrder"> Enviar Pedido  </button>
-            <button className="buttonOrder"> Anular pedido </button>
+            <button className="buttonOrder" onClick={() => sendOrder(orderPost)}> Enviar Pedido  </button>
+            <button className="buttonOrder" onClick={() => deleteOrder()}> Anular pedido </button>
             </section>
         </header>
     </section>

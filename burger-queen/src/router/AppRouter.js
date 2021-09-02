@@ -11,10 +11,8 @@ import Kitchen from '../pages/Kitchen'
 import ProductsListSupply from '../pages/ProductsListSupply'
 import Navbar from '../components/Navbar';
 
-
-
 function AppRouter() {
-  
+
     return (
       <Router>
        < Navbar />
@@ -24,16 +22,16 @@ function AppRouter() {
           <Route path="/tableSummary">
             <h1>TableSummary</h1>
           </Route>
-          <Route path="/AdminEmployes" component={AdminEmployees}/>   
+          <Route path="/users" component={AdminEmployees}  />
           <Route path="/orders" component={Orders} />
           <Route path="/OrdersStatus" component={OrderStatus} />
           <Route path="/kitchen" component={Kitchen} />
-          <Route  path="/supply" component={ProductsListSupply} />
+          <Route  path="/products" component={ProductsListSupply} />
           <Route exact path="/">
-            <LogIn/>
+            <LogIn/> 
           </Route>
           <Route path="*">
-            <Error messageTitle="MENSAJE" message1 ="Cuenta de usuario no es válida." message2 = "Inténtelo otra vez." button="ACEPTAR"/>
+            <Error message1 ="Email o contraseña no es inválidos." message2 = "Inténtelo otra vez." />
           </Route>
         </Switch>
       </Router>

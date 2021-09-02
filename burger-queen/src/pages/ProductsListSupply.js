@@ -1,41 +1,99 @@
 // import logo from '../images/burger-queen-logo.png';
 import '../style/main.scss'
-import ProductSupply from '../components/ProductSupply'
-import simpleHamburger from '../images/simpleBurger.svg'
-import doubleHamburger from '../images/doubleBurger.svg'
-import coffee from '../images/products/coffee.png'
-import latte from '../images/products/latte.png'
-import sandwich from '../images/products/sandwich.png'
-import juice from '../images/products/juice.png'
-import fries from '../images/products/fries.png'
-import water from '../images/products/water.png'
-import soda from '../images/products/soda.png'
-import onionRings from '../images/products/onionRings.png'
+import ProductSupply from '../components/store/ProductSupply'
+import { useEffect, useState } from 'react'
+import { getProducts, postProducts} from '../Services/products';
+import Modal from 'react-modal';
+
+import ReactPaginate from 'react-paginate';
 
 function ProductsListSupply() {
+    const [products, setProducts] = useState([]);
+    const [offset, setOffset] = useState(0);
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [ newProduct, setNewProduct] = useState({
+      "name": "",
+      "price": "",
+      "image": "",
+      "type": "burger"
+    })
+    Modal.setAppElement('#root')
 
+    useEffect(()=> {
+      let componentMounted = true;
+      const getData = async () =>{
+        let response = await getProducts(offset,8)
+        if(componentMounted) {
+        setProducts(response.data)
+      }
+      }
+      getData()
+      return () => componentMounted = false;
+    },[products, offset])
+
+    const inputOnChange = (e) => {
+      setNewProduct({
+        ...newProduct,
+        [e.target.name] : e.target.value
+    })
+    }
+
+    const formProduct = async () => {
+      await postProducts(newProduct)
+      setModalIsOpen(false)
+    }
+
+    const handlePageClick = (e) => {
+      const selectedPage = e.selected;
+      setOffset(selectedPage + 1)
+  };
+    
     return (
         <>
             <header className="productSupplyHeader"> 
                 <p>Lista de Productos</p>
-                <p>Inventario Inicial</p>
-                <p>Inventario Actual</p>
+                <p>Información </p>
             </header>
-            
             <section className="productsListSupply">
-                <ProductSupply productName="Hamburguesa Simple" productItemImg={simpleHamburger} />
-                <ProductSupply productName="Hamburguesa Doble" productItemImg={doubleHamburger}/>
-                <ProductSupply productName="Sandwich de jamón y queso" productItemImg={sandwich}/>
-                <ProductSupply productName="Papas fritas" productItemImg={fries}/>
-                <ProductSupply productName="Aros de cebolla" productItemImg={onionRings}/>
-                <ProductSupply productName="Café americano" productItemImg={coffee}/>
-                <ProductSupply productName="Café con leche" productItemImg={latte}/>
-                <ProductSupply productName="Jugo de frutas" productItemImg={juice}/>
-                <ProductSupply productName="Gaseosa de 500ml" productItemImg={soda}/>
-                <ProductSupply productName="Gaseosa de 750ml" productItemImg={soda}/>
-                <ProductSupply productName="Agua de 500ml" productItemImg={water}/>
-                <ProductSupply productName="Agua de 750ml" productItemImg={water}/>
+                <button onClick={() => setModalIsOpen(true)}> + Agregar producto </button>
+
+                  <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={() => setModalIsOpen(false)}
+                    className="Modal">
+                  <i className="far fa-window-close" onClick={() => setModalIsOpen(false)}></i>
+                  <section>
+                  <form className="form-modal"  >
+                    <p>Nombre:<input name="name" onChange={inputOnChange}/></p>
+                    <p>Precio:<input name="price" onChange={inputOnChange}/></p>
+                    <p>Imagen:<input name="image" onChange={inputOnChange} onClick={inputOnChange}/></p>
+                    <p>Tipo:
+                      <select name="type" onChange={inputOnChange}
+                        defaultValue="burger"
+                      >
+                      <option value="drink">Bebidas</option>
+                      <option value="burger">Hamburguesas</option>
+                      <option value="sandwich">Sandwiches</option>
+                      <option value="side dishes">Acompañantes</option>
+                    </select></p>
+                  </form>
+                  <button onClick={formProduct}> Crear Producto</button>
+                  </section>
+                </Modal>
+
+                <ProductSupply products={products} />
             </section>
+            <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              pageCount={3}
+            />
+            
         </>
     )}
 

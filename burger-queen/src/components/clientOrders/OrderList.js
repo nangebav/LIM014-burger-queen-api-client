@@ -8,10 +8,9 @@ function OrderList(props) {
                     </section>
                     <section>
                         <p>{props.food}</p>
-                        <span>{props.typeFoods}</span>
                     </section>
                 </td>
-                <td>{props.quantity}</td>
+                <td>{props.qty}</td>
                 <td>${props.price}</td>
             </tr>
         </tbody>

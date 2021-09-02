@@ -32,6 +32,22 @@ $colorYellow: rgb(255,200,57);
 
 .tableCard{
     border-bottom: 1px solid rgb(202, 202, 202);
+    .statusWrapper{
+        display: flex;
+        button{
+            border:none;
+            margin-left: 15%;
+            background-color: transparent;
+            img{
+                width:1em;
+            }
+            
+        }
+    }
+    i{
+        font-size:1.3em;
+        color: $colorRedPink;
+    }
 }
 .tableStatus > h2 {
     margin-right: 0px;
@@ -46,17 +62,33 @@ $colorYellow: rgb(255,200,57);
     margin-right: 20px;
 }
 
-.statusOk,.statusAlert {
+.delivered,.pending,.delivering {
     width: 100px;
     padding: 10px;
     border: none;
     font-family: "Alata", sans-serif;
 }
-.statusOk{
+.delivered{
     background-color: $colorGreen;
     color: $colorBlack;
 }
-.statusAlert{
-    background-color: $colorYellow;
+.pending{
+    background-color: $colorRedPink;
     color: $colorWhite;
+}
+.delivering{
+    background-color: rgb(255, 183, 50);
+    color: $colorBlack;
+}
+.ordersTable{
+    input{
+        outline:none;
+        border:none;
+    }
+}
+.ordersInfo{
+    input{
+        outline:none;
+        border:none;
+    }
 }

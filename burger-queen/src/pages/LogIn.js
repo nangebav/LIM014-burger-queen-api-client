@@ -3,55 +3,44 @@ import React, { useState} from 'react';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss';
-import {useHistory} from 'react-router-dom';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
-// import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios';
-// import Error from '../components/Error.js'
-// import { useState } from 'react';
-
-
-
-
 
 function LogIn (){
 
-  const history = useHistory();
 
-  const [datos, setDatos] = useState({
-    email: '',
-    password: ''
-  })
+  if (!localStorage.token) {
+    localStorage.token= "";
+  } 
 
+
+  const [datos, setDatos] = useState({})
+  const [hidePassword, setHidePassword] = useState(true)
   const handleInputChange = (event) => {
-  //  console.log(event.target.name)
-  //  console.log(event.target.value)
     setDatos({
         ...datos,
         [event.target.name] : event.target.value
     })
   }
 
-  const traerDatos =(event) => {
+  const traerDatos = (event) => {
     event.preventDefault() 
-          postRequest(
-            { 
-              email:datos.email,
-              password:datos.password,
-            }
-          ) 
-          .then((resp)=>{
-
-            localStorage.token = resp.data
-            // console.log(parseJwt(localStorage.token).roles.admin)
-            // history.location.reload('/home')
-            // location.reload();
-            window.location = '/home';
-          })
-          .catch((err)=>{
-            console.error(err);  
-            history.push('/error')
-          });
+    postRequest(
+      { 
+        email:datos.email,
+        password:datos.password,
+      }
+    )
+    .then((resp)=>{
+        localStorage.token = resp.data.token
+        window.location = '/home';
+        console.log('hola');
+    })
+    .catch((err)=>{
+      console.error('email o contraseña incorrectos')
+      console.log(datos.email);
+      // history.push('/error')
+    })
   }
 
       return (
@@ -75,10 +64,12 @@ function LogIn (){
               <div className="inputLogIn">
               <img src={passwordIcon} alt="userPic"/>
               <input 
-              type="password"
+              type={hidePassword ? "password" : "text"}
               name="password"
               onChange={handleInputChange }/>
+              <i className={hidePassword ? "far fa-eye-slash" : "far fa-eye"} onClick={()=> hidePassword ? setHidePassword(false) : setHidePassword(true) }></i>
               </div>
+              
             </label>
             <button className="logIn-button" > INGRESAR </button>
           </form>

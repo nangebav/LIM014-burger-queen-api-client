@@ -1,16 +1,51 @@
-import OrderToKitchen from '../components/OrderToKitchen';
-// import logo from '../images/burger-queen-logo.png';
+import { useEffect, useState } from 'react';
+import OrdersListKitchen from '../components/kitchen/OrdersListKitchen';
+import { getOrders } from '../Services/orders';
+
+import ReactPaginate from 'react-paginate';
 
 function Kitchen() {
+
+  const [orders, setOrders] = useState([]);
+
+  const [offset, setOffset] = useState(0);
+
+
+    useEffect(()=> {
+      let componentMounted = true;
+      const getData = async () =>{
+        let response = await getOrders(offset)
+        const data = response.data.filter(orderStatus => orderStatus.status === "pending")
+        if(componentMounted) {
+        setOrders(data)}
+      }
+      getData()
+      return () => {
+        componentMounted = false;
+       }
+    },[orders, offset])
+
+    const handlePageClick = (e) => {
+      const selectedPage = e.selected;
+      setOffset(selectedPage + 1)
+  };
+
+
+    
+  
     return (
       <div className="tableOrder">
-        {/* <header className="orderToKitchenHeader">
-          <img src={logo} alt="logo"></img>
-        </header> */}
-        <OrderToKitchen table="MESA 1"/>
-        <OrderToKitchen table="MESA 2"/>
-        <OrderToKitchen table="MESA 3"/>
-        <OrderToKitchen table="MESA 4"/>
+        <OrdersListKitchen orders={orders}/>
+        <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              pageCount={2}
+          />
       </div>
     );
   }
