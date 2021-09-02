@@ -3,7 +3,7 @@ import { rest } from 'msw'
 export const handlers = [
 
     //AUTH
-    rest.post('http://localhost:8888/auth', (req, res, ctx) => {
+    rest.post('https://burguer-api-2021.herokuapp.com/auth', (req, res, ctx) => {
         // Persist user's authentication in the session
         localStorage.setItem('token', 'bqueen123')
         return res(
@@ -13,7 +13,7 @@ export const handlers = [
         )
       }),
 
-      rest.get('http://localhost:8888/users', (_req, res, ctx) => res(
+      rest.get('https://burguer-api-2021.herokuapp.com/users', (_req, res, ctx) => res(
         ctx.status(200),
         ctx.json({
           _id: '001',
@@ -23,25 +23,25 @@ export const handlers = [
         ),
       )),
     
-      rest.post('http://localhost:8888/users', (req, res, ctx) => res(
+      rest.post('https://burguer-api-2021.herokuapp.com/users', (req, res, ctx) => res(
         ctx.status(200),
         ctx.json(req.body),
       )),
     
-      rest.delete('http://localhost:8888/users', (_req, res, ctx) => res(
+      rest.delete('https://burguer-api-2021.herokuapp.com/users/002', (_req, res, ctx) => res(
         ctx.status(200),
-        ctx.json('')
+        ctx.json({})
       )),
     
-      rest.put('http://localhost:8888/users/001', (req, res, ctx) => res(
+      rest.put('https://burguer-api-2021.herokuapp.com/001', (req, res, ctx) => res(
         ctx.status(200),
         ctx.json(req.body),
       )),
     // Handles a GET /user request
-    // rest.get('http://localhost:8888/users', null),
-    
+    // rest.get('https://burguer-api-2021.herokuapp.com/users', null),
+
     //PRODUCTS
-    rest.get('http://localhost:8888/products', (_req, res, ctx) => {
+    rest.get('https://burguer-api-2021.herokuapp.com/products', (_req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code
@@ -57,7 +57,7 @@ export const handlers = [
         )
     }),
 
-    rest.post('http://localhost:8888/products', (req, res, ctx) => {
+    rest.post('https://burguer-api-2021.herokuapp.com/products', (req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code
@@ -66,7 +66,7 @@ export const handlers = [
         )
     }),
 
-    rest.delete('http://localhost:8888/products', (_req, res, ctx) => {
+    rest.delete('https://burguer-api-2021.herokuapp.com/products', (_req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code
@@ -75,7 +75,7 @@ export const handlers = [
         )
     }),
 
-    rest.put('http://localhost:8888/products/001', (req, res, ctx) => {
+    rest.put('https://burguer-api-2021.herokuapp.com/products/001', (req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code
@@ -85,7 +85,7 @@ export const handlers = [
     }),
 
     //ORDERS
-    rest.get('http://localhost:8888/orders', (_req, res, ctx) => {
+    rest.get('https://burguer-api-2021.herokuapp.com/orders', (_req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code
@@ -117,7 +117,7 @@ export const handlers = [
         )
     }),
 
-    rest.post('http://localhost:8888/orders', (req, res, ctx) => {
+    rest.post('https://burguer-api-2021.herokuapp.com/orders', (req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code
@@ -126,7 +126,7 @@ export const handlers = [
         )
     }),
 
-    rest.delete('http://localhost:8888/orders', (_req, res, ctx) => {
+    rest.delete('https://burguer-api-2021.herokuapp.com/orders', (_req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code
@@ -135,7 +135,7 @@ export const handlers = [
         )
     }),
 
-    rest.put('http://localhost:8888/orders/002', (req, res, ctx) => {
+    rest.put('https://burguer-api-2021.herokuapp.com/orders/002', (req, res, ctx) => {
         // Persist user's authentication in the session
         return res(
           // Respond with a 200 status code

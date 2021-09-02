@@ -3,18 +3,15 @@ import React, { useState} from 'react';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss';
-import {useHistory} from 'react-router-dom';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
 
 function LogIn (){
 
 
-  const history = useHistory();
-
-//  if (!localStorage.token) {
-//     localStorage.token= "";
-//  } 
+  if (!localStorage.token) {
+    localStorage.token= "";
+  } 
 
 
   const [datos, setDatos] = useState({})
@@ -26,7 +23,7 @@ function LogIn (){
     })
   }
 
-  const traerDatos =(event) => {
+  const traerDatos = (event) => {
     event.preventDefault() 
     postRequest(
       { 
@@ -35,14 +32,14 @@ function LogIn (){
       }
     )
     .then((resp)=>{
-      // console.log(resp)
         localStorage.token = resp.data.token
         window.location = '/home';
+        console.log('hola');
     })
     .catch((err)=>{
       console.error('email o contraseña incorrectos')
-      history.push('/error')
-
+      console.log(datos.email);
+      // history.push('/error')
     })
   }
 

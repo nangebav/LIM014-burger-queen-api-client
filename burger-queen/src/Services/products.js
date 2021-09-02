@@ -3,7 +3,7 @@ const axios = require('axios');
 const token = localStorage.token
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/products'
 // const baseUrl = 'https://burguer-api.herokuapp.com/products'
-const baseUrl = 'http://localhost:8888/products'
+const baseUrl = 'https://burguer-api-2021.herokuapp.com/products'
 
 export const getProducts = async (page,limit) => {
     try {

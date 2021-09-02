@@ -51,10 +51,13 @@ function TableOrder(props) {
     //console.log(product)
   };
 
+  const productsPerPage = 7
+  const pageCount = Math.ceil(products.length / productsPerPage);
+
   useEffect( ()=> {
     // const getData = async() =>{
       // getProducts(localStorage.token)
-        getProducts(offset,12)
+        getProducts(offset, productsPerPage)
         .then((res)=>setProducts(res.data))
         // const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
         // setProducts(res.data);
@@ -76,13 +79,14 @@ function TableOrder(props) {
       "total": total,
     }
 
-console.log(totalOrder.products.length);
-console.log(totalOrder)
+
     const handlePageClick = (e) => {
       const selectedPage = e.selected;
       setOffset(selectedPage + 1)
   };
 
+
+    // Math.ceil() delvuelve un número entero 
 
   return (
        <div className="tableOrder">
@@ -109,7 +113,7 @@ console.log(totalOrder)
               containerClassName={"pagination"}
               subContainerClassName={"pages pagination"}
               activeClassName={"active"}
-              pageCount={3}
+              pageCount={pageCount}
             />
 
             <section className="bottomOrderWrap">

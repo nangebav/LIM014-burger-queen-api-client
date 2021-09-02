@@ -3,7 +3,7 @@ const axios = require('axios');
 // const baseUrl = 'http://localhost:3001/users'
 // const baseUrl = 'https://appi-burger-queen-client.herokuapp.com/users'
 // const baseUrl = 'http://localhost:3001/users'
-const baseUrl = 'http://localhost:8888/users'
+const baseUrl = 'https://burguer-api-2021.herokuapp.com/users'
 
 const token = localStorage.token
 //console.log(token)
@@ -98,9 +98,7 @@ export const putUsers = async (objectEdit, userId) => {
             },
             data:JSON.stringify(objectEdit),
           });
-        //   if (resp.status !== 200) {
-        //     return new Error('Error');
-        //   } 
+
         return resp;
     } catch (error) {
         return error

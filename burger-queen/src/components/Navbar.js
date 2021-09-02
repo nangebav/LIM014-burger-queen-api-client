@@ -18,6 +18,7 @@ function Navbar() {
       // localStorage.token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGMzNGEzMWI2NjZlZTE3OThkMzFlOGQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjIzNTU0NzU4LCJleHAiOjk5OTk5OTk5OTk5fQ.zGMhPbJxmlZUvznOr76NqBnI2DKx0l4612qdET0-66w'
       // fx para reconocer si el token tiene admin true o false y reconozca el cambio
       // var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGQ5ZTQzZjIxMzY2ODYzZWNkOWMwNzQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdC5jb20iLCJyb2xlcyI6eyJhZG1pbiI6dHJ1ZX0sImlhdCI6MTYyNTE3Mjk3OCwiZXhwIjoxNjI1MTc2NTc4fQ.xf5mzm0h2z0u26qWAgy9jm0F15Ws0dRlxQfZZljYgxE";
+      
       const token = localStorage.getItem('token')
       if(token !== ''){
         const decoded = (jwt_decode(token).roles.admin);

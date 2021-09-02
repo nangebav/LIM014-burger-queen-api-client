@@ -29,6 +29,8 @@ function Kitchen() {
       const selectedPage = e.selected;
       setOffset(selectedPage + 1)
   };
+
+
     
   
     return (
