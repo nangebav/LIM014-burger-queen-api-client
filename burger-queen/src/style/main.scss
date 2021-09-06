@@ -30,12 +30,8 @@
     background-image: url('../images/fontLogIn.svg');
     background-size: cover;
     height: 100vh;
-    display: flex;
+    width: 100vw;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: flex-start;
 }
 
 .Modal{

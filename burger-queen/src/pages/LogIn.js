@@ -45,39 +45,49 @@ function LogIn (){
 
       return (
         <div className="logIn" >
-        <header className="logIn-header">
-        <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
-          <form className="logIn-form" onSubmit={traerDatos}>
+ 
+            <img src={logoBurgerQueen} className="bQ-logIn" alt="logo" />
+            <div class="login-wrap">
+            <form className="logIn-form" onSubmit={traerDatos}>
             <label>
-              Correo electrónico:
-              <div className="inputLogIn">
-              <img src={userIcon} alt="passwordPic"/>
-              <input 
-              type="email" 
-              name="email"
-              onChange={handleInputChange }
-              />
-              </div>
-            </label>
-            <label>
-              Contraseña:
-              <div className="inputLogIn">
-              <img src={passwordIcon} alt="userPic"/>
-              <input 
-              type={hidePassword ? "password" : "text"}
-              name="password"
-              onChange={handleInputChange }/>
-              <i className={hidePassword ? "far fa-eye-slash" : "far fa-eye"} onClick={()=> hidePassword ? setHidePassword(false) : setHidePassword(true) }></i>
-              </div>
-              
-            </label>
-            <button className="logIn-button" > INGRESAR </button>
-          </form>
-        </header>
-        <img src={comboBQ} className="bQ-combo" alt="logo" />
+                Correo electrónico:
+                <div className="inputLogIn">
+                <img src={userIcon} alt="passwordPic"/>
+                <input 
+                type="email" 
+                name="email"
+                onChange={handleInputChange }
+                />
+                </div>
+              </label>
+              <label>
+                Contraseña:
+                <div className="inputLogIn">
+                <img src={passwordIcon} alt="userPic"/>
+                <input 
+                type={hidePassword ? "password" : "text"}
+                name="password"
+                onChange={handleInputChange }/>
+                <i className={hidePassword ? "far fa-eye-slash" : "far fa-eye"} onClick={()=> hidePassword ? setHidePassword(false) : setHidePassword(true) }></i>
+                </div>
+                
+              </label>
+              <button className="logIn-button" > INGRESAR </button>
+            </form>
+            </div>
+          <img src={comboBQ} className="bQ-combo" alt="logo" />
       </div>
 
     );
 }
   
 export default LogIn;
+
+
+/* 
+
+
+              
+
+
+*/

@@ -8,6 +8,18 @@ In the project directory, you can run:
 
 ### `npm start`
 
+    Body 
+
+    { 
+        "email": "admin@localhost.com",
+        "password": "changeme"
+    }   
+
+     Response
+    {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTJmYTlmMDI0ZjA3ZTAwMTZmM2Q1NTAiLCJlbWFpbCI6ImFkbWludHdvQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjMwNjAwMzk3LCJleHAiOjE2MzE4MDk5OTd9.46-rnfWS4U6qy4xhLPyuHqKkBdhZjEEpOZgVYwuJ8xM"
+    }
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
