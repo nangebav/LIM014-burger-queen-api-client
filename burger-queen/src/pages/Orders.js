@@ -19,17 +19,19 @@ function Order(props) {
       // objeto para post cuando tengamos el API
       // const fecha = new Date()
       // console.log(fecha);
+      console.log(order.products);
 
          let orderPost = {
            "userId": "M11",
            "client": order.client,
            "products": order.products,
            "note": order.note,
-           "productId":order.productId
          }
 
+        
     // función para ingresar data a API
         const sendOrder = async (obj) =>{
+            console.log(obj);
             await postOrders(obj);
             history.push('/tableOrder')
      }

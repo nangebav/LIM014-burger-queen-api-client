@@ -85,6 +85,7 @@ function TableOrder(props) {
       setOffset(selectedPage + 1)
   };
 
+  console.log(products);
 
     // Math.ceil() delvuelve un número entero 
 
@@ -103,7 +104,7 @@ function TableOrder(props) {
             <h2>Elige el tipo de producto</h2>
             <p className="errorName">{messageName ? '⚠️ Llenar casillas' : '' }</p>
           </section>
-          <ProductItem products={products.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
+          <ProductItem products={ products.filter(productType =>  productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
 
           <ReactPaginate
               previousLabel={"prev"}
