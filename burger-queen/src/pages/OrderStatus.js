@@ -3,28 +3,31 @@ import '../style/main.scss'
 import StatusListTable from '../components/clientOrders/StatusListTable'
 import { useEffect, useState } from 'react';
 import { getOrders } from '../Services/orders';
-import ReactPaginate from 'react-paginate';
+// import ReactPaginate from 'react-paginate';
 
 function OrderStatus() {
 
     const [orderStatus, setOrderStatus] = useState([]);
-    const [offset, setOffset] = useState(0);
+    // const [offset, setOffset] = useState(0);
 
     useEffect(()=> {   
         let componentMounted = true;
       const getData = async () =>{
-        let response = await getOrders(offset, 5)
+        let response = await getOrders(1, 20)
         if(componentMounted) {setOrderStatus(response.data)}
       }
-      getData(offset)
+      getData()
       return () => componentMounted = false
       
-    },[orderStatus,offset])
+    },[orderStatus])
+
+    /*
 
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
         setOffset(selectedPage + 1)
     };
+    */
 
     return (
     <section className="OrderStatus">
@@ -43,7 +46,14 @@ function OrderStatus() {
                 )}
             </section>
         </section>
-        <ReactPaginate
+        
+    </section>
+    )}
+
+export default OrderStatus;
+
+/*
+<ReactPaginate
               previousLabel={"prev"}
               nextLabel={"next"}
               breakLabel={"..."}
@@ -53,7 +63,4 @@ function OrderStatus() {
               activeClassName={"active"}
               pageCount={3}
             />
-    </section>
-    )}
-
-export default OrderStatus;
+*/

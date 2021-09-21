@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react'
 import { getProducts, postProducts} from '../Services/products';
 import Modal from 'react-modal';
 
-import ReactPaginate from 'react-paginate';
+// import ReactPaginate from 'react-paginate';
 
 function ProductsListSupply() {
     const [products, setProducts] = useState([]);
-    const [offset, setOffset] = useState(0);
-    const [pageCount, setPageCount] = useState(0);
+    // const [offset, setOffset] = useState(0);
+    // const [pageCount, setPageCount] = useState(0);
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [ newProduct, setNewProduct] = useState({
       "name": "",
@@ -23,9 +23,9 @@ function ProductsListSupply() {
     useEffect(()=> {
       let componentMounted = true;
       const getData = async () =>{
-        let response = await getProducts(offset, 5)
-        let notPage = await getProducts(offset, 100)
-        setPageCount(notPage.data.length);
+        let response = await getProducts(1, 20)
+
+
         if(componentMounted) {
         setProducts(response.data)
         
@@ -33,7 +33,7 @@ function ProductsListSupply() {
       }
       getData()
       return () => componentMounted = false;
-    },[products, offset])
+    },[products])
 
     const inputOnChange = (e) => {
       setNewProduct({
@@ -47,12 +47,13 @@ function ProductsListSupply() {
       setModalIsOpen(false)
     }
 
+    /*
+
     const handlePageClick = (e) => {
       const selectedPage = e.selected;
       setOffset(selectedPage + 1)
-  };
+  }; */
 
-console.log(Math.round(pageCount/5)+1);
 
     return (
         <>
@@ -88,21 +89,7 @@ console.log(Math.round(pageCount/5)+1);
                 </Modal>
 
                 <ProductSupply products={products} />
-            </section>
-            <ReactPaginate
-
-              onPageChange={handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"active"}
-              pageCount={ Math.round(pageCount/5) + 2}
-              pageRangeDisplayed = {3}
-              marginPagesDisplayed={3}
-              previousLabel={"Anterior"}
-              nextLabel={"Siguiente"}
-              breakLabel={"..."}
-            />
-            
+            </section>        
         </>
     )}
 

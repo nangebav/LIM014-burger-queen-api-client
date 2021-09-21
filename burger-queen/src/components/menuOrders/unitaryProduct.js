@@ -30,7 +30,7 @@ function UnitaryProduct(props){
 
     return (
         <article className="productItem">
-            <div>
+            <div className="checkProduct">
             <input 
                 type="checkbox" 
                 id={props.id}

@@ -15,7 +15,6 @@ $colorGreen: rgb(94,201,110);
     z-index: -1;
 
     article{
-        height: 10vh;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -24,37 +23,48 @@ $colorGreen: rgb(94,201,110);
 
 }
 .main-home{
+    
     display: flex;
     flex-direction: column;
+
 }
 #hamburguer-home{
     width: 75%;
-    margin: auto;
-    padding-bottom: 5%;
 }
 #bq-home{
     width: 20%;
     height: 15%;
 }
 .buttons{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+
     button{
-        // width: 38%;
-        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 250px;
         background-size:contain;
         background-repeat:no-repeat;
         border: transparent;
         border-radius: 40%;
         background-color:transparent;
         font-weight: bold;
-        padding:3%;
+        padding:30px;
         font-size: 200%;
         margin-left:2%;
         font-family: 'Baloo Bhai 2', cursive;
         background-color:rgb(240,240,240);
+        position: absolute;
  
     }
     img{
         width:100px;
+        height: 100px;
         margin:auto;
     }
 }

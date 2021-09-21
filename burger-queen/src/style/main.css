@@ -54,8 +54,8 @@
 
 .buttons button {
   height: 20vh;
+  position: absolute;
   background-size: contain;
-  background-repeat: no-repeat;
   border: transparent;
   border-radius: 40%;
   background-color: transparent;

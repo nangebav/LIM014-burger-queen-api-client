@@ -1,11 +1,12 @@
-import {Link, useLocation} from 'react-router-dom';
+
 import { useState, useEffect } from 'react';
 import { getProducts } from '../Services/products.js'
 import {useHistory} from 'react-router-dom';
 import MenuOrderProducts from '../components/menuOrders/MenuOrderProducts';
 import ProductItem from '../components/menuOrders/ProductItem';
 import logo from '../images/burger-queen-logo.png';
-import ReactPaginate from 'react-paginate';
+
+// import ReactPaginate from 'react-paginate';
 
 
 
@@ -19,7 +20,7 @@ function TableOrder(props) {
   const [cart , setCart] = useState([])
 
   const [messageName, setMessageName] = useState('')
-  const [offset, setOffset] = useState(0);
+ // const [offset, setOffset] = useState(0);
 
   const clientName = (event) => {
     setName(event.target.value)
@@ -51,20 +52,22 @@ function TableOrder(props) {
     //console.log(product)
   };
 
+  /*
   const productsPerPage = 7
   const pageCount = Math.ceil(products.length / productsPerPage);
+  */
 
   useEffect( ()=> {
     // const getData = async() =>{
       // getProducts(localStorage.token)
-        getProducts(offset, productsPerPage)
+        getProducts(1, 20)
         .then((res)=>setProducts(res.data))
         // const newItems = res.data.filter(productType => productType.type.toUpperCase() === typeProduct.toUpperCase())
         // setProducts(res.data);
     // }
     // getData()
     
-  },[offset])
+  },[])
 
   //const cardChecked = cart.filter(obj => obj.checked === true)
   // console.log(cardChecked);
@@ -79,13 +82,13 @@ function TableOrder(props) {
       "total": total,
     }
 
-
+/*
     const handlePageClick = (e) => {
       const selectedPage = e.selected;
       setOffset(selectedPage + 1)
   };
+*/
 
-  console.log(products);
 
     // Math.ceil() delvuelve un número entero 
 
@@ -106,17 +109,6 @@ function TableOrder(props) {
           </section>
           <ProductItem products={ products.filter(productType =>  productType.type.toUpperCase() === typeProduct.toUpperCase())} selectedProduct={selectedProduct} total ={total} />
 
-          <ReactPaginate
-              previousLabel={"prev"}
-              nextLabel={"next"}
-              breakLabel={"..."}
-              onPageChange={handlePageClick}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"active"}
-              pageCount={pageCount}
-            />
-
             <section className="bottomOrderWrap">
             <button className="nextPage" onClick={()=> history.push('/orders', totalOrder )}> Siguiente</button>
           </section>
@@ -128,3 +120,19 @@ function TableOrder(props) {
 }
   
 export default TableOrder;
+
+/*
+
+
+          <ReactPaginate
+              previousLabel={"prev"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              pageCount={pageCount}
+            />
+
+*/

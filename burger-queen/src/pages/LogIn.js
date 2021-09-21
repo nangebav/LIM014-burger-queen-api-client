@@ -1,13 +1,17 @@
 import {postRequest} from '../Services/auth.js';
-import React, { useState} from 'react';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import logoBurgerQueen from '../images/BQ-logo.svg';
 import comboBQ from '../images/burger-combo.png';
 import '../style/main.scss';
 import userIcon from '../images/userIcon.png'
 import passwordIcon from '../images/passwordIcon.png'
 
+
+
 function LogIn (){
 
+  const history = useHistory();
 
   if (!localStorage.token) {
     localStorage.token= "";
@@ -39,7 +43,7 @@ function LogIn (){
     .catch((err)=>{
       console.error('email o contraseña incorrectos')
       console.log(datos.email);
-      // history.push('/error')
+      history.push('/error')
     })
   }
 
