@@ -33,13 +33,13 @@ function Home(){
           <img src={bigHamburger} id="hamburguer-home" alt="hamburger" />
           <article className="buttons">
             <Link to="/tableOrder">
-						  <button><img alt="orders" src={orders}></img>PEDIDOS</button>
+						  <button className="button"><img alt="orders" src={orders}></img>PEDIDOS</button>
 					  </Link>
             <Link to="/kitchen" className={`nav-item ${adminShow === true ? "hide" : "show"}`}>
-              <button><img alt="kitchen" src={kitchen}></img>COCINA</button>
+              <button className="button" ><img alt="kitchen" src={kitchen}></img>COCINA</button>
             </Link>
             <Link to="/products" className={`nav-item ${adminShow === false ? "hide" : "show"}`}>
-              <button><img alt="admin" src={admin}></img>ADMIN</button>
+              <button className="button"><img alt="admin" src={admin}></img>ADMIN</button>
             </Link>
           </article>
         </main>

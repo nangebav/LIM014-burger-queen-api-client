@@ -7,7 +7,7 @@ $colorGreen: rgb(94,201,110);
 
 .home{
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     background-size:100vw 100vh;
     background-repeat:no-repeat;
     padding: 5%;
@@ -38,9 +38,11 @@ $colorGreen: rgb(94,201,110);
 .buttons{
     display: flex;
     flex-direction: column;
-    width: 100vw;
-
-    button{
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    .button{
         display: flex;
         flex-direction: column;
         justify-items: center;
@@ -56,10 +58,9 @@ $colorGreen: rgb(94,201,110);
         font-weight: bold;
         padding:30px;
         font-size: 200%;
-        margin-left:2%;
         font-family: 'Baloo Bhai 2', cursive;
         background-color:rgb(240,240,240);
-        position: absolute;
+        margin: 20px;
  
     }
     img{
